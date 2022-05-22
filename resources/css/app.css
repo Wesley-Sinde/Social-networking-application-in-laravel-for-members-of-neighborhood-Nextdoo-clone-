@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.background-image {
+    background-image: url('https://cdn.pixabay.com/photo/2015/10/22/09/32/banner-1000937__340.jpg');
+    background-position: center center;
+    background-repeat: no - repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
