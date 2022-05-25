@@ -5728,6 +5728,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["summary", "reacted"],
   data: function data() {
@@ -5745,38 +5748,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     toggleRaction: function toggleRaction(reaction) {
       var _this = this;
 
-      var path = window.location.href;
-      var old_reaction = this.auth_reaction;
-      axios.post("".concat(path, "/reaction"), {
-        reaction: reaction
-      })["catch"](function () {
-        _this.saveReaction(old_reaction, reaction);
-      });
-      this.show_reaction_types = false;
-      this.saveReaction(reaction, old_reaction);
+      try {
+        var path = window.location.href;
+        var old_reaction = this.auth_reaction;
+        axios.post("".concat(path, "/reaction"), {
+          reaction: reaction
+        })["catch"](function () {
+          _this.saveReaction(old_reaction, reaction);
+        });
+        this.show_reaction_types = false;
+        this.saveReaction(reaction, old_reaction);
+      } catch (error) {
+        console.log(error); // Do something with error
+      }
     },
     saveReaction: function saveReaction(new_reaction, old_reaction) {
-      this.resetReactionsSummary(new_reaction, old_reaction);
+      try {
+        this.resetReactionsSummary(new_reaction, old_reaction);
 
-      if (this.auth_reaction === new_reaction) {
-        this.auth_reaction = null;
-        return;
-      }
-
-      this.auth_reaction = new_reaction;
-    },
-    resetReactionsSummary: function resetReactionsSummary(new_reaction, old_reaction) {
-      if (old_reaction) {
-        this.reactions_summary[old_reaction]--;
-      }
-
-      if (new_reaction && new_reaction !== old_reaction) {
-        if (!this.reactions_summary[new_reaction]) {
-          this.reactions_summary[new_reaction] = 1;
+        if (this.auth_reaction === new_reaction) {
+          this.auth_reaction = null;
           return;
         }
 
-        this.reactions_summary[new_reaction]++;
+        this.auth_reaction = new_reaction;
+      } catch (error) {
+        console.log(error); // Do something with error
+      }
+    },
+    resetReactionsSummary: function resetReactionsSummary(new_reaction, old_reaction) {
+      try {
+        if (old_reaction) {
+          this.reactions_summary[old_reaction]--;
+        }
+
+        if (new_reaction && new_reaction !== old_reaction) {
+          if (!this.reactions_summary[new_reaction]) {
+            this.reactions_summary[new_reaction] = 1;
+            return;
+          }
+
+          this.reactions_summary[new_reaction]++;
+        }
+      } catch (error) {
+        console.log(error); // Do something with error
       }
     }
   }
@@ -6001,39 +6016,44 @@ Vue.component('testmonial-component', _components_Testmonial_vue__WEBPACK_IMPORT
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    messages: [] //user_id: this.$userId,
+try {
+  var app = new Vue({
+    el: '#app',
+    data: {
+      messages: [] //user_id: this.$userId,
 
-  },
-  created: function created() {
-    var _this = this;
+    },
+    created: function created() {
+      var _this = this;
 
-    this.fetchMessages();
-    window.Echo["private"]('chat').listen('MessageSent', function (e) {
-      _this.messages.push({
-        message: e.message.message,
-        user: e.user
-      });
-    });
-  },
-  methods: {
-    fetchMessages: function fetchMessages() {
-      var _this2 = this;
-
-      axios.get('/messages').then(function (response) {
-        _this2.messages = response.data;
+      this.fetchMessages();
+      window.Echo["private"]('chat').listen('MessageSent', function (e) {
+        _this.messages.push({
+          message: e.message.message,
+          user: e.user
+        });
       });
     },
-    addMessage: function addMessage(message) {
-      this.messages.push(message);
-      axios.post('/messages', message).then(function (response) {
-        console.log(response.data);
-      });
+    methods: {
+      fetchMessages: function fetchMessages() {
+        var _this2 = this;
+
+        axios.get('/messages').then(function (response) {
+          _this2.messages = response.data;
+        });
+      },
+      addMessage: function addMessage(message) {
+        this.messages.push(message);
+        axios.post('/messages', message).then(function (response) {
+          console.log(response.data);
+        });
+      }
     }
-  }
-});
+  });
+} catch (error) {
+  console.log(error); // Do something with error
+}
+
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon'); // Change the icons inside the button based on previous settings
 

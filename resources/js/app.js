@@ -56,6 +56,7 @@ Vue.component('testmonial-component', Testmonial);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+    try {
 const app = new Vue({
     el: '#app',
     data: {
@@ -92,6 +93,10 @@ const app = new Vue({
     }
 });
 
+     } catch (error) {
+         console.log(error);
+         // Do something with error
+     }
 
 
 

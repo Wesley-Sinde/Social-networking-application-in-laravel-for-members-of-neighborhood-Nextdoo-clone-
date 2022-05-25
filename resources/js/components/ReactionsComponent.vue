@@ -10,7 +10,8 @@
           {{ auth_reaction }} -->
         </span>
         <span v-else>
-          <button class="flex items-center justify-center flex-none rounded-md  w-9 h-9 text-slate-300" type="button" aria-label="Like"> Like
+          <button class="flex items-center justify-center flex-none rounded-md  w-9 h-9 text-slate-300" type="button"
+            aria-label="Like"> Like
 
             <!-- <img :src="image('like1')" class="w-25 " /> -->
           </button>
@@ -28,7 +29,8 @@
     </div>
 
     <div class="position-relative">
-      <div class="max-w-lg bg-gray-300 rounded-lg shadow-sm  position-absolute dark:bg-gray-700" style="bottom: 40px" v-show="show_reaction_types">
+      <div class="max-w-lg bg-gray-300 rounded-lg shadow-sm  position-absolute dark:bg-gray-700" style="bottom: 40px"
+        v-show="show_reaction_types">
         <button @click="toggleRaction(type)" class="btn" v-for="type in types" :key="type">
           <img class="hover:bg-gray-400 dark:hover:bg-gray-500 hover:rounded-full" :src="image(type)" />
         </button>
@@ -41,7 +43,8 @@
           {{ auth_reaction }}
         </span>
         <span v-else>
-          <button class="flex items-center justify-center flex-none rounded-md  w-9 h-9 text-slate-300" type="button" aria-label="Like"> Like
+          <button class="flex items-center justify-center flex-none rounded-md  w-9 h-9 text-slate-300" type="button"
+            aria-label="Like"> Like
 
             <img :src="image('like1')" class="w-25 " />
           </button>
@@ -52,6 +55,7 @@
 </template>
 
 <script>
+
 export default {
   props: ["summary", "reacted"],
 
@@ -70,40 +74,55 @@ export default {
     },
 
     toggleRaction(reaction) {
-      let path = window.location.href;
-      let old_reaction = this.auth_reaction;
+      try {
+        let path = window.location.href;
+        let old_reaction = this.auth_reaction;
 
-      axios.post(`${path}/reaction`, { reaction }).catch(() => {
-        this.saveReaction(old_reaction, reaction);
-      });
+        axios.post(`${path}/reaction`, { reaction }).catch(() => {
+          this.saveReaction(old_reaction, reaction);
+        });
 
-      this.show_reaction_types = false;
-      this.saveReaction(reaction, old_reaction);
+        this.show_reaction_types = false;
+        this.saveReaction(reaction, old_reaction);
+      } catch (error) {
+        console.log(error);
+        // Do something with error
+      }
     },
 
     saveReaction(new_reaction, old_reaction) {
-      this.resetReactionsSummary(new_reaction, old_reaction);
+      try {
+        this.resetReactionsSummary(new_reaction, old_reaction);
 
-      if (this.auth_reaction === new_reaction) {
-        this.auth_reaction = null;
-        return;
-      }
-
-      this.auth_reaction = new_reaction;
-    },
-
-    resetReactionsSummary(new_reaction, old_reaction) {
-      if (old_reaction) {
-        this.reactions_summary[old_reaction]--;
-      }
-
-      if (new_reaction && new_reaction !== old_reaction) {
-        if (!this.reactions_summary[new_reaction]) {
-          this.reactions_summary[new_reaction] = 1;
+        if (this.auth_reaction === new_reaction) {
+          this.auth_reaction = null;
           return;
         }
 
-        this.reactions_summary[new_reaction]++;
+        this.auth_reaction = new_reaction;
+      } catch (error) {
+        console.log(error);
+        // Do something with error
+      }
+    },
+
+    resetReactionsSummary(new_reaction, old_reaction) {
+      try {
+        if (old_reaction) {
+          this.reactions_summary[old_reaction]--;
+        }
+
+        if (new_reaction && new_reaction !== old_reaction) {
+          if (!this.reactions_summary[new_reaction]) {
+            this.reactions_summary[new_reaction] = 1;
+            return;
+          }
+
+          this.reactions_summary[new_reaction]++;
+        }
+      } catch (error) {
+        console.log(error);
+        // Do something with error
       }
     },
   },

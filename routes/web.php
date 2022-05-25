@@ -24,12 +24,12 @@ Route::get('/inbox', function () {
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 // Route::post('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 Route::get('/portfolio', [App\Http\Controllers\HomeController::class, 'portfolio']);
 
-Route::get('/About', [App\Http\Controllers\HomeController::class, 'about'])->name('dashboard');
-Route::get('/Contact ', [App\Http\Controllers\HomeController::class, 'contact'])->name('dashboard');
-Route::get('/Services ', [App\Http\Controllers\HomeController::class, 'services'])->name('dashboard');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/About', [App\Http\Controllers\HomeController::class, 'about']);
+Route::get('/Contact ', [App\Http\Controllers\HomeController::class, 'contact']);
+Route::get('/Services ', [App\Http\Controllers\HomeController::class, 'services']);
 
 Auth::routes();
 
