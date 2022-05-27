@@ -81,25 +81,35 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|mimes:jpg,png,gif,jpeg,webp,|max:5048'
-        ]);
-        $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
+        try {
+            //code...
 
-        //dd($newImageName);
-        $request->image->move(public_path('images'), $newImageName);
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'required|mimes:jpg,png,gif,jpeg,webp,|max:5048'
+            ]);
+            $imagename = $request->file('image')->getClientOriginalName();
+
+            $newImageName = uniqid() . '-' . $imagename . '.' . $request->image->extension();
+            //dd($newImageName);
+            //dd($newImageName);
+            $request->image->move(public_path('images'), $newImageName);
 
 
-        Post::create([
-            'title' => $request->input('title'),
-            'description' => $request->input('description'),
-            'slug' => SlugService::CreateSlug(Post::class, 'slug', $request->title),
-            'image_path' => $newImageName,
-            'user_id' => auth()->user()->id
-        ]);
-        return redirect('/blog')->with('message', 'Your Post Has Beem Added!');
+            Post::create([
+                'title' => $request->input('title'),
+                'description' => $request->input('description'),
+                'slug' => SlugService::CreateSlug(Post::class, 'slug', $request->title),
+                'image_path' => $newImageName,
+                'user_id' => auth()->user()->id
+            ]);
+            return redirect('/blog')->with('message', 'Your Post Has Beem Added!');
+        } catch (\Throwable $th) {
+            //throw $th;
+            //dd($th);
+            return redirect('/blog')->with('message', 'An errror occured! Kindly try again. If the error persisist comtact the support team');
+        }
     }
 
     /**

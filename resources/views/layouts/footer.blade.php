@@ -68,7 +68,7 @@
 </div>
 
 
-<footer class="py-6 xl:py-24 mx-auto ">
+<footer class="py-6 mx-auto xl:py-24 ">
     <div class="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
         <div>
             <h2 class="mb-6 text-sm font-semibold text-gray-400 uppercase">Company</h2>
@@ -195,10 +195,10 @@
     </div>
 </footer>
 
-<div id="loading"
-    class="bg-gray-800 fixed block w-full h-full p-0 m-0 top-0 left-0 bottom-0 right-0 text-center opacity-100 z-50  flex-col rounded shadow-md">
+{{-- <div id="loading"
+    class="fixed top-0 bottom-0 left-0 right-0 z-50 flex-col block w-full h-full p-0 m-0 text-center bg-gray-800 rounded shadow-md opacity-100">
 
-    <div class=" mx-auto object-center flex flex-col m-8 rounded shadow-md w-60 sm:w-80 animate-pulse h-96">
+    <div class="flex flex-col object-center m-8 mx-auto rounded shadow-md  w-60 sm:w-80 animate-pulse h-96">
         <div class="h-48 rounded-t dark:bg-gray-700"></div>
         <div class="flex-1 px-4 py-8 space-y-4 sm:p-8 dark:bg-gray-900">
             <div class="w-full h-6 rounded dark:bg-gray-700"></div>
@@ -207,7 +207,7 @@
         </div>
     </div>
     <div class="loader">Loading...</div>
-</div>
+</div> --}}
 <script>
     $(window).on('load', function() {
         $('#loading').fadeOut(500);

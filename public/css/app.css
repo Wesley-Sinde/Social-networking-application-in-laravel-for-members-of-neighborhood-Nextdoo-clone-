@@ -4616,6 +4616,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: 2rem;
   }
 
+  .md\:mx-2 {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
   .md\:ml-6 {
     margin-left: 1.5rem;
   }
@@ -4769,6 +4774,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:gap-8 {
     gap: 2rem;
+  }
+
+  .md\:gap-2 {
+    gap: 0.5rem;
   }
 
   .md\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
@@ -5176,6 +5185,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:gap-12 {
     gap: 3rem;
+  }
+
+  .lg\:gap-3 {
+    gap: 0.75rem;
   }
 
   .lg\:space-x-4 > :not([hidden]) ~ :not([hidden]) {

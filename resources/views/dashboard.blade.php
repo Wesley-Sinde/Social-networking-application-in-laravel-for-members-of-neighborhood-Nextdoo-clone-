@@ -28,14 +28,16 @@
                                 </svg>
                             </button>
                             <div class="px-6 py-6 lg:px-8">
-                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Create a post</h3>
+                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
+                                    What do you want your neighbor to Know?
+                                </h3>
                                 <form action="{{ url('/home') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                                         for="default_size">Upload Thumbnail</label>
                                     <input class="pb-3" type="file" accept="image/*" onchange="loadFile(event)"
                                         name="image">
-                                    <img id="output" class="w-2xl h-36 mx-auto" />
+                                    <img id="output" class="mx-auto w-2xl h-36" />
 
                                     <div class="mb-6">
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -80,10 +82,12 @@
                     </div>
                 </div>
                 <!-- Main content -->
-                <main class="flex-1 max-h-full p-2 overflow-hidden overflow-y-scroll">
+                <main class="flex-1 max-h-full p-2 overflow-y-scroll">
                     <!-- Main content header -->
                     <div class="content-center text-center ">
-                        <h1 class="text-2xl font-semibold whitespace-nowrap">Dashboard</h1>
+                        <h1 class="mb-3 text-2xl font-semibold underline whitespace-nowrap">
+                            What Is Your Neighbor Post?
+                        </h1>
 
                     </div>
 
@@ -129,9 +133,9 @@
                         </div>
                     @endif
                     @isset($My_neighbor)
-                        <div class=" mx-2 grid gap-4  md:grid-cols-2  xl:gap-8 2xl:gap-12">
+                        <div class="grid gap-4 mx-2  md:grid-cols-2 xl:gap-8 2xl:gap-12">
                             @foreach ($My_neighbor as $post)
-                                <div class=" px-4 p-2 bg-gray-200 rounded-lg shadow dark:bg-gray-800">
+                                <div class="p-2 px-4 bg-gray-200 rounded-lg shadow  dark:bg-gray-800">
                                     <div
                                         class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                         <div class="flex w-96">
@@ -153,8 +157,7 @@
 
                                         @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
                                             <button
-                                                class="relative z-10 block pt-2 pr-2 text-gray-700  border border-transparent rounded-md dark:text-white  dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none w-3 justify-self-end 
-                                            "
+                                                class="relative z-10 block w-3 pt-2 pr-2 text-gray-700 border border-transparent rounded-md dark:text-white dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none justify-self-end "
                                                 id="user-menu-button2" aria-expanded="false"
                                                 data-dropdown-toggle="dropdownusermenu">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
@@ -163,9 +166,9 @@
                                                         d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                                                 </svg>
                                             </button>
-                                            <div class="z-50 hidden m-0 text-base list-none bg-gray-100   rounded shadow  dark:bg-gray-900 p-2 border "
+                                            <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
                                                 id="dropdownusermenu">
-                                                <div class=" pb-3">
+                                                <div class="pb-3 ">
                                                     <form action="{{ url('/home/' . $post->id) }}" method="post">
                                                         @csrf
                                                         @method('delete')
@@ -298,8 +301,8 @@
                                         {{-- <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                             {{ $post->title }}
                                         </h3> --}}
-                                        <h3 class="text-xl lg:text-3xl font-bold leading-tight mb-2">
-                                            <a class="hover:text-gray-100 transition duration-150 ease-in-out"
+                                        <h3 class="mb-2 text-xl font-bold leading-tight lg:text-3xl">
+                                            <a class="transition duration-150 ease-in-out hover:text-gray-100"
                                                 href="{{ url('/home/' . $post->id) }}">
                                                 {{ $post->title }}
                                             </a>
@@ -310,7 +313,7 @@
                                         </div>
                                     </div>
 
-                                    <img class="align-middle rounded-3xl mx-auto px-auto self-center"
+                                    <img class="self-center mx-auto align-middle rounded-3xl px-auto"
                                         src="{{ asset('images/' . $post->image_path) }}" alt="{{ $post->image_path }}">
                                     <p class="leading-snug md:leading-normal ">
                                         <?php
@@ -349,7 +352,7 @@
                                     </div> --}}
 
 
-                                    <div class="right-0 justify-center pt-2 flex">
+                                    <div class="right-0 flex justify-center pt-2">
 
                                         <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
 

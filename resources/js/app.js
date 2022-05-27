@@ -56,47 +56,47 @@ Vue.component('testmonial-component', Testmonial);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-    try {
-const app = new Vue({
-    el: '#app',
-    data: {
-        messages: [],
-        //user_id: this.$userId,
-    },
-
-    created() {
-        this.fetchMessages();
-
-        window.Echo.private('chat')
-            .listen('MessageSent', (e) => {
-                this.messages.push({
-                    message: e.message.message,
-                    user: e.user
-                });
-            });
-    },
-
-    methods: {
-        fetchMessages() {
-            axios.get('/messages').then(response => {
-                this.messages = response.data;
-            });
+try {
+    const app = new Vue({
+        el: '#app',
+        data: {
+            messages: [],
+            //user_id: this.$userId,
         },
 
-        addMessage(message) {
-            this.messages.push(message);
+        created() {
+            this.fetchMessages();
 
-            axios.post('/messages', message).then(response => {
-                console.log(response.data);
-            });
+            window.Echo.private('chat')
+                .listen('MessageSent', (e) => {
+                    this.messages.push({
+                        message: e.message.message,
+                        user: e.user
+                    });
+                });
+        },
+
+        methods: {
+            fetchMessages() {
+                axios.get('/messages').then(response => {
+                    this.messages = response.data;
+                });
+            },
+
+            addMessage(message) {
+                this.messages.push(message);
+
+                axios.post('/messages', message).then(response => {
+                    console.log(response.data);
+                });
+            }
         }
-    }
-});
+    });
 
-     } catch (error) {
-         console.log(error);
-         // Do something with error
-     }
+} catch (error) {
+    console.log(error);
+    // Do something with error
+}
 
 
 
