@@ -50,7 +50,7 @@
 
                 @if (session()->has('message'))
                     <div id="toast-success"
-                        class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                        class="sticky flex items-center float-right max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
                         role="alert">
                         <div
                             class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
@@ -86,21 +86,42 @@
                         <ol
                             class="relative py-3 bg-gray-200 border-l border-gray-200 rounded-xl dark:border-gray-700 dark:bg-gray-800 ">
                             <li class="mb-2 ml-4 dark:bg-gray-800">
-                                <div
-                                    class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
-                                    <img src="https://www.emojiall.com/en/header-svg/%E2%9C%B3%EF%B8%8E.svg" alt="">
-                                </div>
-                                <div>
-                                    <span class="text-gray-900 dark:text-white">
-                                        By <a href=""><span class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                                {{ $post->User->name }}</span> </a>,
-                                        Created on {{ date('jS M Y', strtotime($post->created_at)) }}
-                                    </span>
+                                <div class="justify-between md:flex">
+                                    <div>
+                                        <div
+                                            class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700 ">
+                                            <img class="rounded-full animate-pulse"
+                                                src="https://www.emojiall.com/en/header-svg/%E2%9C%B3%EF%B8%8E.svg" alt="">
+                                        </div>
+                                        <div>
+                                            <span class="text-gray-900 dark:text-white">
+                                                By <a href=""><span
+                                                        class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
+                                                        {{ $post->User->name }}</span> </a>,
+                                                Created on {{ date('jS M Y', strtotime($post->created_at)) }}
+                                            </span>
+                                        </div>
+
+                                    </div>
+                                    <aside class="mx-5">
+                                        <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">19 people found this
+                                            helpful</p>
+                                        <div
+                                            class="flex items-center mt-3 space-x-3 divide-x divide-gray-200 dark:divide-gray-600">
+                                            <a href="#"
+                                                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-xs px-2 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Helpful</a>
+                                            <a href="#"
+                                                class="pl-4 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Report
+                                                abuse</a>
+                                        </div>
+                                    </aside>
                                 </div>
 
 
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white"> {{ $post->title }}</h3>
-                                <img class="align-middle mx-auto rounded-3xl"
+                                <h3
+                                    class="mb-2 text-2xl font-semibold text-center text-yellow-900 hover:underline dark:text-yellow-500 ">
+                                    {{ $post->title }}</h3>
+                                <img class="mx-auto align-middle rounded-3xl"
                                     src="{{ asset('images/' . $post->image_path) }}" alt="" width=50%>
                                 <div maxlength="20" class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                     {{-- {!! html_entity_decode($post->description) !!} --}}
