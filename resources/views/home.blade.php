@@ -4,6 +4,38 @@
     <div class=" mx-3 px-3">
         <div class="mx-2 grid gap-4  md:grid-cols-2  2">
             <div>
+                        <ol class="breadcrumb flex">
+                        <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
+                                    class="fa fa-dashboard"></i>Dashboard</a></li>
+                        <?php $segments = '';
+                        $toEnd = count(Request::segments());
+                        ?>
+                        @foreach (Request::segments() as $segment)
+                            <svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <?php $segments .= '/' . $segment;
+                            
+                            if (0 === --$toEnd) { ?>
+                            <li>
+                                <a class=" hover:underline hover:text-yellow-400 text-blue-400"
+                                    href="{{ $segments }}">{{ $segment }}</a>
+                            </li>
+                            <?php } else { ?>
+                            <li>
+                                <a class=" hover:underline hover:text-yellow-400"
+                                    href="{{ $segments }}">{{ $segment }}</a>
+                            </li>
+                            <?php }                            
+                            ?>
+                        @endforeach
+                    </ol>
                 <div class="mx-2 grid gap-1  grid-cols-1  ">
                     <span class="font-light text-gray-400 underline hover:text-yellow-700">You
                         family</span>

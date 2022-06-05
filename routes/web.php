@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -45,7 +46,7 @@ Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index'])->mid
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
 
-Route::get('/products', [MyNeighborController::class, 'fetchProducts']);
+Route::get('/PostComments', [CommentsController::class, 'fetchcomments']);
 
 
 // Route::get('/', [ProductController::class, 'index']);

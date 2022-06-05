@@ -6,6 +6,17 @@
       0 => 'Cviebrock\\EloquentSluggable\\ServiceProvider',
     ),
   ),
+  'diglactic/laravel-breadcrumbs' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Diglactic\\Breadcrumbs\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Breadcrumbs' => 'Diglactic\\Breadcrumbs\\Breadcrumbs',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 

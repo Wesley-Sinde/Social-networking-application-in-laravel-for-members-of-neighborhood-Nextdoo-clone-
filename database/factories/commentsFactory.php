@@ -20,8 +20,14 @@ class commentsFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'description' => $this->faker->text
+            // 'name' => $this->faker->name,
+            // 'description' => $this->faker->text
+
+            'user_id' => 1,
+            'post_id' => $this->faker->numberBetween($min = 1, $max = 110),
+            'Comment' => $this->faker->text,
+            'created_at' => $this->faker->dateTime(),
+            'updated_at' => $this->faker->dateTime(),
         ];
     }
 }

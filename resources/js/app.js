@@ -59,6 +59,8 @@ Vue.component('infinite-component', InfiniteScrollComponent);
 
 import Infinite from './components/Infinite.vue';
 Vue.component('infinite1-component', Infinite);
+import PostComments from './components/PostComments.vue';
+Vue.component('postcomments-component', PostComments);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
