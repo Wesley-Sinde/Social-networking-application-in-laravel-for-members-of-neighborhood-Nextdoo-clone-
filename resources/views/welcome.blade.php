@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -129,4 +129,10 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}
+@extends('layouts.app')
+@section('content')
+    <div class="container" style="margin-top:30px">
+        <infinite1-component></infinite1-component>
+    </div>
+@endsection

@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Stevebauman\Location\Facades\Location;
 use App\Http\Requests\Storemy_neighborRequest;
 use App\Http\Requests\Updatemy_neighborRequest;
-use view;
 
 class MyNeighborController extends Controller
 {
@@ -25,6 +24,17 @@ class MyNeighborController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function fetchProducts()
+    {
+        $data = My_neighbor::orderBy('created_at', 'desc')->paginate(8);
+        return response()->json($data);
+    }
+    // public function fetchProducts()
+    // {
+    //     $data = Product::orderBy('id')->paginate(12);
+    //     return response()->json($data);
+    // }
+
     public function index(Request $request)
     {
         //my_neighbors
@@ -47,14 +57,11 @@ class MyNeighborController extends Controller
                 // The user is logged in...
                 $id = Auth::id();
                 $userId = User::find($id);
-                //dd($userId);
-                // Make sure you've got the Page model
                 if ($userId) {
                     $userId->location = $currentUserInfo->cityName;
                     $userId->save();
                 }
             }
-            //code...
         } catch (\Throwable $th) {
             //throw $th;
         }

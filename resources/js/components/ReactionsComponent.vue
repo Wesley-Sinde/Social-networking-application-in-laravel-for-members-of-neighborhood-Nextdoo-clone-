@@ -1,8 +1,6 @@
 <template>
   <div>
     <div class="px-4 mt-3 rounded-lg  sm:float-left d-flex">
-
-
       <button @click="show_reaction_types = !show_reaction_types" class="left-0 btn btn-link">
         <span v-if="auth_reaction">
           Dislike

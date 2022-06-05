@@ -29,6 +29,7 @@
         "laravel-echo": "^1.11.7",
         "pusher-js": "^7.1.0-beta",
         "swiper": "^8.1.5",
-        "vue-infinite-loading": "^2.4.5"
+        "vue-infinite-loading": "^2.4.5",
+        "vue-resource": "^1.5.3"
     }
 }

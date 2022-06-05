@@ -44,3 +44,9 @@ Route::post('/blogupload', [PostsController::class, 'upload'])
 Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index'])->middleware('auth');
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
+
+Route::get('/products', [MyNeighborController::class, 'fetchProducts']);
+
+
+// Route::get('/', [ProductController::class, 'index']);
+// Route::get('/products', [ProductController::class, 'fetchProducts']);

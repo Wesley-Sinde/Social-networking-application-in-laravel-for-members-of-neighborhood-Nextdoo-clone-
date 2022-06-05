@@ -13,12 +13,13 @@ import 'swiper/css/bundle';
 //   const swiper = new Swiper(...);
 
 
-
-
 require('./bootstrap');
 
 window.Vue = require('vue').default;
 Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttribute('content');
+
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,6 +30,7 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+Vue.component('InfiniteLoading', require('vue-infinite-loading'));
 
 Vue.component('example-component', require('./components/RecationDisplay.vue').default);
 Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
@@ -51,6 +53,12 @@ Vue.component('create-component', CreatePostcopy);
 
 import Testmonial from './components/Testmonial.vue';
 Vue.component('testmonial-component', Testmonial);
+
+import InfiniteScrollComponent from './components/InfiniteScrollComponent.vue';
+Vue.component('infinite-component', InfiniteScrollComponent);
+
+import Infinite from './components/Infinite.vue';
+Vue.component('infinite1-component', Infinite);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
