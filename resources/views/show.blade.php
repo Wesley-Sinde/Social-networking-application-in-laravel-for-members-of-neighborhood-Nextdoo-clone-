@@ -15,9 +15,9 @@
 
 
                 <!-- Main content -->
-                <main class="flex-1  p-2 overflow-hidden ">
+                <main class="flex-1 p-2 overflow-hidden ">
                     <!-- Main content header -->
-                    <ol class="breadcrumb flex">
+                    <ol class="flex breadcrumb">
                         <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
                                     class="fa fa-dashboard"></i>Dashboard</a></li>
                         <?php $segments = '';
@@ -37,7 +37,7 @@
                             
                             if (0 === --$toEnd) { ?>
                             <li>
-                                <a class=" hover:underline hover:text-yellow-400 text-blue-400"
+                                <a class="text-blue-400 hover:underline hover:text-yellow-400"
                                     href="{{ $segments }}">{{ $segment }}</a>
                             </li>
                             <?php } else { ?>
@@ -165,16 +165,16 @@
                                 ?>
                                 {{ $yourText }}
                             </p>
-                            <div class=" md:flex md:justify-between justify-center">
+                            <div class="justify-center md:flex md:justify-between">
                                 <div>
 
                                     <reactions-component :summary='@json($post->reactionSummary())' @auth
                                         :reacted='@json($post->reacted())' @endauth />
                                 </div>
                                 <div
-                                    class="pt-4 pl-4 md:pl-2 md:right-0 md:justify-end content-end flex justify-self-end justify-end">
+                                    class="flex content-end justify-end pt-4 pl-4 md:pl-2 md:right-0 md:justify-end justify-self-end">
 
-                                    <dd class="flex justify-between items-center px-2">
+                                    <dd class="flex items-center justify-between px-2">
 
                                         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -190,38 +190,41 @@
                                         33 comments &nbsp;
                                     </a> --}}
 
-                                    <dd id="accordion-arrow-icon" data-accordion="open"
-                                        class="flex justify-between items-center px-2 ">
+                                    {{-- <dd id="accordion-arrow-icon" data-accordion="open"
+                                        class="flex items-center justify-between px-2 ">
                                         <h2 id="accordion-arrow-icon-heading-2">
-                                            <button type="button" class="flex justify-between items-center px-2 "
+                                            <button type="button" class="flex items-center justify-between px-2 "
                                                 data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="false"
                                                 aria-controls="accordion-arrow-icon-body-2">
                                                 <span> 33 comments</span>
                                                 <svg data-accordion-icon
-                                                    class=" mx-2 w-6 h-6 shrink-0 text-slate-400 dark:text-slate-500"
-                                                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                    class="w-6 h-6 mx-2 shrink-0 text-slate-400 dark:text-slate-500" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
                                                 </svg>
                                             </button>
                                         </h2>
-                                    </dd>
-                                    <dd class="flex justify-between items-center px-2 ">
+                                    </dd> --}}
+                                    <dd class="flex items-center justify-between px-2 ">
                                         {{ $post->view_count }}
                                         <span>views</span>
                                     </dd>
                                 </div>
                             </div>
-                            <div id="accordion-arrow-icon-body-2" class="hidden"
+                            {{-- <div id="accordion-arrow-icon-body-2" class="hidden"
                                 aria-labelledby="accordion-arrow-icon-heading-2">
-                                <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-                                    <p class="mb-2 text-gray-500 dark:text-gray-400">
-                                        Scroll Your Screen up/Down To See Comments
-                                    </p>
+                            </div> --}}
+                            <div class="p-5 mt-4 border border-b-0 border-gray-300 dark:border-gray-700">
+                                <h5 class="my-3 text-xl font-bold text-center text-yellow-600 underline hover:text-blue-300">
+                                    33 Comments For This Post
+                                </h5>
+                                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                    Scroll Your Screen Down To See More Comments
+                                </p>
 
-                                    <postcomments-component :postid={{ $post->id }} />
-                                </div>
+                                <postcomments-component :postid={{ $post->id }} />
                             </div>
 
                         </div>

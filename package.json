@@ -32,6 +32,7 @@
         "swiper": "^8.1.5",
         "vue-infinite-loading": "^2.4.5",
         "vue-lazyload": "^3.0.0-rc.2",
-        "vue-resource": "^1.5.3"
+        "vue-resource": "^1.5.3",
+        "vue-toastr": "^2.1.2"
     }
 }

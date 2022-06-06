@@ -33,7 +33,7 @@ export default {
   mounted() {
     axios
       .get('/userdata/' + this.userid)
-      .then(response => (this.users = response.data))
+      .then(response => (this.users = response.data));
     // alert(this.userid);
 
   },

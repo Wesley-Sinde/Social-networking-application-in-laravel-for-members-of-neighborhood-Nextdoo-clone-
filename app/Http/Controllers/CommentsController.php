@@ -25,7 +25,7 @@ class CommentsController extends Controller
     $data = Comments::select("*")
       ->where("post_id", $id)
       ->orderBy('id', 'desc')
-      ->paginate(10);
+      ->paginate(5);
     return response()->json($data);
   }
 

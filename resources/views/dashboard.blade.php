@@ -84,7 +84,7 @@
                 <!-- Main content -->
                 <main class="flex-1 max-h-full p-2 overflow-y-scroll">
                     <!-- Main content header -->
-                    <ol class="breadcrumb flex">
+                    <ol class="flex breadcrumb">
                         <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
                                     class="fa fa-dashboard"></i>Dashboard</a></li>
                         <?php $segments = '';
@@ -104,7 +104,7 @@
                             
                             if (0 === --$toEnd) { ?>
                             <li>
-                                <a class=" hover:underline hover:text-yellow-400 text-blue-400"
+                                <a class="text-blue-400 hover:underline hover:text-yellow-400"
                                     href="{{ $segments }}">{{ $segment }}</a>
                             </li>
                             <?php } else { ?>
@@ -165,9 +165,9 @@
                         </div>
                     @endif
                     @isset($My_neighbor)
-                        <div class="grid gap-4 mx-2  md:grid-cols-2 xl:gap-8 2xl:gap-12">
+                        <div class="grid gap-4 mx-2 md:grid-cols-1 xl:gap-8 2xl:gap-12">
                             @foreach ($My_neighbor as $post)
-                                <div class="p-2 px-4 bg-gray-200 rounded-lg shadow  dark:bg-gray-800">
+                                <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-gray-800">
                                     <div
                                         class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                         <div class="flex w-96">
@@ -402,6 +402,24 @@
                                             33 comments &nbsp;
                                         </a>
 
+                                        {{-- <dd id="accordion-arrow-icon" data-accordion="open"
+                                            class="flex items-center justify-between px-2 ">
+                                            <h2 id="{{$post->id}}-2">
+                                                <button type="button" class="flex items-center justify-between px-2 "
+                                                    data-accordion-target="#{{$post->id}}" aria-expanded="false"
+                                                    aria-controls="{{$post->id}}">
+                                                    <span> 33 comments</span>
+                                                    <svg data-accordion-icon
+                                                        class="w-6 h-6 mx-2 shrink-0 text-slate-400 dark:text-slate-500"
+                                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                            d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                            </h2>
+                                        </dd> --}}
                                         <div class="items-center text-gray-900 post-views small dark:text-gray-400">
                                             {{ $post->view_count }}
                                             <span>views</span>
@@ -419,6 +437,60 @@
                                             </svg>
                                         </div>
                                     </div>
+                                    svswf
+                                    <div id="accordion-arrow-icon" data-accordion="open">
+                                        <h2 id="renamed{{ $post->id }}-2">
+                                            <button type="button"
+                                                class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                                data-accordion-target="#renamed{{ $post->id }}" aria-expanded="false"
+                                                aria-controls="renamed{{ $post->id }}">
+                                                <span>Accordion with another icon</span>
+                                                <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
+                                                </svg>
+                                            </button>
+                                        </h2>
+                                        <div id="renamed{{ $post->id }}" class="hidden"
+                                            aria-labelledby="renamed{{ $post->id }}-2">
+                                            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                                                <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first
+                                                    conceptualized and designed using the Figma software so everything you see
+                                                    in the library has a design equivalent in our Figma file.</p>
+                                                <p class="text-gray-500 dark:text-gray-400">Check out the <a
+                                                        href="https://flowbite.com/figma/"
+                                                        class="text-blue-600 dark:text-blue-500 hover:underline">Figma design
+                                                        system</a> based on the utility classes from Tailwind CSS and components
+                                                    from Flowbite.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    {{-- <postcomments-component :postid=renamed{{ $post->id }} />
+                                        <div id="{{$post->id}}" class="hidden"
+                                            aria-labelledby="{{$post->id}}-2">
+                                            <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
+                                                <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                                    Scroll Your Screen up/Down To See Comments
+                                                </p>
+
+                                                <postcomments-component :postid=renamed{{ $post->id }} />
+                                            </div>
+                                        </div> --}}
                                 </div>
                             @endforeach
                         </div>
@@ -433,7 +505,7 @@
                         </span>
                     @endisset
 
-                    <div class="p-2 m-2 bg-slate-600 rounded-sm">
+                    <div class="p-2 m-2 rounded-sm bg-slate-600">
                         <?php echo $My_neighbor->render(); ?>
                     </div>
                     {{-- ______________
