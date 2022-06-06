@@ -20,6 +20,8 @@ Vue.prototype.$userId = document.querySelector("meta[name='user-id']").getAttrib
 
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -59,8 +61,12 @@ Vue.component('infinite-component', InfiniteScrollComponent);
 
 import Infinite from './components/Infinite.vue';
 Vue.component('infinite1-component', Infinite);
+
 import PostComments from './components/PostComments.vue';
 Vue.component('postcomments-component', PostComments);
+
+import Userprofile from './components/Userprofile.vue';
+Vue.component('userprofile-component', Userprofile);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

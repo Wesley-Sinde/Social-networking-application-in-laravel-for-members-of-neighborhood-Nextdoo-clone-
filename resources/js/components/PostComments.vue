@@ -8,12 +8,14 @@
           <div
             class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
           </div>
-          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">February 2022-- <p>
-              {{ isToday(PostComment.created_at) }}</p></time>
+          <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+            <p>
+              {{ isToday(PostComment.created_at) }}
+            </p>
+          </time>
 
-          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology
-            acquisitions 2021</h5>
+          <userprofile-component :userid="PostComment.user_id" />
+
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {{ PostComment.Comment }}
           </p>
@@ -33,6 +35,9 @@
     </div>
     <!-- <infinite-loading @distance="1" @infinite="handleLoadMore"></infinite-loading> -->
     <infinite-loading spinner="bubbles" @infinite="handleLoadMore">
+      <div slot="error" slot-scope="{ trigger }">
+        AnError Occured, click <a href="javascript:;" @click="trigger">here</a> to retry
+      </div>
       <div class="text-red" slot="no-more">No more users</div>
       <div class="text-red" slot="no-results">No more users</div>
     </infinite-loading>
@@ -42,21 +47,29 @@
 
 import moment from 'moment'
 export default {
+  props: ['postid'],
+  // mounted() {
+  //   // Do something useful with the data in the template
+  //   console.dir(this.postid)
+  // },
   data() {
     return {
       PostComments: [],
       page: 1,
+      postidtosend: this.postid,
     };
   },
   methods: {
     isToday(date) {
-      return moment("20220505", "YYYYMMDD").fromNow();
+      return moment(date).startOf('minutes').fromNow();  //moment(date).endOf('day').fromNow();  //moment(date, "YYYYMMDD").fromNow();
       // return moment().format('MMMM Do YYYY, h:mm:ss a')
+      moment().endOf('day').fromNow();
     },
 
     handleLoadMore($state) {
-      this.$http.get('/PostComments?page=' + this.page)
+      this.$http.get('/PostComments/' + this.postid + '?page=' + this.page)
         .then(res => {
+          // alert(postid1); + '&postid=' + this.postid
           return res.json();
         }).then(res => {
           $.each(res.data, (key, value) => {

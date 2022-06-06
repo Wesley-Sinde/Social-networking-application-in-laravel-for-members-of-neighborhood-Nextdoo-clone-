@@ -22,6 +22,8 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->string('location')->default('Not found');
+            $table->string('avatar');
+            $table->boolean('verified_account')->default(0);
         });
     }
 

@@ -46,8 +46,9 @@ Route::get('/chat', [App\Http\Controllers\ChatsController::class, 'index'])->mid
 Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMessages'])->middleware('auth');
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
 
-Route::get('/PostComments', [CommentsController::class, 'fetchcomments']);
+Route::get('/PostComments/{post}', [CommentsController::class, 'fetchcomments']);
+Route::get('/userdata/{id}', [CommentsController::class, 'userdata']);
 
 
-// Route::get('/', [ProductController::class, 'index']);
+Route::get('/try', [CommentsController::class, 'try']);
 // Route::get('/products', [ProductController::class, 'fetchProducts']);

@@ -53,7 +53,7 @@
 </template>
 
 <script>
-
+ 
 export default {
   props: ["summary", "reacted"],
 

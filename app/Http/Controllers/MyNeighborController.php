@@ -15,7 +15,7 @@ class MyNeighborController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['dashboard', 'show']]);
+        $this->middleware('auth', ['except' => ['dashboard']]);
     }
 
 
