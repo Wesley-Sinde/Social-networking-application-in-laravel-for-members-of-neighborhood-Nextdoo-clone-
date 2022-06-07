@@ -33,6 +33,7 @@
         "vue-infinite-loading": "^2.4.5",
         "vue-lazyload": "^3.0.0-rc.2",
         "vue-resource": "^1.5.3",
+        "vue-simple-accordion": "^0.1.0",
         "vue-toastr": "^2.1.2"
     }
 }

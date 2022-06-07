@@ -6045,6 +6045,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['postid'],
@@ -6056,9 +6073,15 @@ __webpack_require__.r(__webpack_exports__);
     return {
       PostComments: [],
       page: 1,
-      postidtosend: this.postid
+      postidtosend: this.postid,
+      show: false
     };
   },
+  // function() {
+  //   return {
+  //     show: true
+  //   };
+  // },
   methods: {
     isToday: function isToday(date) {
       return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).startOf('minutes').fromNow(); //moment(date).endOf('day').fromNow();  //moment(date, "YYYYMMDD").fromNow();
@@ -59459,146 +59482,192 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._l(_vm.PostComments, function (PostComment) {
-        return _c("div", { key: PostComment.id }, [
-          _c(
-            "a",
-            {
-              staticClass:
-                "flex flex-col items-center mx-auto my-2 bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700",
-              attrs: { href: "#" },
-            },
-            [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "flex flex-col justify-between p-4 leading-normal",
-                },
-                [
-                  _c("div", {
-                    staticClass:
-                      "absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700",
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "time",
-                    {
-                      staticClass:
-                        "mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500",
-                    },
-                    [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
-                        },
-                        [
-                          _c(
-                            "svg",
-                            {
-                              staticClass: "w-3 h-3 mr-1",
-                              attrs: {
-                                fill: "currentColor",
-                                viewBox: "0 0 20 20",
-                                xmlns: "http://www.w3.org/2000/svg",
-                              },
-                            },
-                            [
-                              _c("path", {
-                                attrs: {
-                                  "fill-rule": "evenodd",
-                                  d: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
-                                  "clip-rule": "evenodd",
-                                },
-                              }),
-                            ]
-                          ),
-                          _vm._v(
-                            "\n            " +
-                              _vm._s(_vm.isToday(PostComment.created_at)) +
-                              "\n          "
-                          ),
-                        ]
-                      ),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("userprofile-component", {
-                    attrs: { userid: PostComment.user_id },
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "mb-3 font-normal text-gray-700 dark:text-gray-400",
-                    },
-                    [
-                      _vm._v(
-                        "\n          " +
-                          _vm._s(PostComment.Comment) +
-                          "\n        "
-                      ),
-                    ]
-                  ),
-                ],
-                1
-              ),
-            ]
-          ),
-        ])
-      }),
-      _vm._v(" "),
-      _c("infinite-loading", {
-        attrs: { spinner: "bubbles" },
-        on: { infinite: _vm.handleLoadMore },
-        scopedSlots: _vm._u([
-          {
-            key: "default",
-            fn: function (ref) {
-              var state = ref.state
-              var error = ref.error
-              var auto = ref.auto
-              var direction = ref.direction
-              return [
-                state === "loading"
-                  ? [_vm._v("Loading...")]
-                  : state === "empty"
-                  ? [_vm._v("Empty")]
-                  : state === "end"
-                  ? [_vm._v("End")]
-                  : state === "error"
-                  ? [
-                      _vm._v(
-                        "Error: " + _vm._s(error.message) + ". Click to retry"
-                      ),
-                    ]
-                  : state === "standby" && auto !== "in-advance"
-                  ? [
-                      _vm._v(
-                        "\n        " +
-                          _vm._s(
-                            auto
-                              ? "Scroll " + direction + " to load more"
-                              : "Click to load more"
-                          ) +
-                          "\n      "
-                      ),
-                    ]
-                  : _vm._e(),
-              ]
+  return _c("div", [
+    _c(
+      "label",
+      {
+        staticClass: "relative inline-flex cursor-pointer right-1",
+        attrs: { for: "default-toggle" },
+      },
+      [
+        _c("input", {
+          staticClass: "sr-only peer",
+          attrs: { type: "checkbox", value: "", id: "default-toggle" },
+          on: {
+            click: function ($event) {
+              _vm.show = !_vm.show
             },
           },
-        ]),
-      }),
-    ],
-    2
-  )
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass:
+            "w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600",
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass:
+              "ml-3 text-sm font-medium text-gray-900 dark:text-gray-300",
+          },
+          [_vm._v("\n      Show Comments\n    ")]
+        ),
+      ]
+    ),
+    _vm._v(" "),
+    _vm.show
+      ? _c(
+          "div",
+          [
+            _vm._l(_vm.PostComments, function (PostComment) {
+              return _c("div", { key: PostComment.id }, [
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "flex flex-col items-center mx-auto my-2 bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700",
+                    attrs: { href: "#" },
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex flex-col justify-between p-4 leading-normal",
+                      },
+                      [
+                        _c("div", {
+                          staticClass:
+                            "absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700",
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "time",
+                          {
+                            staticClass:
+                              "mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500",
+                          },
+                          [
+                            _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800",
+                              },
+                              [
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "w-3 h-3 mr-1",
+                                    attrs: {
+                                      fill: "currentColor",
+                                      viewBox: "0 0 20 20",
+                                      xmlns: "http://www.w3.org/2000/svg",
+                                    },
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d: "M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z",
+                                        "clip-rule": "evenodd",
+                                      },
+                                    }),
+                                  ]
+                                ),
+                                _vm._v(
+                                  "\n              " +
+                                    _vm._s(
+                                      _vm.isToday(PostComment.created_at)
+                                    ) +
+                                    "\n            "
+                                ),
+                              ]
+                            ),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("userprofile-component", {
+                          attrs: { userid: PostComment.user_id },
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass:
+                              "mb-3 font-normal text-gray-700 dark:text-gray-400",
+                          },
+                          [
+                            _vm._v(
+                              "\n            " +
+                                _vm._s(PostComment.Comment) +
+                                "\n          "
+                            ),
+                          ]
+                        ),
+                      ],
+                      1
+                    ),
+                  ]
+                ),
+              ])
+            }),
+            _vm._v(" "),
+            _c("infinite-loading", {
+              attrs: { spinner: "bubbles" },
+              on: { infinite: _vm.handleLoadMore },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "default",
+                    fn: function (ref) {
+                      var state = ref.state
+                      var error = ref.error
+                      var auto = ref.auto
+                      var direction = ref.direction
+                      return [
+                        state === "loading"
+                          ? [_vm._v("Loading...")]
+                          : state === "empty"
+                          ? [_vm._v("Empty")]
+                          : state === "end"
+                          ? [_vm._v("End")]
+                          : state === "error"
+                          ? [
+                              _vm._v(
+                                "Error: " +
+                                  _vm._s(error.message) +
+                                  ". Click to retry"
+                              ),
+                            ]
+                          : state === "standby" && auto !== "in-advance"
+                          ? [
+                              _vm._v(
+                                "\n          " +
+                                  _vm._s(
+                                    auto
+                                      ? "Scroll " + direction + " to load more"
+                                      : "Click to load more"
+                                  ) +
+                                  "\n        "
+                              ),
+                            ]
+                          : _vm._e(),
+                      ]
+                    },
+                  },
+                ],
+                null,
+                false,
+                364033627
+              ),
+            }),
+          ],
+          2
+        )
+      : _vm._e(),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
