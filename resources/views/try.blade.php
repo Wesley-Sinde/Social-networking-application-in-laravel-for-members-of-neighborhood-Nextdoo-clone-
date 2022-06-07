@@ -796,7 +796,7 @@
         <aside id="sidebar"
             class="fixed inset-0 z-20 flex-none h-full w-72 lg:static lg:h-auto lg:overflow-y-visible lg:pt-0 lg:w-48 lg:block">
             <div id="navWrapper"
-                class="overflow-hidden overflow-y-auto z-20 h-full bg-white scrolling-touch max-w-2xs lg:h-screen lg:block lg:sticky top:24 lg:top-12 dark:bg-gray-900 lg:mr-0">
+                class="z-20 h-full overflow-hidden overflow-y-auto scrolling-touch bg-white max-w-2xs lg:h-screen lg:block lg:sticky top:24 lg:top-12 dark:bg-gray-900 lg:mr-0">
                 <nav id="nav"
                     class="pt-16 px-1 pl-3 lg:pl-0 lg:pt-2 overflow-y-auto font-medium text-base lg:text-sm pb-10 lg:pb-20 sticky?lg:h-(screen-18)"
                     aria-label="Docs navigation">
@@ -808,42 +808,42 @@
                             <ul class="py-1 list-unstyled fw-normal small">
                                 <li>
                                     <a href="/docs/getting-started/introduction/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Introduction
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Introduction
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/quickstart/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Quickstart
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Quickstart
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/react/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">React
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">React
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/vue/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Vue
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Vue
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/laravel/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Laravel
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Laravel
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/svelte/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Svelte
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Svelte
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/license/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">License
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">License
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/getting-started/changelog/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Changelog
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Changelog
                                     </a>
                                 </li>
                             </ul>
@@ -855,32 +855,32 @@
                             <ul class="py-1 list-unstyled fw-normal small">
                                 <li>
                                     <a href="/docs/customize/configuration/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Configuration
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Configuration
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/customize/dark-mode/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Dark
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Dark
                                         mode </a>
                                 </li>
                                 <li>
                                     <a href="/docs/customize/theming/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Theming
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Theming
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/customize/colors/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Colors
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Colors
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/customize/icons/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Icons
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Icons
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/customize/optimization/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Optimization
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Optimization
                                     </a>
                                 </li>
                             </ul>
@@ -892,135 +892,135 @@
                             <ul class="py-1 list-unstyled fw-normal small">
                                 <li>
                                     <a href="/docs/components/alerts/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Alerts
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Alerts
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/accordion/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Accordion
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Accordion
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/avatar/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Avatar
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Avatar
                                         <span
                                             class="bg-blue-100 text-blue-800 text-2xs font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">NEW</span></a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/badge/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Badge
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Badge
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/breadcrumb/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Breadcrumb
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Breadcrumb
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/buttons/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Buttons
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Buttons
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/button-group/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Button
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Button
                                         group </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/card/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Card
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Card
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/carousel/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Carousel
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Carousel
                                         <span
                                             class="bg-blue-100 text-blue-800 text-2xs font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">NEW</span></a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/dropdowns/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Dropdowns
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Dropdowns
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/forms/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Forms
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Forms
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/list-group/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">List
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">List
                                         Group </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/typography/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Typography
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Typography
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/modal/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Modal
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Modal
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/tabs/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Tabs
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Tabs
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/navbar/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Navbar
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Navbar
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/footer/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Footer
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Footer
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/sidebar/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white  text-blue-700 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-500"
+                                        class="relative block py-2 text-gray-500 text-blue-700 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-500"
                                         aria-current="page">Sidebar </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/pagination/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Pagination
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Pagination
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/rating/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Rating
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Rating
                                         <span
                                             class="bg-blue-100 text-blue-800 text-2xs font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">NEW</span></a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/timeline/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Timeline
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Timeline
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/progress/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Progress
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Progress
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/tables/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Tables
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Tables
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/spinner/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Spinner
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Spinner
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/toast/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Toast
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Toast
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/components/tooltips/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Tooltips
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Tooltips
                                     </a>
                                 </li>
                             </ul>
@@ -1032,53 +1032,53 @@
                             <ul class="py-1 list-unstyled fw-normal small">
                                 <li>
                                     <a href="/docs/forms/input-field/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Input
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Input
                                         Field </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/file-input/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">File
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">File
                                         Input </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/search-input/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Search
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Search
                                         Input </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/select/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Select
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Select
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/textarea/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Textarea
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Textarea
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/checkbox/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Checkbox
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Checkbox
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/radio/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Radio
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Radio
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/toggle/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Toggle
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Toggle
                                     </a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/range/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Range
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Range
                                         <span
                                             class="bg-blue-100 text-blue-800 text-2xs font-semibold ml-2 px-1.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-900">NEW</span></a>
                                 </li>
                                 <li>
                                     <a href="/docs/forms/floating-label/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Floating
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Floating
                                         Label </a>
                                 </li>
                             </ul>
@@ -1090,7 +1090,7 @@
                             <ul class="py-1 list-unstyled fw-normal small">
                                 <li>
                                     <a href="/docs/plugins/datepicker/"
-                                        class="py-2 transition-colors duration-200 relative block hover:text-gray-900 text-gray-500 dark:text-gray-400 dark:hover:text-white ">Datepicker
+                                        class="relative block py-2 text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white ">Datepicker
                                     </a>
                                 </li>
                             </ul>
@@ -1122,13 +1122,13 @@
                         <p>Use this example to show a responsive list of menu items inside the sidebar with icons and
                             labels.</p>
                         <div class="mt-8 code-example">
-                            <div class="mb-3 w-full dark:bg-gray-900">
-                                <div class="flex justify-between items-center">
+                            <div class="w-full mb-3 dark:bg-gray-900">
+                                <div class="flex items-center justify-between">
                                     <a href="https://github.com/themesberg/flowbite/blob/main/content/components/sidebar.md"
                                         rel="noopener nofollow noreferrer"
-                                        class="flex items-center py-2 px-4 mr-3 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        class="flex items-center px-4 py-2 mr-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
-                                            class="mr-2 w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 496 512">
                                             <path fill="currentColor"
                                                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
@@ -1136,7 +1136,7 @@
                                         </svg> Edit on GitHub
                                     </a>
                                     <div class="flex"><button type="button" data-toggle-dark="light"
-                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg data-toggle-icon="moon" class="w-4 h-4" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1151,8 +1151,8 @@
                                             </svg>
                                             <span class="hidden">Toggle dark mode</span>
                                         </button><button type="button" data-copy-state="copy"
-                                            class="flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
-                                            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor"
+                                            class="flex items-center px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -1164,9 +1164,9 @@
                             </div>
                             <div class="code-preview-wrapper">
                                 <div
-                                    class="code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+                                    class="p-2 bg-white border border-gray-200 code-preview rounded-xl bg-gradient-to-r dark:bg-gray-900 dark:border-gray-700 sm:p-6">
                                     <aside class="w-64" aria-label="Sidebar">
-                                        <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                                        <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                                             <ul class="space-y-2">
                                                 <li>
                                                     <a href="#"
@@ -1193,7 +1193,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1211,7 +1211,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1273,8 +1273,7 @@
                             </div>
                             <div class="relative mt-3 code-syntax">
                                 <div class="highlight">
-                                    <pre class="chroma language-html"
-                                        tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <pre class="chroma language-html" tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>space-y-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
@@ -1353,13 +1352,13 @@
                             second-level menu item.
                         </p>
                         <div class="mt-8 code-example">
-                            <div class="mb-3 w-full dark:bg-gray-900">
-                                <div class="flex justify-between items-center">
+                            <div class="w-full mb-3 dark:bg-gray-900">
+                                <div class="flex items-center justify-between">
                                     <a href="https://github.com/themesberg/flowbite/blob/main/content/components/sidebar.md"
                                         rel="noopener nofollow noreferrer"
-                                        class="flex items-center py-2 px-4 mr-3 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        class="flex items-center px-4 py-2 mr-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
-                                            class="mr-2 w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 496 512">
                                             <path fill="currentColor"
                                                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
@@ -1367,7 +1366,7 @@
                                         </svg> Edit on GitHub
                                     </a>
                                     <div class="flex"><button type="button" data-toggle-dark="light"
-                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg data-toggle-icon="moon" class="w-4 h-4" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1382,8 +1381,8 @@
                                             </svg>
                                             <span class="hidden">Toggle dark mode</span>
                                         </button><button type="button" data-copy-state="copy"
-                                            class="flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
-                                            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor"
+                                            class="flex items-center px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -1395,9 +1394,9 @@
                             </div>
                             <div class="code-preview-wrapper">
                                 <div
-                                    class="code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+                                    class="p-2 bg-white border border-gray-200 code-preview rounded-xl bg-gradient-to-r dark:bg-gray-900 dark:border-gray-700 sm:p-6">
                                     <aside class="w-64" aria-label="Sidebar">
-                                        <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                                        <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                                             <ul class="space-y-2">
                                                 <li>
                                                     <a href="#"
@@ -1414,7 +1413,7 @@
                                                 </li>
                                                 <li>
                                                     <button type="button"
-                                                        class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+                                                        class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
                                                         aria-controls="dropdown-example"
                                                         data-collapse-toggle="dropdown-example">
                                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -1437,15 +1436,15 @@
                                                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
                                                         <li>
                                                             <a href="#"
-                                                                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
+                                                                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
                                                         </li>
                                                         <li>
                                                             <a href="#"
-                                                                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
+                                                                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
                                                         </li>
                                                         <li>
                                                             <a href="#"
-                                                                class="flex items-center p-2 pl-11 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
+                                                                class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
                                                         </li>
                                                     </ul>
                                                 </li>
@@ -1461,7 +1460,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1479,7 +1478,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1541,8 +1540,7 @@
                             </div>
                             <div class="relative mt-3 code-syntax">
                                 <div class="highlight">
-                                    <pre class="chroma language-html"
-                                        tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <pre class="chroma language-html" tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>space-y-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
@@ -1617,13 +1615,13 @@
                         <p>Separate the content inside the sidebar component by applying a border separator between the
                             two menus.</p>
                         <div class="mt-8 code-example">
-                            <div class="mb-3 w-full dark:bg-gray-900">
-                                <div class="flex justify-between items-center">
+                            <div class="w-full mb-3 dark:bg-gray-900">
+                                <div class="flex items-center justify-between">
                                     <a href="https://github.com/themesberg/flowbite/blob/main/content/components/sidebar.md"
                                         rel="noopener nofollow noreferrer"
-                                        class="flex items-center py-2 px-4 mr-3 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        class="flex items-center px-4 py-2 mr-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
-                                            class="mr-2 w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 496 512">
                                             <path fill="currentColor"
                                                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
@@ -1631,7 +1629,7 @@
                                         </svg> Edit on GitHub
                                     </a>
                                     <div class="flex"><button type="button" data-toggle-dark="light"
-                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg data-toggle-icon="moon" class="w-4 h-4" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1646,8 +1644,8 @@
                                             </svg>
                                             <span class="hidden">Toggle dark mode</span>
                                         </button><button type="button" data-copy-state="copy"
-                                            class="flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
-                                            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor"
+                                            class="flex items-center px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -1659,9 +1657,9 @@
                             </div>
                             <div class="code-preview-wrapper">
                                 <div
-                                    class="code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+                                    class="p-2 bg-white border border-gray-200 code-preview rounded-xl bg-gradient-to-r dark:bg-gray-900 dark:border-gray-700 sm:p-6">
                                     <aside class="w-64" aria-label="Sidebar">
-                                        <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                                        <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                                             <ul class="space-y-2">
                                                 <li>
                                                     <a href="#"
@@ -1688,7 +1686,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1706,7 +1704,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1766,7 +1764,7 @@
                                                 class="pt-4 mt-4 space-y-2 border-t border-gray-200 dark:border-gray-700">
                                                 <li>
                                                     <a href="#"
-                                                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                                                        class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                                                         <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:group-hover:text-white dark:text-gray-400"
                                                             aria-hidden="true" focusable="false" data-prefix="fas"
                                                             data-icon="gem" role="img"
@@ -1780,7 +1778,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#"
-                                                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                                                        class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                                             fill="currentColor" viewBox="0 0 20 20"
                                                             xmlns="http://www.w3.org/2000/svg">
@@ -1794,7 +1792,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#"
-                                                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                                                        class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                                             fill="currentColor" viewBox="0 0 20 20"
                                                             xmlns="http://www.w3.org/2000/svg">
@@ -1807,7 +1805,7 @@
                                                 </li>
                                                 <li>
                                                     <a href="#"
-                                                        class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
+                                                        class="flex items-center p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                                                             fill="currentColor" viewBox="0 0 20 20"
                                                             xmlns="http://www.w3.org/2000/svg">
@@ -1825,8 +1823,7 @@
                             </div>
                             <div class="relative mt-3 code-syntax">
                                 <div class="highlight">
-                                    <pre class="chroma language-html"
-                                        tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <pre class="chroma language-html" tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>space-y-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
@@ -1909,13 +1906,13 @@
                         <p>Use this example to add a CTA button inside the sidebar component and encourage your users to
                             visit the dedicated page.</p>
                         <div class="mt-8 code-example">
-                            <div class="mb-3 w-full dark:bg-gray-900">
-                                <div class="flex justify-between items-center">
+                            <div class="w-full mb-3 dark:bg-gray-900">
+                                <div class="flex items-center justify-between">
                                     <a href="https://github.com/themesberg/flowbite/blob/main/content/components/sidebar.md"
                                         rel="noopener nofollow noreferrer"
-                                        class="flex items-center py-2 px-4 mr-3 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        class="flex items-center px-4 py-2 mr-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
-                                            class="mr-2 w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 496 512">
                                             <path fill="currentColor"
                                                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
@@ -1923,7 +1920,7 @@
                                         </svg> Edit on GitHub
                                     </a>
                                     <div class="flex"><button type="button" data-toggle-dark="light"
-                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg data-toggle-icon="moon" class="w-4 h-4" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -1938,8 +1935,8 @@
                                             </svg>
                                             <span class="hidden">Toggle dark mode</span>
                                         </button><button type="button" data-copy-state="copy"
-                                            class="flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
-                                            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor"
+                                            class="flex items-center px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -1951,9 +1948,9 @@
                             </div>
                             <div class="code-preview-wrapper">
                                 <div
-                                    class="code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+                                    class="p-2 bg-white border border-gray-200 code-preview rounded-xl bg-gradient-to-r dark:bg-gray-900 dark:border-gray-700 sm:p-6">
                                     <aside class="w-64" aria-label="Sidebar">
-                                        <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                                        <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                                             <ul class="space-y-2">
                                                 <li>
                                                     <a href="#"
@@ -1980,7 +1977,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -1998,7 +1995,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -2055,7 +2052,7 @@
                                                 </li>
                                             </ul>
                                             <div id="dropdown-cta"
-                                                class="p-4 mt-6 bg-blue-50 rounded-lg dark:bg-blue-900" role="alert">
+                                                class="p-4 mt-6 rounded-lg bg-blue-50 dark:bg-blue-900" role="alert">
                                                 <div class="flex items-center mb-3">
                                                     <span
                                                         class="bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-900">Beta</span>
@@ -2084,8 +2081,7 @@
                             </div>
                             <div class="relative mt-3 code-syntax">
                                 <div class="highlight">
-                                    <pre class="chroma language-html"
-                                        tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <pre class="chroma language-html" tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>space-y-2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>
@@ -2155,13 +2151,13 @@
                         <p>Show the logo of your brand and link back to the homepage from the top part of the sidebar.
                         </p>
                         <div class="mt-8 code-example">
-                            <div class="mb-3 w-full dark:bg-gray-900">
-                                <div class="flex justify-between items-center">
+                            <div class="w-full mb-3 dark:bg-gray-900">
+                                <div class="flex items-center justify-between">
                                     <a href="https://github.com/themesberg/flowbite/blob/main/content/components/sidebar.md"
                                         rel="noopener nofollow noreferrer"
-                                        class="flex items-center py-2 px-4 mr-3 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                        class="flex items-center px-4 py-2 mr-3 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                         <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github"
-                                            class="mr-2 w-4 h-4" role="img" xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4 mr-2" role="img" xmlns="http://www.w3.org/2000/svg"
                                             viewBox="0 0 496 512">
                                             <path fill="currentColor"
                                                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
@@ -2169,7 +2165,7 @@
                                         </svg> Edit on GitHub
                                     </a>
                                     <div class="flex"><button type="button" data-toggle-dark="light"
-                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white rounded-lg border border-gray-200 toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                                            class="flex items-center p-2 mr-2 text-xs font-medium text-gray-700 bg-white border border-gray-200 rounded-lg toggle-dark-state-example hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 focus:outline-none dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                                             <svg data-toggle-icon="moon" class="w-4 h-4" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -2184,8 +2180,8 @@
                                             </svg>
                                             <span class="hidden">Toggle dark mode</span>
                                         </button><button type="button" data-copy-state="copy"
-                                            class="flex items-center py-2 px-4 text-xs font-medium text-gray-900 bg-white rounded-lg border border-gray-200 focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
-                                            <svg class="mr-2 w-4 h-4" fill="none" stroke="currentColor"
+                                            class="flex items-center px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-500 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 copy-to-clipboard-button">
+                                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
@@ -2197,9 +2193,9 @@
                             </div>
                             <div class="code-preview-wrapper">
                                 <div
-                                    class="code-preview rounded-xl bg-gradient-to-r bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 sm:p-6">
+                                    class="p-2 bg-white border border-gray-200 code-preview rounded-xl bg-gradient-to-r dark:bg-gray-900 dark:border-gray-700 sm:p-6">
                                     <aside class="w-64" aria-label="Sidebar">
-                                        <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+                                        <div class="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                                             <a href="https://flowbite.com" class="flex items-center pl-2.5 mb-5">
                                                 <img src="/docs/images/logo.svg" class="h-6 mr-3 sm:h-7"
                                                     alt="Flowbite Logo">
@@ -2232,7 +2228,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -2250,7 +2246,7 @@
                                                         </svg>
                                                         <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
                                                         <span
-                                                            class="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
+                                                            class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">3</span>
                                                     </a>
                                                 </li>
                                                 <li>
@@ -2312,8 +2308,7 @@
                             </div>
                             <div class="relative mt-3 code-syntax">
                                 <div class="highlight">
-                                    <pre class="chroma language-html"
-                                        tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+                                    <pre class="chroma language-html" tabindex="0"><code class=" language-html" data-lang="html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>aside</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-64<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Sidebar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://flowbite.com<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flex items-center pl-2.5 mb-5<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/docs/images/logo.svg<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>h-6 mr-3 sm:h-7<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Flowbite Logo<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
@@ -2580,5 +2575,359 @@
                 Sign Out
             </span>
         </a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- dashboad --}}
+<div class=" md:f4lex">
+    <div class="w-full">
+
+        <div class="content-center text-center">
+            <h1 class="my-2 mb-3 text-xl font-semibold underline whitespace-nowrap">
+                What Is Your Neighbor Post?
+            </h1>
+
+        </div>
+        @isset($My_neighbor)
+            <div class="grid gap-4 mx-2 ">
+                @foreach ($My_neighbor as $post)
+                    <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-gray-800">
+                        <div
+                            class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
+                            <div class="flex w-96">
+                                <img class="w-12 h-12 rounded-full"
+                                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                                <div class="ml-2 mt-0.5">
+                                    <span class="text-gray-900 dark:text-white">
+                                        <a href=""><span class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
+                                                {{ $post->User->name }}
+                                            </span>
+                                        </a>,
+                                    </span>
+                                    <span class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
+                                        {{ date('jS M Y', strtotime($post->created_at)) }}</span>
+                                </div>
+                            </div>
+
+                            @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
+                                <button
+                                    class="relative z-10 block w-3 pt-2 pr-2 text-gray-700 border border-transparent rounded-md dark:text-white dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none justify-self-end "
+                                    id="user-menu-button2" aria-expanded="false" data-dropdown-toggle="dropdownusermenu">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20"
+                                        fill="currentColor">
+                                        <path
+                                            d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                                    </svg>
+                                </button>
+                                <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
+                                    id="dropdownusermenu">
+                                    <div class="pb-3 ">
+                                        <form action="{{ url('/home/' . $post->id) }}" method="post">
+                                            @csrf
+                                            @method('delete')
+
+                                            <button class="inline-flex items-center mx-2 w-7 h-7" type="button"
+                                                data-modal-toggle="popup-modal" data-tooltip-target="tooltip-delete">
+                                                <img src="\images\app\delete.png" alt="">
+                                            </button>
+                                            <div id="tooltip-delete" role="tooltip"
+                                                class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-red-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                                Delete This Post
+                                                <div class="tooltip-arrow" data-popper-arrow></div>
+                                            </div>
+
+                                            <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+                                                id="popup-modal" aria-hidden="true">
+                                                <div class="relative w-full h-full max-w-md px-4 md:h-auto">
+
+                                                    <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
+
+                                                        <div class="flex justify-end p-2">
+                                                            <button type="button"
+                                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                                                data-modal-toggle="popup-modal">
+                                                                <svg class="w-5 h-5" fill="currentColor"
+                                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                        clip-rule="evenodd"></path>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+
+                                                        <div class="p-6 pt-0 text-center">
+                                                            <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
+                                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2"
+                                                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                                </path>
+                                                            </svg>
+                                                            <h3
+                                                                class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                                                Are you sure you want to delete this Post?
+                                                            </h3>
+                                                            <button data-modal-toggle="popup-modal" type="submit"
+                                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                                Yes, I'm sure
+                                                            </button>
+                                                            <button data-modal-toggle="popup-modal" type="button"
+                                                                class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 bg-blue-400 dark:bg-blue-600">No,
+                                                                cancel
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+
+
+                                    <div>
+                                        <button data-tooltip-target="tooltip-edit" data-modal-toggle="pro-modal">
+                                            {{-- <a href="{{ url('/home/' . $post->id . '/edit') }}"
+                                                            class="inline-flex items-center w-5 h-5">
+                                                        </a> --}}
+                                            <img class="inline-flex items-center w-5 h-5" src="\images\app\edit.png"
+                                                alt="">
+                                        </button>
+                                        <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+                                            id="pro-modal" aria-hidden="true">
+                                            <div class="relative w-full h-full max-w-md px-4 md:h-auto">
+
+                                                <div class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
+
+                                                    <div class="flex justify-end p-2">
+                                                        <button type="button"
+                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                                            data-modal-toggle="popup-modal">
+                                                            <svg class="w-5 h-5" fill="currentColor"
+                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="p-6 pt-0 text-center">
+                                                        <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
+                                                            fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                            </path>
+                                                        </svg>
+                                                        <h3
+                                                            class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                                            This action is performed in pro account or
+                                                            verified
+                                                            account. Do you want to apply for pro account?
+                                                        </h3>
+                                                        <button data-modal-toggle="pro-modal"
+                                                            class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-green-600 bg-blue-400 dark:bg-blue-600">
+                                                            Yes, I'm sure
+                                                        </button>
+                                                        <button data-modal-toggle="pro-modal" type="button"
+                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">No,
+                                                            cancel
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="tooltip-edit" role="tooltip"
+                                            class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-blue-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                            Edit This Post
+                                            <div class="tooltip-arrow" data-popper-arrow></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="flex">
+                            {{-- <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                            {{ $post->title }}
+                                        </h3> --}}
+                            <h3 class="mb-2 text-xl font-bold leading-tight lg:text-3xl">
+                                <a class="transition duration-150 ease-in-out hover:text-gray-100"
+                                    href="{{ url('/home/' . $post->id) }}">
+                                    {{ $post->title }}
+                                </a>
+                            </h3>
+                            <div class="right-0 float-right ">
+                                <example-component :summary='@json($post->reactionSummary())' @auth
+                                    :reacted='@json($post->reacted())' @endauth />
+                            </div>
+                        </div>
+
+                        <img class="self-center mx-auto align-middle rounded-3xl px-auto"
+                            src="{{ asset('images/' . $post->image_path) }}" alt="{{ $post->image_path }}">
+                        <p class="leading-snug md:leading-normal ">
+                            <?php
+                            $yourText = $post->description;
+                            if (strlen($yourText) > 200) {
+                                $yourText = substr($post->description, 0, 200);
+                                $yourText = $yourText . '.....';
+                            }
+                            ?>
+                            {{ $yourText }}
+                            <span class="whitespace-nowrap contents">
+                                <a href="{{ url('/home/' . $post->id) }}"
+                                    class="flex items-center text-blue-500 align-middle hover:font-semibold hover:text-yellow-500 dark:text-blue-600 ">
+                                    Read more
+                                    <svg class="w-3 h-3 pt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </a>
+
+                            </span>
+                        </p>
+                        {{-- <div>
+                                        <div class="right-0 justify-end pt-2 d-flex">
+                                            <div class="ml-1 font-light text-gray-500 dark:text-gray-400">
+                                                33 comments &nbsp;
+                                            </div>
+
+                                            <div class="text-gray-900 post-views small dark:text-gray-400">
+                                                {{ $post->view_count }}
+                                                <span>views</span>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+
+
+                        <div class="right-0 flex justify-center pt-2">
+
+                            <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
+
+                                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
+                                    <path
+                                        d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">
+                                    </path>
+                                    <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
+                                </svg>
+                                {{ $post->location }}
+                            </dd>
+                            {{-- <a class="px-2" href="#">
+                                            33 comments &nbsp;
+                                        </a> --}}
+
+                            <dd id="accordion-arrow-icon" data-accordion="open"
+                                class="flex items-center justify-between px-2 ">
+                                <h2 id="accordion-arrow-icon-heading-2">
+                                    <button type="button" class="flex items-center justify-between px-2 "
+                                        data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="false"
+                                        aria-controls="accordion-arrow-icon-body-2">
+                                        <span> 33 comments</span>
+                                    </button>
+                                </h2>
+                            </dd>
+                            <dd class="items-center text-gray-900 dark:text-gray-400">
+                                <span>views</span>
+                                <span
+                                    class="px-2 text-white rounded-full box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500">
+                                    {{ $post->view_count }}
+                                </span>
+                            </dd>
+
+
+                            <dd class="flex px-2 ml-1 font-light ">
+
+
+                                <svg class="w-4 h-4 mx-1 text-slate-400 dark:text-slate-500" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z">
+                                    </path>
+                                </svg>
+                            </dd>
+                        </div>
+
+
+
+
+
+                        <postcomments-component :postid={{ $post->id }} />
+
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <span
+                class="max-w-full px-5 py-4 text-gray-900 bg-gray-200 rounded-lg shadow dark:text-white dark:bg-gray-800">
+                <a href="">
+                    <span class="p-6 text-3xl italic font-bold text-yellow-400 dark:text-yellow-400">
+                        No Post Available at the moment check back Later
+                    </span>
+                </a>,
+            </span>
+        @endisset
+
+    </div>
+
+    <div class="sticky w-4/12">
+        <div class="m-4 rounded-lg shadow-lg bg-gray-300/20 dark:bg-gray-800/60 ">
+            <div class="flex">
+                <div class="flex-1 w-full m-2">
+                    <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
+                        Critical
+                    </h2>
+                </div>
+                <img class="w-8 h-8 m-2 rounded-full" src="\images\app\critical.png" alt="critical.png">
+            </div>
+
+
+            <hr class="border-gray-600">
+
+            <!--first trending tweet-->
+            <div class="flex">
+                <div class="flex-1">
+                    <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
+                    <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
+                    <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
+
+                </div>
+                <div class="flex-1 px-4 py-2 m-2">
+                    <a href=""
+                        class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
+                        <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <hr class="border-gray-600">
+
+
+
+            <div class="flex">
+                <div class="flex-1 p-4">
+                    <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

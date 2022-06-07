@@ -6060,8 +6060,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['postid'],
@@ -6077,23 +6075,19 @@ __webpack_require__.r(__webpack_exports__);
       show: false
     };
   },
-  // function() {
-  //   return {
-  //     show: true
-  //   };
-  // },
+  computed: {
+    togleid: function togleid() {
+      return Math.random().toString(36).slice(2);
+    }
+  },
   methods: {
     isToday: function isToday(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).startOf('minutes').fromNow(); //moment(date).endOf('day').fromNow();  //moment(date, "YYYYMMDD").fromNow();
-      // return moment().format('MMMM Do YYYY, h:mm:ss a')
-
-      moment__WEBPACK_IMPORTED_MODULE_0___default()().endOf('day').fromNow();
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(date).startOf('minutes').fromNow();
     },
     handleLoadMore: function handleLoadMore($state) {
       var _this = this;
 
       this.$http.get('/PostComments/' + this.postid + '?page=' + this.page).then(function (res) {
-        // alert(postid1); + '&postid=' + this.postid
         return res.json();
       }).then(function (res) {
         $.each(res.data, function (key, value) {
@@ -6419,6 +6413,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59483,38 +59485,36 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "label",
-      {
-        staticClass: "relative inline-flex cursor-pointer right-1",
-        attrs: { for: "default-toggle" },
-      },
-      [
-        _c("input", {
-          staticClass: "sr-only peer",
-          attrs: { type: "checkbox", value: "", id: "default-toggle" },
-          on: {
-            click: function ($event) {
-              _vm.show = !_vm.show
-            },
-          },
-        }),
-        _vm._v(" "),
-        _c("div", {
+    _c("div", { staticClass: "flex justify-between mt-3" }, [
+      _c("div"),
+      _vm._v(" "),
+      _c(
+        "label",
+        {
           staticClass:
-            "w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600",
-        }),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
+            "relative inline-flex object-right cursor-pointer right-1 w-fit",
+          attrs: { for: "toggle-" + _vm.togleid },
+        },
+        [
+          _c("input", {
+            staticClass: "sr-only peer",
+            attrs: { type: "checkbox", value: "", id: "toggle-" + _vm.togleid },
+            on: {
+              click: function ($event) {
+                _vm.show = !_vm.show
+              },
+            },
+          }),
+          _vm._v(" "),
+          _c("div", {
             staticClass:
-              "ml-3 text-sm font-medium text-gray-900 dark:text-gray-300",
-          },
-          [_vm._v("\n      Show Comments\n    ")]
-        ),
-      ]
-    ),
+              "w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600",
+          }),
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
+    ]),
     _vm._v(" "),
     _vm.show
       ? _c(
@@ -59537,11 +59537,6 @@ var render = function () {
                           "flex flex-col justify-between p-4 leading-normal",
                       },
                       [
-                        _c("div", {
-                          staticClass:
-                            "absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700",
-                        }),
-                        _vm._v(" "),
                         _c(
                           "time",
                           {
@@ -59669,7 +59664,21 @@ var render = function () {
       : _vm._e(),
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass:
+          "ml-3 text-sm font-medium text-gray-900 dark:text-gray-300",
+      },
+      [_vm._v("\n        Show Comments "), _c("br")]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -60038,7 +60047,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("span", { staticClass: "py-3 sm:py-4 text-gray-900 dark:text-white" }, [
+    _c("span", { staticClass: "py-3 text-gray-900 sm:py-4 dark:text-white" }, [
       _c("div", { staticClass: "flex items-center space-x-4" }, [
         _c("div", { staticClass: "flex-shrink-0" }, [
           _vm.users.avatar !== null
@@ -60046,10 +60055,35 @@ var render = function () {
                 staticClass: "w-8 h-8 rounded-full",
                 attrs: { src: "/images/user/" + _vm.users.avatar },
               })
-            : _c("img", {
-                staticClass: "w-8 h-8 rounded-full",
-                attrs: { src: "/images/user/noimage.png", alt: _vm.users.name },
-              }),
+            : _c(
+                "div",
+                {
+                  staticClass:
+                    "relative w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600",
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "absolute w-12 h-12 text-gray-400 -left-1",
+                      attrs: {
+                        fill: "currentColor",
+                        viewBox: "0 0 20 20",
+                        xmlns: "http://www.w3.org/2000/svg",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          "fill-rule": "evenodd",
+                          d: "M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z",
+                          "clip-rule": "evenodd",
+                        },
+                      }),
+                    ]
+                  ),
+                ]
+              ),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex-1 min-w-0" }, [

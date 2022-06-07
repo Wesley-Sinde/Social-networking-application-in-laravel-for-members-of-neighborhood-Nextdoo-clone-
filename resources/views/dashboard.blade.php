@@ -8,7 +8,7 @@
             </div> --}}
             <div class="flex flex-col flex-1 h-full overflow-hidden text-gray-800 dark:text-gray-200">
                 <button style="hover:transform: rotate(45deg);"
-                    class="fixed bg-transparent right-5 top-1/2 hover:bg-gray-500 hover:rounded-full hover:-rotate-90 hover:scale-125 focus:scale-125"
+                    class="fixed z-40 bg-transparent right-5 top-1/2 hover:bg-gray-500 hover:rounded-full hover:-rotate-90 hover:scale-125 focus:scale-125"
                     type="button" data-modal-toggle="createpost-modal">
                     <img class="" src="\images\app\create.png" alt="create.png">
                 </button>
@@ -51,7 +51,8 @@
                                         for="default_size">Description</label>
                                     <div class="description">
                                         <textarea id="description" placeholder="Description..." name="description"
-                                            class="block w-full py-2 text-xl text-gray-500 border-b-2 outline-none h-60 bg-slate-400 dark:bg-slate-600 dark:text-gray-600 "></textarea>
+                                            class="block w-full py-2 text-xl text-gray-500 border-b-2 outline-none h-60 bg-slate-400 dark:bg-slate-600 dark:text-gray-600 ">
+                                        </textarea>
                                     </div>
 
                                     <div class="flex items-start mt-2 mb-6">
@@ -82,11 +83,24 @@
                     </div>
                 </div>
                 <!-- Main content -->
-                <main class="flex-1 max-h-full p-2 overflow-y-scroll">
+                <main class="flex-1 max-h-full p-2 mb-4">
                     <!-- Main content header -->
                     <ol class="flex breadcrumb">
-                        <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
-                                    class="fa fa-dashboard"></i>Dashboard</a></li>
+                        <li>
+                            <svg class="w-4 h-4 mx-1 animate-ping fill-sky-400" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd"
+                                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="/" class=" hover:underline hover:text-yellow-400">
+                                Dashboard</a>
+                        </li>
                         <?php $segments = '';
                         $toEnd = count(Request::segments());
                         ?>
@@ -116,12 +130,6 @@
                             ?>
                         @endforeach
                     </ol>
-                    <div class="content-center text-center ">
-                        <h1 class="mb-3 text-2xl font-semibold underline whitespace-nowrap">
-                            What Is Your Neighbor Post?
-                        </h1>
-
-                    </div>
 
                     <!-- Start Content -->
                     <!-- component -->
@@ -164,213 +172,299 @@
                             </button>
                         </div>
                     @endif
-                    @isset($My_neighbor)
-                        <div class="grid gap-4 mx-2 ">
-                            @foreach ($My_neighbor as $post)
-                                <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-gray-800">
-                                    <div
-                                        class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
-                                        <div class="flex w-96">
-                                            <img class="w-12 h-12 rounded-full"
-                                                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
-                                            <div class="ml-2 mt-0.5">
-                                                <span class="text-gray-900 dark:text-white">
-                                                    <a href=""><span
-                                                            class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                                            {{ $post->User->name }}
-                                                        </span>
-                                                    </a>,
-                                                </span>
-                                                <span
-                                                    class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
-                                                    {{ date('jS M Y', strtotime($post->created_at)) }}</span>
-                                            </div>
-                                        </div>
 
-                                        @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
-                                            <button
-                                                class="relative z-10 block w-3 pt-2 pr-2 text-gray-700 border border-transparent rounded-md dark:text-white dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none justify-self-end "
-                                                id="user-menu-button2" aria-expanded="false"
-                                                data-dropdown-toggle="dropdownusermenu">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-                                                    viewBox="0 0 20 20" fill="currentColor">
-                                                    <path
-                                                        d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-                                                </svg>
-                                            </button>
-                                            <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
-                                                id="dropdownusermenu">
-                                                <div class="pb-3 ">
-                                                    <form action="{{ url('/home/' . $post->id) }}" method="post">
-                                                        @csrf
-                                                        @method('delete')
 
-                                                        <button class="inline-flex items-center mx-2 w-7 h-7" type="button"
-                                                            data-modal-toggle="popup-modal"
-                                                            data-tooltip-target="tooltip-delete">
-                                                            <img src="\images\app\delete.png" alt="">
+
+
+
+
+
+
+
+
+
+
+                    <div
+                        class="relative mx-auto mt-4 -my-px bg-white rounded-sm shadow-lg md:h-screen md:overflow-auto dark:bg-slate-800 ring-1 ring-slate-900/5">
+                        <div class="relative md:flex md:flex-row">
+
+
+
+
+
+
+
+                            {{-- <div class="w-4/12 m-4 rounded-lg shadow-lg bg-gray-300/20 dark:bg-gray-800/60">
+                                <div class="flex">
+                                    <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
+                                        Critical
+                                    </h2>
+                                    <img class="w-8 h-8 m-2 rounded-full" src="\images\app\critical.png" alt="critical.png">
+
+                                </div>
+
+
+                                <hr class="border-gray-600">
+
+                                <!--first trending tweet-->
+                                <div class="flex">
+                                    <div class="flex-1">
+                                        <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
+                                        <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
+                                        <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
+
+                                    </div>
+                                    <div class="flex-1 px-4 py-2 m-2">
+                                        <a href=""
+                                            class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
+                                            <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" stroke="currentColor"
+                                                viewBox="0 0 24 24">
+                                                <path d="M19 9l-7 7-7-7"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr class="border-gray-600">
+
+
+
+                                <div class="flex">
+                                    <div class="flex-1 p-4">
+                                        <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
+                                    </div>
+                                </div>
+
+                            </div> scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50 supports-scrollbars:pr-2 --}}
+                            <div class="w-full md:h-screen md:overflow-auto md:scroll-m-0 ">
+
+                                <div class="content-center text-center">
+                                    <h1 class="sticky my-2 mb-3 text-xl font-semibold underline whitespace-nowrap">
+                                        What Is Your Neighbor Post?
+                                    </h1>
+
+                                </div>
+                                @isset($My_neighbor)
+                                    <div class="grid gap-4 mx-2 ">
+                                        @foreach ($My_neighbor as $post)
+                                            <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-slate-900">
+                                                <div
+                                                    class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
+                                                    <div class="flex w-96">
+                                                        <img class="w-12 h-12 rounded-full"
+                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
+                                                        <div class="ml-2 mt-0.5">
+                                                            <span class="text-gray-900 dark:text-white">
+                                                                <a href=""><span
+                                                                        class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
+                                                                        {{ $post->User->name }}
+                                                                    </span>
+                                                                </a>,
+                                                            </span>
+                                                            <span
+                                                                class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
+                                                                {{ date('jS M Y', strtotime($post->created_at)) }}</span>
+                                                        </div>
+                                                    </div>
+
+                                                    @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
+                                                        <button
+                                                            class="relative z-10 block w-3 pt-2 pr-2 text-gray-700 border border-transparent rounded-md dark:text-white dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none justify-self-end "
+                                                            id="user-menu-button2" aria-expanded="false"
+                                                            data-dropdown-toggle="dropdownusermenu">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
+                                                                viewBox="0 0 20 20" fill="currentColor">
+                                                                <path
+                                                                    d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+                                                            </svg>
                                                         </button>
-                                                        <div id="tooltip-delete" role="tooltip"
-                                                            class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-red-600 rounded-lg shadow-sm opacity-0 tooltip">
-                                                            Delete This Post
-                                                            <div class="tooltip-arrow" data-popper-arrow></div>
-                                                        </div>
+                                                        <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
+                                                            id="dropdownusermenu">
+                                                            <div class="pb-3 ">
+                                                                <form action="{{ url('/home/' . $post->id) }}" method="post">
+                                                                    @csrf
+                                                                    @method('delete')
 
-                                                        <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
-                                                            id="popup-modal" aria-hidden="true">
-                                                            <div class="relative w-full h-full max-w-md px-4 md:h-auto">
-
-                                                                <div
-                                                                    class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
-
-                                                                    <div class="flex justify-end p-2">
-                                                                        <button type="button"
-                                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                                                            data-modal-toggle="popup-modal">
-                                                                            <svg class="w-5 h-5" fill="currentColor"
-                                                                                viewBox="0 0 20 20"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path fill-rule="evenodd"
-                                                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                                                    clip-rule="evenodd"></path>
-                                                                            </svg>
-                                                                        </button>
+                                                                    <button class="inline-flex items-center mx-2 w-7 h-7"
+                                                                        type="button" data-modal-toggle="popup-modal"
+                                                                        data-tooltip-target="tooltip-delete">
+                                                                        <img src="\images\app\delete.png" alt="">
+                                                                    </button>
+                                                                    <div id="tooltip-delete" role="tooltip"
+                                                                        class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-red-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                                                        Delete This Post
+                                                                        <div class="tooltip-arrow" data-popper-arrow></div>
                                                                     </div>
 
-                                                                    <div class="p-6 pt-0 text-center">
-                                                                        <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
-                                                                            fill="none" stroke="currentColor"
-                                                                            viewBox="0 0 24 24"
-                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2"
-                                                                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                                            </path>
-                                                                        </svg>
-                                                                        <h3
-                                                                            class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                                                            Are you sure you want to delete this Post?</h3>
-                                                                        <button data-modal-toggle="popup-modal" type="submit"
-                                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                                            Yes, I'm sure
-                                                                        </button>
-                                                                        <button data-modal-toggle="popup-modal" type="button"
-                                                                            class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 bg-blue-400 dark:bg-blue-600">No,
-                                                                            cancel
-                                                                        </button>
+                                                                    <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+                                                                        id="popup-modal" aria-hidden="true">
+                                                                        <div
+                                                                            class="relative w-full h-full max-w-md px-4 md:h-auto">
+
+                                                                            <div
+                                                                                class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
+
+                                                                                <div class="flex justify-end p-2">
+                                                                                    <button type="button"
+                                                                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                                                                        data-modal-toggle="popup-modal">
+                                                                                        <svg class="w-5 h-5"
+                                                                                            fill="currentColor"
+                                                                                            viewBox="0 0 20 20"
+                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                            <path fill-rule="evenodd"
+                                                                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                                                clip-rule="evenodd"></path>
+                                                                                        </svg>
+                                                                                    </button>
+                                                                                </div>
+
+                                                                                <div class="p-6 pt-0 text-center">
+                                                                                    <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
+                                                                                        fill="none" stroke="currentColor"
+                                                                                        viewBox="0 0 24 24"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path stroke-linecap="round"
+                                                                                            stroke-linejoin="round"
+                                                                                            stroke-width="2"
+                                                                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                                                        </path>
+                                                                                    </svg>
+                                                                                    <h3
+                                                                                        class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                                                                        Are you sure you want to delete this
+                                                                                        Post?
+                                                                                    </h3>
+                                                                                    <button data-modal-toggle="popup-modal"
+                                                                                        type="submit"
+                                                                                        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                                                                                        Yes, I'm sure
+                                                                                    </button>
+                                                                                    <button data-modal-toggle="popup-modal"
+                                                                                        type="button"
+                                                                                        class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 bg-blue-400 dark:bg-blue-600">No,
+                                                                                        cancel
+                                                                                    </button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
+                                                                </form>
                                                             </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
 
 
-                                                <div>
-                                                    <button data-tooltip-target="tooltip-edit" data-modal-toggle="pro-modal">
-                                                        {{-- <a href="{{ url('/home/' . $post->id . '/edit') }}"
+                                                            <div>
+                                                                <button data-tooltip-target="tooltip-edit"
+                                                                    data-modal-toggle="pro-modal">
+                                                                    {{-- <a href="{{ url('/home/' . $post->id . '/edit') }}"
                                                             class="inline-flex items-center w-5 h-5">
                                                         </a> --}}
-                                                        <img class="inline-flex items-center w-5 h-5" src="\images\app\edit.png"
-                                                            alt="">
-                                                    </button>
-                                                    <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
-                                                        id="pro-modal" aria-hidden="true">
-                                                        <div class="relative w-full h-full max-w-md px-4 md:h-auto">
+                                                                    <img class="inline-flex items-center w-5 h-5"
+                                                                        src="\images\app\edit.png" alt="">
+                                                                </button>
+                                                                <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
+                                                                    id="pro-modal" aria-hidden="true">
+                                                                    <div class="relative w-full h-full max-w-md px-4 md:h-auto">
 
-                                                            <div
-                                                                class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
+                                                                        <div
+                                                                            class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
 
-                                                                <div class="flex justify-end p-2">
-                                                                    <button type="button"
-                                                                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                                                        data-modal-toggle="popup-modal">
-                                                                        <svg class="w-5 h-5" fill="currentColor"
-                                                                            viewBox="0 0 20 20"
-                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                                                clip-rule="evenodd"></path>
-                                                                        </svg>
-                                                                    </button>
+                                                                            <div class="flex justify-end p-2">
+                                                                                <button type="button"
+                                                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                                                                    data-modal-toggle="popup-modal">
+                                                                                    <svg class="w-5 h-5"
+                                                                                        fill="currentColor" viewBox="0 0 20 20"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path fill-rule="evenodd"
+                                                                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                                                            clip-rule="evenodd"></path>
+                                                                                    </svg>
+                                                                                </button>
+                                                                            </div>
+
+                                                                            <div class="p-6 pt-0 text-center">
+                                                                                <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
+                                                                                    fill="none" stroke="currentColor"
+                                                                                    viewBox="0 0 24 24"
+                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                    <path stroke-linecap="round"
+                                                                                        stroke-linejoin="round" stroke-width="2"
+                                                                                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                                                                    </path>
+                                                                                </svg>
+                                                                                <h3
+                                                                                    class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                                                                                    This action is performed in pro account or
+                                                                                    verified
+                                                                                    account. Do you want to apply for pro
+                                                                                    account?
+                                                                                </h3>
+                                                                                <button data-modal-toggle="pro-modal"
+                                                                                    class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-green-600 bg-blue-400 dark:bg-blue-600">
+                                                                                    Yes, I'm sure
+                                                                                </button>
+                                                                                <button data-modal-toggle="pro-modal"
+                                                                                    type="button"
+                                                                                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">No,
+                                                                                    cancel
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-
-                                                                <div class="p-6 pt-0 text-center">
-                                                                    <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
-                                                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                                                        xmlns="http://www.w3.org/2000/svg">
-                                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                                            stroke-width="2"
-                                                                            d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                                        </path>
-                                                                    </svg>
-                                                                    <h3
-                                                                        class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                                                        This action is performed in pro account or verified
-                                                                        account. Do you want to apply for pro account?</h3>
-                                                                    <button data-modal-toggle="pro-modal"
-                                                                        class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-green-600 bg-blue-400 dark:bg-blue-600">
-                                                                        Yes, I'm sure
-                                                                    </button>
-                                                                    <button data-modal-toggle="pro-modal" type="button"
-                                                                        class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">No,
-                                                                        cancel
-                                                                    </button>
+                                                                <div id="tooltip-edit" role="tooltip"
+                                                                    class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-blue-600 rounded-lg shadow-sm opacity-0 tooltip">
+                                                                    Edit This Post
+                                                                    <div class="tooltip-arrow" data-popper-arrow></div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div id="tooltip-edit" role="tooltip"
-                                                        class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-blue-600 rounded-lg shadow-sm opacity-0 tooltip">
-                                                        Edit This Post
-                                                        <div class="tooltip-arrow" data-popper-arrow></div>
-                                                    </div>
+                                                    @endif
                                                 </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <div class="flex">
-                                        {{-- <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                <div class="flex">
+                                                    {{-- <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                                             {{ $post->title }}
                                         </h3> --}}
-                                        <h3 class="mb-2 text-xl font-bold leading-tight lg:text-3xl">
-                                            <a class="transition duration-150 ease-in-out hover:text-gray-100"
-                                                href="{{ url('/home/' . $post->id) }}">
-                                                {{ $post->title }}
-                                            </a>
-                                        </h3>
-                                        <div class="right-0 float-right ">
-                                            <example-component :summary='@json($post->reactionSummary())' @auth
-                                                :reacted='@json($post->reacted())' @endauth />
-                                        </div>
-                                    </div>
+                                                    <h3 class="mb-2 text-xl font-bold leading-tight lg:text-3xl">
+                                                        <a class="transition duration-150 ease-in-out hover:text-gray-100"
+                                                            href="{{ url('/home/' . $post->id) }}">
+                                                            {{ $post->title }}
+                                                        </a>
+                                                    </h3>
+                                                    <div class="right-0 float-right ">
+                                                        <example-component :summary='@json($post->reactionSummary())' @auth
+                                                            :reacted='@json($post->reacted())' @endauth />
+                                                    </div>
+                                                </div>
 
-                                    <img class="self-center mx-auto align-middle rounded-3xl px-auto"
-                                        src="{{ asset('images/' . $post->image_path) }}" alt="{{ $post->image_path }}">
-                                    <p class="leading-snug md:leading-normal ">
-                                        <?php
-                                        $yourText = $post->description;
-                                        if (strlen($yourText) > 200) {
-                                            $yourText = substr($post->description, 0, 200);
-                                            $yourText = $yourText . '.....';
-                                        }
-                                        ?>
-                                        {{ $yourText }}
-                                        <span class="whitespace-nowrap contents">
-                                            <a href="{{ url('/home/' . $post->id) }}"
-                                                class="flex items-center text-blue-500 align-middle hover:font-semibold hover:text-yellow-500 dark:text-blue-600 ">
-                                                Read more
-                                                <svg class="w-3 h-3 pt-1 ml-2" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill-rule="evenodd"
-                                                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd"></path>
-                                                </svg>
-                                            </a>
+                                                <img class="self-center mx-auto align-middle rounded-3xl px-auto"
+                                                    src="{{ asset('images/' . $post->image_path) }}"
+                                                    alt="{{ $post->image_path }}">
+                                                <p class="leading-snug md:leading-normal ">
+                                                    <?php
+                                                    $yourText = $post->description;
+                                                    if (strlen($yourText) > 200) {
+                                                        $yourText = substr($post->description, 0, 200);
+                                                        $yourText = $yourText . '.....';
+                                                    }
+                                                    ?>
+                                                    {{ $yourText }}
+                                                    <span class="whitespace-nowrap contents">
+                                                        <a href="{{ url('/home/' . $post->id) }}"
+                                                            class="flex items-center text-blue-500 align-middle hover:font-semibold hover:text-yellow-500 dark:text-blue-600 ">
+                                                            Read more
+                                                            <svg class="w-3 h-3 pt-1 ml-2" fill="currentColor"
+                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg>
+                                                        </a>
 
-                                        </span>
-                                    </p>
-                                    {{-- <div>
+                                                    </span>
+                                                </p>
+                                                {{-- <div>
                                         <div class="right-0 justify-end pt-2 d-flex">
                                             <div class="ml-1 font-light text-gray-500 dark:text-gray-400">
                                                 33 comments &nbsp;
@@ -384,71 +478,295 @@
                                     </div> --}}
 
 
-                                    <div class="right-0 flex justify-center pt-2">
+                                                <div class="right-0 flex justify-center pt-2">
 
-                                        <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
+                                                    <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
 
-                                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
-                                                <path
-                                                    d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">
-                                                </path>
-                                                <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
-                                            </svg>
-                                            {{ $post->location }}
-                                        </dd>
-                                        {{-- <a class="px-2" href="#">
+                                                        <svg width="24" height="24" fill="none" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                            class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
+                                                            <path
+                                                                d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">
+                                                            </path>
+                                                            <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
+                                                        </svg>
+                                                        {{ $post->location }}
+                                                    </dd>
+                                                    {{-- <a class="px-2" href="#">
                                             33 comments &nbsp;
                                         </a> --}}
 
-                                        <dd id="accordion-arrow-icon" data-accordion="open"
-                                            class="flex items-center justify-between px-2 ">
-                                            <h2 id="accordion-arrow-icon-heading-2">
-                                                <button type="button" class="flex items-center justify-between px-2 "
-                                                    data-accordion-target="#accordion-arrow-icon-body-2" aria-expanded="false"
-                                                    aria-controls="accordion-arrow-icon-body-2">
-                                                    <span> 33 comments</span>
-                                                </button>
+                                                    <dd id="accordion-arrow-icon" data-accordion="open"
+                                                        class="flex items-center justify-between px-2 ">
+                                                        <h2 id="accordion-arrow-icon-heading-2">
+                                                            <button type="button"
+                                                                class="flex items-center justify-between px-2 "
+                                                                data-accordion-target="#accordion-arrow-icon-body-2"
+                                                                aria-expanded="false"
+                                                                aria-controls="accordion-arrow-icon-body-2">
+                                                                <span> 33 comments</span>
+                                                            </button>
+                                                        </h2>
+                                                    </dd>
+                                                    <dd class="items-center text-gray-900 dark:text-gray-400">
+                                                        <span>views</span>
+                                                        <span
+                                                            class="px-2 text-white rounded-full box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500">
+                                                            {{ $post->view_count }}
+                                                        </span>
+                                                    </dd>
+
+
+                                                    <dd class="flex px-2 ml-1 font-light ">
+
+
+                                                        <svg class="w-4 h-4 mx-1 text-slate-400 dark:text-slate-500"
+                                                            fill="currentColor" viewBox="0 0 20 20"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <path
+                                                                d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z">
+                                                            </path>
+                                                        </svg>
+                                                    </dd>
+                                                </div>
+
+
+
+
+
+                                                <postcomments-component :postid={{ $post->id }} />
+
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <span
+                                        class="max-w-full px-5 py-4 text-gray-900 bg-gray-200 rounded-lg shadow dark:text-white dark:bg-gray-800">
+                                        <a href="">
+                                            <span class="p-6 text-3xl italic font-bold text-yellow-400 dark:text-yellow-400">
+                                                No Post Available at the moment check back Later
+                                            </span>
+                                        </a>,
+                                    </span>
+                                @endisset
+
+                            </div>
+
+                            <div
+                                class="top-0 items-center px-4 py-3 m-2 text-sm font-semibold bg-gray-200 rounded-sm md:sticky h-fit text-slate-900 dark:text-slate-200 dark:bg-slate-900 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                                <div class="flex">
+
+                                    <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
+                                        Critical
+                                    </h2>
+                                    <img class="w-8 h-8 m-2 rounded-full animate-pulse" src="\images\app\critical.png"
+                                        alt="critical.png">
+
+                                </div>
+                                <hr class="border-gray-600">
+
+                                <!--first trending tweet-->
+                                <div>
+                                    <div class="flex">
+                                        <div class="flex-1">
+                                            <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
+                                            <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
+                                            <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
+
+                                        </div>
+                                        <div class="flex-1 px-4 py-2 m-2">
+                                            <a href=""
+                                                class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
+                                                <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <hr class="border-gray-600">
+
+
+
+                                    <div class="flex">
+                                        <div class="flex-1 p-4">
+                                            <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            {{-- <div class="w-4/12 ">
+                                <div class="m-4 rounded-lg shadow-lg bg-gray-300/20 dark:bg-gray-800/60 ">
+                                    <div class="flex">
+                                        <div class="flex-1 w-full m-2">
+                                            <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
+                                                Critical
                                             </h2>
-                                        </dd>
-                                        <div class="items-center text-gray-900 post-views small dark:text-gray-400">
-                                            {{ $post->view_count }}
-                                            <span>views</span>
                                         </div>
-
-
-                                        <div class="flex px-2 ml-1 font-light text-gray-500 dark:text-gray-400">
-
-
-                                            <svg class="w-4 h-4 mx-1 text-slate-400 dark:text-slate-500" fill="currentColor"
-                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z">
-                                                </path>
-                                            </svg>
-                                        </div>
+                                        <img class="w-8 h-8 m-2 rounded-full" src="\images\app\critical.png"
+                                            alt="critical.png">
                                     </div>
 
 
+                                    <hr class="border-gray-600">
+
+                                    <!--first trending tweet-->
+                                    <div class="flex">
+                                        <div class="flex-1">
+                                            <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
+                                            <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
+                                            <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
+
+                                        </div>
+                                        <div class="flex-1 px-4 py-2 m-2">
+                                            <a href=""
+                                                class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
+                                                <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path d="M19 9l-7 7-7-7"></path>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <hr class="border-gray-600">
 
 
 
-                                    <postcomments-component :postid={{ $post->id }} />
+                                    <div class="flex">
+                                        <div class="flex-1 p-4">
+                                            <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
+                                        </div>
+                                    </div>
 
                                 </div>
-                            @endforeach
+                            </div> --}}
+
                         </div>
-                    @else
-                        <span
-                            class="max-w-full px-5 py-4 text-gray-900 bg-gray-200 rounded-lg shadow dark:text-white dark:bg-gray-800">
-                            <a href="">
-                                <span class="p-6 text-3xl italic font-bold text-yellow-400 dark:text-yellow-400">
-                                    No Post Available at the moment check back Later
-                                </span>
-                            </a>,
-                        </span>
-                    @endisset
+                        {{-- <div class="relative">
+                            <div
+                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                                A
+                            </div>
+                            <div class="divide-y dark:divide-slate-200/5">
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Andrew
+                                        Alfred</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Aisha
+                                        Houston</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Anna
+                                        White</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Andy
+                                        Flint</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div
+                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                                B</div>
+                            <div class="divide-y dark:divide-slate-200/5">
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bob
+                                        Alfred</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bianca
+                                        Houston</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Brianna
+                                        White</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bert
+                                        Flint</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div
+                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                                C
+                            </div>
+                            <div class="divide-y dark:divide-slate-200/5">
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Colton
+                                        Alfred</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Cynthia
+                                        Houston</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Cheyenne
+                                        White</strong>
+                                </div>
+                                <div class="flex items-center gap-4 p-4">
+                                    <img class="w-12 h-12 rounded-full"
+                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
+                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Charlie
+                                        Flint</strong>
+                                </div>
+                            </div>
+                        </div> --}}
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                     <div class="p-2 m-2 rounded-sm bg-slate-600">
                         <?php echo $My_neighbor->render(); ?>

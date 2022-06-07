@@ -60,7 +60,7 @@
     <div id="app">
         <div id="">
             <header
-                class="fixed top-0 z-50 flex flex-none w-full mx-auto mt-0 bg-gray-200 border-b border-gray-300 dark:border-gray-200 py-2 dark:bg-gray-800">
+                class="fixed top-0 z-50 flex flex-none w-full py-2 mx-auto mt-0 bg-gray-200 border-b border-gray-300 dark:border-gray-200 dark:bg-gray-800">
                 <div class="flex items-center justify-between w-full max-w-4xl px-3 mx-auto lg:px-4">
 
 
@@ -328,7 +328,7 @@
 
 
                                     <button id="theme-toggle" type="button"
-                                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm mx-2">
+                                        class="mx-2 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
                                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">

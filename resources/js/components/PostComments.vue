@@ -1,28 +1,26 @@
 <template>
   <div>
-    <!-- <button @click="show = !show">
-      Click
-    </button> -->
-    <label for="default-toggle" class="relative inline-flex cursor-pointer right-1">
-      <input @click="show = !show" type="checkbox" value="" id="default-toggle" class="sr-only peer">
-      <div
-        class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-      </div>
-      <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-        Show Comments
-      </span>
-    </label>
+    <div class="flex justify-between mt-3">
+      <div></div>
+      <label v-bind:for="'toggle-' + togleid" class="relative inline-flex object-right cursor-pointer right-1 w-fit">
+        <input @click="show = !show" type="checkbox" value="" v-bind:id="'toggle-' + togleid" class="sr-only peer">
+        <div
+          class="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+        </div>
+        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+          Show Comments <br>
+        </span>
+      </label>
 
+    </div>
     <div v-if="show">
-
-
       <div v-for="PostComment in PostComments" :key="PostComment.id" class="">
         <a href="#"
           class="flex flex-col items-center mx-auto my-2 bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
           <div class="flex flex-col justify-between p-4 leading-normal">
-            <div
+            <!-- <div
               class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700">
-            </div>
+            </div> -->
             <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               <!-- <p>
               {{ isToday(PostComment.created_at) }}
@@ -89,23 +87,18 @@ export default {
       show: false,
     };
   },
-
-  // function() {
-  //   return {
-  //     show: true
-  //   };
-  // },
+  computed: {
+    togleid: function () {
+      return Math.random().toString(36).slice(2)
+    }
+  },
   methods: {
     isToday(date) {
-      return moment(date).startOf('minutes').fromNow();  //moment(date).endOf('day').fromNow();  //moment(date, "YYYYMMDD").fromNow();
-      // return moment().format('MMMM Do YYYY, h:mm:ss a')
-      moment().endOf('day').fromNow();
+      return moment(date).startOf('minutes').fromNow();
     },
-
     handleLoadMore($state) {
       this.$http.get('/PostComments/' + this.postid + '?page=' + this.page)
         .then(res => {
-          // alert(postid1); + '&postid=' + this.postid
           return res.json();
         }).then(res => {
           $.each(res.data, (key, value) => {
