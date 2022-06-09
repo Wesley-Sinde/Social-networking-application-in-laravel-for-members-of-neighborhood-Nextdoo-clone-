@@ -396,7 +396,7 @@
                                             </div>
                                             <input type="text" name="email" id="mobile-search"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 block w-full pl-10 p-2.5"
-                                                placeholder="Search">
+                                                placeholder="Search...">
                                         </div>
                                     </form>
                                 </li>
@@ -455,7 +455,7 @@
                                                 d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Users ™️</span>
                                     </a>
                                 </li>
                                 <li>
