@@ -25,6 +25,9 @@ class User extends Authenticatable implements ReactsInterface
         'email',
         'password',
         'location',
+        'avatar',
+        'verified_account',
+        'country',
     ];
 
     public function messages()

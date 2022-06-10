@@ -72,6 +72,9 @@ Vue.component('postcomments-component', PostComments);
 
 import Userprofile from './components/Userprofile.vue';
 Vue.component('userprofile-component', Userprofile);
+
+import CriticalPost from './components/CriticalPost.vue';
+Vue.component('criticalpost-component', CriticalPost);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

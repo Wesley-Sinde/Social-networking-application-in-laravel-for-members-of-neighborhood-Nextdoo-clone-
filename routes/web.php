@@ -48,7 +48,11 @@ Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMess
 
 Route::get('/PostComments/{post}', [CommentsController::class, 'fetchcomments']);
 Route::get('/userdata/{id}', [CommentsController::class, 'userdata']);
+Route::get('/getcritical', [MyNeighborController::class, 'getcritical']);
+Route::get('/getcriticalpreview', [MyNeighborController::class, 'getcriticalpreview']);
 
+Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']);
+Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');;
 
 Route::get('/try', [CommentsController::class, 'try']);
 // Route::get('/products', [ProductController::class, 'fetchProducts']);

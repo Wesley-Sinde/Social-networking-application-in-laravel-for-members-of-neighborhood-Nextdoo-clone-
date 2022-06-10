@@ -15,8 +15,8 @@
           </div>
 
         </div>
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+        <div class="mx-2 min-w-0">
+          <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-400">
             {{ users.name }}
           </p>
         </div>
@@ -46,17 +46,17 @@ export default {
 
   },
 
-  methods: {
+  // methods: {
 
-    read() {
-      axios.get('/userdata/1').then(({ data }) => {
-        //console.log(data)
-        this.users = data;
+  //   read() {
+  //     axios.get('/userdata/1').then(({ data }) => {
+  //       //console.log(data)
+  //       this.users = data;
 
-      })
-        .catch((err) => console.error(err));
-    },
-  },
+  //     })
+  //       .catch((err) => console.error(err));
+  //   },
+  // },
 }
 </script>
 

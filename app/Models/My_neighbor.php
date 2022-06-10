@@ -13,7 +13,7 @@ class My_neighbor extends Model implements ReactableInterface
   use HasFactory, Reactable;
   use Sluggable;
 
-  protected $fillable = ['id', 'location', 'title', 'slug', 'description', 'image_path', 'user_id'];
+  protected $fillable = ['id', 'level', 'location', 'title', 'slug', 'description', 'image_path', 'user_id'];
 
   public function user()
   {

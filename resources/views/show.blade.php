@@ -1,13 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css" />
-
-
-
-
-
     <div class="flex">
-
         @include('layouts.asidenav')
         <section class="bg-white dark:bg-gray-900">
 
@@ -57,7 +50,16 @@
                         </div>
                         <div class="max-w-full px-5 py-4 bg-gray-200 rounded-lg shadow dark:bg-gray-800">
                             <div class="flex items-center justify-between mb-2">
-                                <div class="flex ">
+                                <div class="">
+                                    <div>
+                                        <userprofile-component :userid={{ $post->user_id }} />
+                                    </div>
+                                    <span class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
+                                        {{ date('jS M Y', strtotime($post->created_at)) }}
+                                    </span>
+                                </div>
+
+                                {{-- <div class="flex ">
                                     <img height=50% class="w-12 h-12 rounded-full"
                                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
                                     <div class="ml-2 mt-0.5">
@@ -68,9 +70,10 @@
                                             </a>,
                                         </span>
                                         <span class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
-                                            {{ date('jS M Y', strtotime($post->created_at)) }}</span>
+                                            {{ date('jS M Y', strtotime($post->created_at)) }}
+                                        </span>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
                                     <div
@@ -154,16 +157,16 @@
                                     </div>
                                 @endif
                             </div>
-                            <img class="align-middle rounded-3xl" src="{{ asset('images/' . $post->image_path) }}"
+                            <img class="align-middle rounded-3xl mx-auto" src="{{ asset('images/' . $post->image_path) }}"
                                 alt="{{ $post->image_path }}">
                             <p class="leading-snug md:leading-normal">
                                 <?php
-                                $yourText = $post->description;
-                                if (strlen($yourText) > 950) {
-                                    $yourText = substr($post->description, 0, 50);
+                                $originalpost = $post->description;
+                                if (strlen($originalpost) > 950) {
+                                    $originalpost = substr($post->description, 0, 50);
                                 }
                                 ?>
-                                {{ $yourText }}
+                                {{ $originalpost }}
                             </p>
                             <div class="justify-center md:flex md:justify-between">
                                 <div>

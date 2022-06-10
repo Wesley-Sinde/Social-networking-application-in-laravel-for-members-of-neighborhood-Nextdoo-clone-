@@ -21,12 +21,35 @@ class MyNeighborController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * My_neighbor::where('id', $id)->first()
      * @return \Illuminate\Http\Response
      */
-    public function fetchProducts()
+    public function profile()
     {
-        $data = My_neighbor::orderBy('created_at', 'desc')->paginate(8);
+        // dd(User::where('id', 1)->first());
+        // return view('show')
+        //     ->with('post', My_neighbor::where('id', $id)->first());
+
+        return view('Profile.index');
+    }
+
+
+    public function userdata($id)
+    {
+        $userdata = My_neighbor::where("id", $id)->paginate(10);
+        return response()->json($userdata);
+    }
+
+    public function getcritical()
+    {
+        $data = My_neighbor::orderBy('level', 'desc')->paginate(4);
+        return response()->json($data);
+    }
+
+
+    public function getcriticalpreview()
+    {
+        $data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
         return response()->json($data);
     }
     // public function fetchProducts()
@@ -109,7 +132,8 @@ class MyNeighborController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg,webp,|max:5048'
+            'level' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg,gif,webp,|max:5048'
         ]);
         //  try {
 
@@ -117,7 +141,7 @@ class MyNeighborController extends Controller
         /* $ip = $request->ip(); Dynamic IP address */
         $ip = '197.248.192.135'; /* Static IP address */
         $currentUserInfo = Location::get($ip);
-
+        //dd($request->input('level'));
 
         if (Auth::check()) {
             $cityName = $currentUserInfo->cityName;
@@ -128,6 +152,7 @@ class MyNeighborController extends Controller
             My_neighbor::create([
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
+                'level' => $request->input('level'),
                 'image_path' => $newImageName,
                 'location' => $cityName,
                 'user_id' => auth()->user()->id

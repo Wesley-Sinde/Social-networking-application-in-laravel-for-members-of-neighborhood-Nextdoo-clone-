@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->bigInteger('view_count')->default(0);
             $table->string('location')->default('Not found');
+            $table->Integer('level')->default('1');
         });
     }
 

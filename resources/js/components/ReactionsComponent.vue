@@ -1,25 +1,27 @@
 <template>
   <div>
-    <div class="px-4 mt-3 rounded-lg  sm:float-left d-flex">
-      <button @click="show_reaction_types = !show_reaction_types" class="left-0 btn btn-link">
-        <span v-if="auth_reaction">
+    <div class="px-4 mt-3 rounded-lg  sm:float-left flex">
+      <button @click="show_reaction_types = !show_reaction_types" class="left-0 hover:font-extrabold">
+        <span class="hidden" v-if="auth_reaction">
           Dislike
           <!-- <img :src="image(auth_reaction)" class="w-25 animate-spin" />
           {{ auth_reaction }} -->
         </span>
         <span v-else>
-          <button class="flex items-center justify-center flex-none rounded-md  w-9 h-9 text-slate-300" type="button"
-            aria-label="Like"> Like
+          <button
+            class="flex items-center justify-center flex-none rounded-md  w-auto h-9 text-blue-700  dark:text-blue-600 mx-3"
+            type="button" aria-label="Like"> Like
 
             <!-- <img :src="image('like1')" class="w-25 " /> -->
           </button>
         </span>
       </button>
 
-      <div class="items-baseline justify-end pt-2 rounded-lg  sm:float-bottom d-flex">
+      <div @click="show_reaction_types = !show_reaction_types"
+        class=" items-baseline justify-end pt-2 rounded-lg  sm:float-bottom flex">
 
-        <div class="bottom-0 flex h-4 px-1 pb-0 mt-0 align-bottom" v-for="(count, reaction) in reactions_summary"
-          :key="reaction" v-show="count">
+        <div class="bottom-0 flex h-4 px-1 pb-0 mt-0 align-bottom cursor-pointer"
+          v-for="(count, reaction) in reactions_summary" :key="reaction" v-show="count">
           <img style="width: auto" :src="image(reaction)" />
           <span class="px-1">{{ count }}</span>
         </div>
@@ -27,15 +29,16 @@
     </div>
 
     <div class="position-relative">
-      <div class="max-w-lg bg-gray-300 rounded-lg shadow-sm  position-absolute dark:bg-gray-700" style="bottom: 40px"
-        v-show="show_reaction_types">
-        <button @click="toggleRaction(type)" class="btn" v-for="type in types" :key="type">
+      <div
+        class=" w-fit flex flex-row flex-nowrap bg-gray-300 rounded-lg shadow-sm  position-absolute dark:bg-gray-700 p-3 left-3"
+        style="bottom: 40px" v-show="show_reaction_types">
+        <button @click="toggleRaction(type)" class="mx-2" v-for="type in types" :key="type">
           <img class="hover:bg-gray-400 dark:hover:bg-gray-500 hover:rounded-full" :src="image(type)" />
         </button>
       </div>
 
       <button @click="show_reaction_types = !show_reaction_types" class="hidden btn btn-link">
-        <span v-if="auth_reaction">
+        <span class=" hidden" v-if="auth_reaction">
           Dislike
           <img :src="image(auth_reaction)" class="w-25 animate-spin" />
           {{ auth_reaction }}
@@ -53,7 +56,7 @@
 </template>
 
 <script>
- 
+
 export default {
   props: ["summary", "reacted"],
 

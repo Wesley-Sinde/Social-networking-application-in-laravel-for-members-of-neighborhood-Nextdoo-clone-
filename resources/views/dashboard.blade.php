@@ -37,7 +37,7 @@
                                         for="default_size">Upload Thumbnail</label>
                                     <input class="pb-3" type="file" accept="image/*" onchange="loadFile(event)"
                                         name="image">
-                                    <img id="output" class="mx-auto w-2xl h-36" />
+                                    <img id="output" class="" />
 
                                     <div class="mb-6">
                                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -47,11 +47,24 @@
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                     </div>
 
+                                    <div class="mb-6">
+                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                                            for="title">Level Of your Post
+                                        </label>
+                                        <select id="large" name="level"
+                                            class="block py-3 px-4 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option value='1' class=" bg-green-400" selected>Low</option>
+                                            <option value='2' class=" bg-blue-400" value="US">Guarded</option>
+                                            <option value='3' class=" bg-yellow-300" value="CA">Elevated</option>
+                                            <option value='4' class=" bg-orange-400" value="FR">High</option>
+                                            <option value='5' class=" bg-red-400" value="DE">Severe</option>
+                                        </select>
+                                    </div>
                                     <label class="block mt-2 mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
                                         for="default_size">Description</label>
                                     <div class="description">
                                         <textarea id="description" placeholder="Description..." name="description"
-                                            class="block w-full py-2 text-xl text-gray-500 border-b-2 outline-none h-60 bg-slate-400 dark:bg-slate-600 dark:text-gray-600 ">
+                                            class="block w-full py-2 text-xl text-gray-600 border-b-2 outline-none h-60 bg-slate-400 dark:bg-slate-600 dark:text-gray-200 ">
                                         </textarea>
                                     </div>
 
@@ -158,7 +171,7 @@
                                 </svg>
                             </div>
                             <div class="ml-3 text-sm font-normal"> {{ session()->get('message') }}</div>
-                            <button type="button" 
+                            <button type="button"
                                 class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                                 data-collapse-toggle="toast-success" aria-label="Close">
                                 <span class="sr-only">Close</span>
@@ -174,68 +187,9 @@
                     @endif
 
 
-
-
-
-
-
-
-
-
-
-
                     <div
                         class="relative mx-auto mt-4 -my-px bg-white rounded-sm shadow-lg md:h-screen md:overflow-auto dark:bg-slate-800 ring-1 ring-slate-900/5">
                         <div class="relative md:flex md:flex-row">
-
-
-
-
-
-
-
-                            {{-- <div class="w-4/12 m-4 rounded-lg shadow-lg bg-gray-300/20 dark:bg-gray-800/60">
-                                <div class="flex">
-                                    <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
-                                        Critical
-                                    </h2>
-                                    <img class="w-8 h-8 m-2 rounded-full" src="\images\app\critical.png" alt="critical.png">
-
-                                </div>
-
-
-                                <hr class="border-gray-600">
-
-                                <!--first trending tweet-->
-                                <div class="flex">
-                                    <div class="flex-1">
-                                        <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
-                                        <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
-                                        <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
-
-                                    </div>
-                                    <div class="flex-1 px-4 py-2 m-2">
-                                        <a href=""
-                                            class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
-                                            <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" stroke="currentColor"
-                                                viewBox="0 0 24 24">
-                                                <path d="M19 9l-7 7-7-7"></path>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <hr class="border-gray-600">
-
-
-
-                                <div class="flex">
-                                    <div class="flex-1 p-4">
-                                        <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
-                                    </div>
-                                </div>
-
-                            </div> scrollbar:!w-1.5 scrollbar:!h-1.5 scrollbar:bg-transparent scrollbar-track:!bg-slate-100 scrollbar-thumb:!rounded scrollbar-thumb:!bg-slate-300 scrollbar-track:!rounded dark:scrollbar-track:!bg-slate-500/[0.16] dark:scrollbar-thumb:!bg-slate-500/50 supports-scrollbars:pr-2 --}}
                             <div class="w-full md:h-screen md:overflow-auto md:scroll-m-0 ">
 
                                 <div class="content-center text-center">
@@ -250,7 +204,22 @@
                                             <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-slate-900">
                                                 <div
                                                     class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
-                                                    <div class="flex w-96">
+                                                    <div class="">
+                                                        <div class=" text-xl">
+                                                            <userprofile-component :userid={{ $post->user_id }} />
+                                                        </div>
+                                                        <span
+                                                            class=" text-sm font-light leading-snug text-gray-500 flex dark:text-yellow-400">
+                                                            <svg class="w-3 h-3 mr-1 mt-1" fill="currentColor"
+                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg>
+                                                            {{ date('jS M Y', strtotime($post->created_at)) }}
+                                                        </span>
+                                                    </div>
+                                                    {{-- <div class="flex w-96">
                                                         <img class="w-12 h-12 rounded-full"
                                                             src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
                                                         <div class="ml-2 mt-0.5">
@@ -265,7 +234,7 @@
                                                                 class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
                                                                 {{ date('jS M Y', strtotime($post->created_at)) }}</span>
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
 
                                                     @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
                                                         <button
@@ -551,9 +520,8 @@
                                 @endisset
 
                             </div>
-
                             <div
-                                class="top-0 items-center px-4 py-3 m-2 text-sm font-semibold bg-gray-200 rounded-sm md:sticky h-fit text-slate-900 dark:text-slate-200 dark:bg-slate-900 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
+                                class=" top-0 items-center px-1 py-3 m-2 text-sm font-semibold bg-gray-200 rounded-sm md:sticky text-slate-900 dark:text-slate-200 dark:bg-slate-900 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10 md:overflow-hidden">
                                 <div class="flex">
 
                                     <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
@@ -561,89 +529,22 @@
                                     </h2>
                                     <img class="w-8 h-8 m-2 rounded-full animate-pulse" src="\images\app\critical.png"
                                         alt="critical.png">
+                                    <div class="flex-1 p-4">
+                                        <a href="#">
+                                            <h2 class="w-48 px-2 ml-2 font-bold text-blue-400">View All</h2>
+                                        </a>
+                                    </div>
 
                                 </div>
                                 <hr class="border-gray-600">
 
-                                <!--first trending tweet-->
-                                <div>
-                                    <div class="flex">
-                                        <div class="flex-1">
-                                            <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
-                                            <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
-                                            <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
-
-                                        </div>
-                                        <div class="flex-1 px-4 py-2 m-2">
-                                            <a href=""
-                                                class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
-                                                <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2" stroke="currentColor"
-                                                    viewBox="0 0 24 24">
-                                                    <path d="M19 9l-7 7-7-7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <hr class="border-gray-600">
-
-
-
-                                    <div class="flex">
-                                        <div class="flex-1 p-4">
-                                            <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
-                                        </div>
-                                    </div>
+                                <!--first post-->
+                                <div class="   md:overflow-auto ">
+                                    <criticalpost-component />
                                 </div>
                             </div>
 
 
-                            {{-- <div class="w-4/12 ">
-                                <div class="m-4 rounded-lg shadow-lg bg-gray-300/20 dark:bg-gray-800/60 ">
-                                    <div class="flex">
-                                        <div class="flex-1 w-full m-2">
-                                            <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
-                                                Critical
-                                            </h2>
-                                        </div>
-                                        <img class="w-8 h-8 m-2 rounded-full" src="\images\app\critical.png"
-                                            alt="critical.png">
-                                    </div>
-
-
-                                    <hr class="border-gray-600">
-
-                                    <!--first trending tweet-->
-                                    <div class="flex">
-                                        <div class="flex-1">
-                                            <p class="flex px-4 mt-3 ml-2 text-xs dark:text-gray-400">1 . Trending</p>
-                                            <h2 class="px-4 ml-2 font-bold text-green-600 ">#Microsoft363</h2>
-                                            <p class="px-4 mb-3 ml-2 text-xs dark:text-gray-400 ">5,466 Tweets</p>
-
-                                        </div>
-                                        <div class="flex-1 px-4 py-2 m-2">
-                                            <a href=""
-                                                class="float-right text-2xl text-gray-400 rounded-full hover:bg-blue-800 hover:text-blue-300">
-                                                <svg class="w-5 h-5 m-2" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round" stroke-width="2" stroke="currentColor"
-                                                    viewBox="0 0 24 24">
-                                                    <path d="M19 9l-7 7-7-7"></path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <hr class="border-gray-600">
-
-
-
-                                    <div class="flex">
-                                        <div class="flex-1 p-4">
-                                            <h2 class="w-48 px-4 ml-2 font-bold text-blue-400">Show more</h2>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div> --}}
 
                         </div>
                         {{-- <div class="relative">
@@ -768,7 +669,7 @@
 
 
 
-                    <div class="p-2 m-2 rounded-sm bg-slate-600">
+                    <div class="p-2 m-2 rounded-sm bg-slate-600 ">
                         <?php echo $My_neighbor->render(); ?>
                     </div>
                     {{-- ______________
@@ -787,11 +688,18 @@
 
     <script type="application/javascript">
         var loadFile = function(event) {
+            var element = document.getElementById("output");
+            element.classList.add("mx-auto");
+            element.classList.add("w-auto");
+            element.classList.add("h-36");
+            element.classList.add("border");
+            element.classList.add("m-3");
             var output = document.getElementById('output');
             output.src = URL.createObjectURL(event.target.files[0]);
             output.onload = function() {
                 URL.revokeObjectURL(output.src) // free memory
             }
+            // output.classList.add("mx-auto w-2xl h-36 border");
         };
         $("#output").change(function() {
             imagePreview(this);
