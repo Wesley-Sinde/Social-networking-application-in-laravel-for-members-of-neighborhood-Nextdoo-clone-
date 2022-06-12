@@ -5,35 +5,98 @@
         @include('layouts.asidenav')
         <section class="bg-white dark:bg-gray-900">
             <script type="application/javascript" src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
-            <div class="m-8 border-2  rounded-2xl border-cool-gray-300 dark:border-cool-gray-500 p-7">
-                <div class="m-8 p-7">
+            <div class="m-8 border-2 rounded-2xl border-cool-gray-300 dark:border-cool-gray-500 p-7">
+                <div class="m-8 p-7" id="appprofile">
                     <header
                         class="px-6 py-5 font-semibold text-gray-700 bg-gray-200 sm:py-6 sm:px-8 sm:rounded-t-md dark:bg-gray-800 dark:text-gray-200">
                         {{ __('My Profile') }}
                     </header>
                     <div class="items-center justify-center align-middle my-7 removeThis">
-                        @if (Auth::user()->avatar)
+                        @if (Auth::User()->avatar)
                             <img id="output"
-                                class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full  dark:border-gray-400"
-                                src="{{ asset('images/user/' . Auth::user()->avatar) }}" alt="user photo">
+                                class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full dark:border-gray-400"
+                                src="{{ asset('images/User/' . Auth::User()->avatar) }}" alt="User photo">
                         @else
                             <img id="output"
-                                class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full  dark:border-gray-400"
-                                src="{{ asset('images/user.png') }}" alt="user photo">
+                                class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full dark:border-gray-400"
+                                src="{{ asset('images/User.png') }}" alt="User photo">
                         @endif
                     </div>
-                    <form autocomplete="off" autofill="off">
+
+                    @if (session()->has('message'))
+                        <div id="toast-success"
+                            class="sticky flex items-center float-right max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                            role="alert">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3 text-sm font-normal">
+                                {{ session()->get('message') }}
+                            </div>
+                            <button type="button"
+                                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                data-collapse-toggle="toast-success" aria-label="Close">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="w-4/5 m-auto ">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li id="errorAlert"
+                                        class="flex p-4 mb-4 bg-red-100 border-t-4 border-red-500 dark:bg-red-200"
+                                        role="alert">
+                                        <svg class="flex-shrink-0 w-5 h-5 text-red-700" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <div class="ml-3 text-sm font-medium text-red-700">
+                                            {{ $error }}
+                                        </div>
+                                        <button type="button"
+                                            class="ml-auto -mx-1.5 -my-1.5 bg-red-100 dark:bg-red-200 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 dark:hover:bg-red-300 inline-flex h-8 w-8"
+                                            data-dismiss-target="#errorAlert" aria-label="Close">
+                                            <span class="sr-only">Dismiss</span>
+                                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="/profile" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="relative z-0 w-full mb-6 group">
                             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                for="user_avatar">Upload
+                                for="User_avatar">Upload
                                 file</label>
 
                             <input
                                 class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                aria-describedby="user_avatar_help" id="image" type="file" accept="image/*"
+                                aria-describedby="User_avatar_help" id="image" type="file" accept="image/*"
                                 onchange="loadFile(event)" name="image">
-                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">A profile
+                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="User_avatar_help">A profile
                                 picture
                                 is
                                 useful
@@ -45,20 +108,93 @@
                             <div class="relative z-0 w-full mb-6 sm:mb-0 group">
                                 <input type="email" name="floating_email"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="" autocomplete="off" value="{{ Auth::user()->email }}">
+                                    placeholder=" " autocomplete="off" value="{{ Auth::User()->email }}">
                                 <label for="floating_email"
                                     class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                                     address</label>
                             </div>
 
+                            <div class="relative z-0 w-full mb-6 sm:mb-0 group">
+                                <input type="text" name="fulname" id="floating_first_name"
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                                    placeholder=" " value="{{ Auth::User()->name }}">
+                                <label for="floating_first_name"
+                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                    Your Name
+                                </label>
+                            </div>
+                            <div class="relative z-0 w-full mb-6 group">
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <input datepicker datepicker-buttons name="dob" type="text"
+                                        class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
+                                        placeholder="01/30/2000" value="{{ Auth::User()->dob }}">
+                                </div>
+                                <label for="dob"
+                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                                    Date Of Birth
+                                </label>
+                            </div>
 
+
+
+
+
+
+                            <div class="flex flex-col">
+                                <div class="relative z-0 w-full mb-6 group">
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none"
+                                                stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <input name="username" id="username" type="text"
+                                            class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
+                                            placeholder="Username" value="{{ Auth::User()->username }}">
+                                        <input type="hidden" id="origname" name="origname"
+                                            value="{{ Auth::User()->username }}">
+                                    </div>
+                                    <label for="Username"
+                                        class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">My
+                                        Username</label>
+                                </div>
+                                <div id="error_username"
+                                    class="flex hidden p-2 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                                    role="alert">
+                                    <svg class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <div>
+                                        <span class="font-medium">Username Taken!</span>
+                                    </div>
+                                </div>
+                                {{-- <div id="error_username">
+                                    Check
+                                </div> --}}
+                            </div>
                             <div class="relative z-0 w-full mb-6 sm:mb-0 group">
                                 <label for="countries"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select your
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select
+                                    your
                                     country</label>
-                                <select id="countries"
-                                    class="bg-gray-50  dark:bg-gray-700  dark:placeholder-gray-400 dark:focus:ring-blue-500  block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600">
-                                    <option value="Afganistan">{{ Auth::user()->country }}</option>
+                                <select id="countries" name="country"
+                                    class="bg-gray-50 border-0 border-b-gray-300 border-b-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="Afganistan">{{ Auth::User()->country }}</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -308,170 +444,152 @@
                                 </select>
                             </div>
 
-
-
-                            <div class="relative z-0 w-full mb-6 sm:mb-0 group">
-                                <input type="password" name="floating_password" id="floating_password"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="" autocomplete="off" autofill="off" value="">
-                                <label for="floating_password"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
-                            </div>
-                            <div class="relative z-0 w-full mb-6 sm:mb-0 group">
-                                <input type="password" name="repeat_password" id="floating_repeat_password"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="">
-                                <label for="floating_repeat_password"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm
-                                    password</label>
-                            </div>
-                            <div class="relative z-0 w-full mb-6 sm:mb-0 group">
-                                <input type="text" name="floating_first_name" id="floating_first_name"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="">
-                                <label for="floating_first_name"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First
-                                    name</label>
-                            </div>
-                            <div class="relative z-0 w-full mb-6 sm:mb-0 group">
-                                <input type="text" name="floating_last_name" id="floating_last_name"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="">
-                                <label for="floating_last_name"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last
-                                    name</label>
-                            </div>
-
-
-
                             <div class="relative z-0 w-full mb-6 group">
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500  dark:text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <input name="dob" type="text"
-                                        class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
-                                        placeholder="Username">
+                                <label for="gender"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Gender</label>
+                                <select id="gender" name="gender"
+                                    class="bg-gray-50 border-0 border-b-gray-300 border-b-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    @if (Auth::User()->gender)
+                                        <option selected value="{{ Auth::User()->gender }}">{{ Auth::User()->gender }}
+                                        </option>
+                                        <option>Choose Not To Say</option>
+                                    @else
+                                        <option selected>Choose Not To Say</option>
+                                    @endif
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="mb-6 ">
+                            <div
+                                class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+                                <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+                                    <label for="bio" class="sr-only">Your Bio</label>
+                                    <textarea id="bio" rows="4" name="bio"
+                                        class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                                        placeholder="Write yor bio...">{{ Auth::User()->bio }}</textarea>
                                 </div>
-                                <label for="dob"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">My
-                                    Username</label>
                             </div>
+                            <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, your bio should follow our
+                                <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">
+                                    Community Guidelines
+                                </a>.
+                            </p>
+                        </div>
+                        <div class="content-center my-3 mb-6 text-center">
 
-
-                            <div class="relative z-0 w-full mb-6 group">
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500  dark:text-gray-400" fill="none"
-                                            stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                            </path>
-                                        </svg>
-                                    </div>
-                                    <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone"
-                                        id="floating_phone"
-                                        class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
-                                        placeholder="+2547 *** *****" required="123-456-7890">
+                            <label for="checked-toggle" class="relative inline-flex items-center cursor-pointer">
+                                <input name="stay" type="checkbox" id="checked-toggle" class="sr-only peer" checked>
+                                <div
+                                    class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
                                 </div>
-                                <label for="floating_phone"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                    Phone number (123-456-7890)
-                                </label>
-                            </div>
-
-
-
-                            <div class="relative z-0 w-full mb-6 group">
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <input datepicker datepicker-buttons name="dob" type="text"
-                                        class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
-                                        placeholder="01/30/2000">
-                                </div>
-                                <label for="dob"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                    Date Of Birth
-                                </label>
-                            </div>
-                            <div class="relative z-0 w-full mb-6 group">
-                                <input type="text" name="floating_company" id="floating_company"
-                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                    placeholder=" " required="">
-                                <label for="floating_company"
-                                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company
-                                    (Ex. Google)</label>
-                            </div>
+                                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    Stay On This Page After Update
+                                </span>
+                            </label>
 
                         </div>
-                        <div class="relative z-0 w-full mb-6 group">
-                            <input type="text" name="floating_bio" id="floating_bio"
-                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                                placeholder=" " required="">
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
-                            <label for="floating_bio"
-                                class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company
-                                (Ex. Google)</label>
-                        </div>
-                        <div class=" mx-auto content-center">
-                            <span class=" mx-auto">
-                                <button type="submit"
-                                    class="text-white bg-blue-700 hover:bg-green-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-auto">
+                        <div class="flex content-center mx-auto">
+                            <span class="mx-auto ">
+                                <button id="submitbtn" type="submit"
+                                    class=" flex text-white bg-blue-700 hover:bg-green-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full  px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mx-auto">
+                                    <svg class="w-6 h-6 mx-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z">
+                                        </path>
+                                        <path fill-rule="evenodd"
+                                            d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
                                     Update Profile
                                 </button>
                             </span>
+                            <div id="error_usernamealert"
+                                class="flex hidden p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+                                role="alert">
+                                <svg class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-medium">Warning!</span>
+                                    Username Invalid
+                                </div>
+                            </div>
                         </div>
 
                     </form>
-
-
-
-                    <script type="application/javascript">
-                        var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                            output.onload = function() {
-                                URL.revokeObjectURL(output.src) // free memory
-                            }
-                            // output.classList.add("mx-auto w-2xl h-36 border");
-                        };
-                        $("#output").change(function() {
-                            imagePreview(this);
-                            $(".imagechange").remove();
-                        });
-                    </script>
-
                 </div>
+
+                <script type="application/javascript">
+                    var loadFile = function(event) {
+                        var output = document.getElementById('output');
+                        output.src = URL.createObjectURL(event.target.files[0]);
+                        output.onload = function() {
+                            URL.revokeObjectURL(output.src) // free memory
+                        }
+                        // output.classList.add("mx-auto w-2xl h-36 border");
+                    };
+                    $("#output").change(function() {
+                        imagePreview(this);
+                        $(".imagechange").remove();
+                    });
+                </script>
+
+                <script type="application/javascript">
+                    $(document).ready(function() {
+
+                        $("#username").change(function() {
+
+                            var usrN = $("#username").val();
+                            var _token = $('input[name="_token"]').val();
+
+                            if (usrN.length >= 4) {
+                                $.ajax({
+                                    url: "/profile/check",
+                                    method: "POST",
+                                    data: {
+                                        name: usrN,
+                                        _token: _token
+                                    },
+                                    success: function(result) {
+                                        if (result == 'unique') {
+                                            $('#error_username').addClass('hidden');
+                                            $('#error_usernamealert').addClass('hidden');
+                                            $('#submitbtn').attr('disabled', false);
+                                        } else {
+                                            if ($("#origname").val() == $('#username').val()) {
+                                                $('#error_username').addClass('hidden');
+                                                $('#error_usernamealert').addClass('hidden');
+                                                $('#submitbtn').attr('disabled', false);
+                                            } else {
+                                                $('#error_username').removeClass('hidden');
+                                                $('#error_usernamealert').removeClass('hidden');
+                                                $('#submitbtn').attr('disabled', 'disabled');
+                                            }
+
+
+                                        }
+                                        console.log(result)
+                                    }
+                                })
+                            } else {
+                                $('#error_usernamealert').removeClass('hidden');
+                                $('#error_username').removeClass('hidden');
+                                $('#submitbtn').attr('disabled', 'disabled');
+                            }
+
+                        });
+
+                    });
+                </SCRIPT>
             </div>
-            {{-- <script type="application/javascript">
-                // function imagePreview(fileInput) {
-                //     if (fileInput.files && fileInput.files[0]) {
-                //         var fileReader = new FileReader();
-                //         fileReader.onload = function(event) {
-                //             $('#preview').html('<img src="' + event.target.result +
-                //                 '" width="300" height="300" class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full dark:border-gray-100"/>'
-                //             );
-                //         };
-                //         fileReader.readAsDataURL(fileInput.files[0]);
-                //     }
-                // }
-                // $("#image").change(function() {
-                //     imagePreview(this);
-                //     $(".removeThis").remove();
-                // });
-            </script> --}}
         </section>
     </div>
 @endsection

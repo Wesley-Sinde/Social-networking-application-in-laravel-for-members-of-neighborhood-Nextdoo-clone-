@@ -24,6 +24,11 @@ return new class extends Migration
             $table->string('location')->default('Not found');
             $table->string('avatar');
             $table->boolean('verified_account')->default(0);
+            $table->string('username');
+            $table->string('country');
+            $table->string('gender');
+            $table->date('dob');
+            $table->string('bio', 200);
         });
     }
 

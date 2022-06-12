@@ -52,12 +52,12 @@
                                             for="title">Level Of your Post
                                         </label>
                                         <select id="large" name="level"
-                                            class="block py-3 px-4 w-full text-base text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option value='1' class=" bg-green-400" selected>Low</option>
-                                            <option value='2' class=" bg-blue-400" value="US">Guarded</option>
-                                            <option value='3' class=" bg-yellow-300" value="CA">Elevated</option>
-                                            <option value='4' class=" bg-orange-400" value="FR">High</option>
-                                            <option value='5' class=" bg-red-400" value="DE">Severe</option>
+                                            class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                            <option value='1' class="bg-green-400 " selected>Low</option>
+                                            <option value='2' class="bg-blue-400 " value="US">Guarded</option>
+                                            <option value='3' class="bg-yellow-300 " value="CA">Elevated</option>
+                                            <option value='4' class="bg-orange-400 " value="FR">High</option>
+                                            <option value='5' class="bg-red-400 " value="DE">Severe</option>
                                         </select>
                                     </div>
                                     <label class="block mt-2 mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -144,6 +144,36 @@
                         @endforeach
                     </ol>
 
+                    @if (session()->has('message'))
+                        <div id="toast-success"
+                            class="sticky flex items-center float-right max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
+                            role="alert">
+                            <div
+                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3 text-sm font-normal">
+                                {{ session()->get('message') }}
+                            </div>
+                            <button type="button"
+                                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                                data-collapse-toggle="toast-success" aria-label="Close">
+                                <span class="sr-only">Close</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    @endif
                     <!-- Start Content -->
                     <!-- component -->
                     @if ($errors->any())
@@ -205,12 +235,12 @@
                                                 <div
                                                     class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                                     <div class="">
-                                                        <div class=" text-xl">
+                                                        <div class="text-xl ">
                                                             <userprofile-component :userid={{ $post->user_id }} />
                                                         </div>
                                                         <span
-                                                            class=" text-sm font-light leading-snug text-gray-500 flex dark:text-yellow-400">
-                                                            <svg class="w-3 h-3 mr-1 mt-1" fill="currentColor"
+                                                            class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
+                                                            <svg class="w-3 h-3 mt-1 mr-1" fill="currentColor"
                                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                                                 <path fill-rule="evenodd"
                                                                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
@@ -521,7 +551,7 @@
 
                             </div>
                             <div
-                                class=" top-0 items-center px-1 py-3 m-2 text-sm font-semibold bg-gray-200 rounded-sm md:sticky text-slate-900 dark:text-slate-200 dark:bg-slate-900 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10 md:overflow-hidden">
+                                class="top-0 items-center px-1 py-3 m-2 text-sm font-semibold bg-gray-200 rounded-sm md:sticky text-slate-900 dark:text-slate-200 dark:bg-slate-900 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10 md:overflow-hidden">
                                 <div class="flex">
 
                                     <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
@@ -539,7 +569,7 @@
                                 <hr class="border-gray-600">
 
                                 <!--first post-->
-                                <div class="   md:overflow-auto ">
+                                <div class=" md:overflow-auto">
                                     <criticalpost-component />
                                 </div>
                             </div>

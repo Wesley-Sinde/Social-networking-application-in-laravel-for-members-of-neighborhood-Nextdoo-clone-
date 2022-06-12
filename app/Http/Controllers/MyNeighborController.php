@@ -101,12 +101,6 @@ class MyNeighborController extends Controller
 
 
 
-    // public function toggle(My_neighbor $post, Request $request)
-    // {
-    //     info('This is some useful information.');
-    //     $post->toggleReaction($request->reaction);
-    // }
-
 
 
     /**
@@ -157,10 +151,10 @@ class MyNeighborController extends Controller
                 'location' => $cityName,
                 'user_id' => auth()->user()->id
             ]);
-            return redirect('/home')->with('message', 'Your Post Is Now Live!');
+            return redirect('/dashboard')->with('message', 'Your Post Is Now Live!');
         }
         // } catch (\Throwable $th) {
-        //     return redirect('/home')->with('message', 'Your Post was not Added! error in finding your location. Kindly allow our site to access your Location');
+        return redirect('/dashboard')->with('message', 'Your Post was not Added! error in finding your location. Kindly allow our site to access your Location');
         // }
     }
 

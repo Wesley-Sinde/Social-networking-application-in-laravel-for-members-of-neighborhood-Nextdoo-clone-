@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "emojionearea": "^3.0.0",
         "laravel-echo": "^1.11.7",
         "moment": "^2.29.3",
         "pusher-js": "^7.1.0-beta",
