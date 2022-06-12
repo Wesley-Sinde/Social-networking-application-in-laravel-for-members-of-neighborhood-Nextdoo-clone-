@@ -6,12 +6,43 @@
         <section class="bg-white dark:bg-gray-900">
             <script type="application/javascript" src="https://unpkg.com/flowbite@1.3.4/dist/datepicker.js"></script>
             <div class="m-8 border-2 rounded-2xl border-cool-gray-300 dark:border-cool-gray-500 p-7">
+
+                @if (session()->has('message'))
+                    <div id="toast-success"
+                        class="flex items-center max-w-xs p-4 mb-1 text-gray-500 bg-white rounded-lg shadow top-5 dark:text-gray-400 dark:bg-gray-800"
+                        role="alert">
+                        <div
+                            class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div class="ml-3 text-sm font-normal">
+                            {{ session()->get('message') }}
+                        </div>
+                        <button type="button"
+                            class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+                            data-collapse-toggle="toast-success" aria-label="Close">
+                            <span class="sr-only">Close</span>
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                @endif
                 <div class="m-8 p-7" id="appprofile">
                     <header
-                        class="px-6 py-5 font-semibold text-gray-700 bg-gray-200 sm:py-6 sm:px-8 sm:rounded-t-md dark:bg-gray-800 dark:text-gray-200">
+                        class="px-6 py-5 font-semibold text-center text-gray-700 bg-gray-200 sm:py-6 sm:px-8 sm:rounded-t-md dark:bg-gray-800 dark:text-gray-200">
                         {{ __('My Profile') }}
                     </header>
-                    <div class="items-center justify-center align-middle my-7 removeThis">
+                    <div class="sticky items-center justify-center align-middle my-7 removeThis">
                         @if (Auth::User()->avatar)
                             <img id="output"
                                 class="justify-center w-48 mx-auto border-2 border-yellow-200 rounded-full dark:border-gray-400"
@@ -23,36 +54,7 @@
                         @endif
                     </div>
 
-                    @if (session()->has('message'))
-                        <div id="toast-success"
-                            class="sticky flex items-center float-right max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-                            role="alert">
-                            <div
-                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-3 text-sm font-normal">
-                                {{ session()->get('message') }}
-                            </div>
-                            <button type="button"
-                                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                                data-collapse-toggle="toast-success" aria-label="Close">
-                                <span class="sr-only">Close</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                    @endif
+
                     @if ($errors->any())
                         <div class="w-4/5 m-auto ">
                             <ul>
@@ -133,10 +135,18 @@
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
+                                    <?php
+                                    $original_date = Auth::User()->dob;
+                                    // Creating timestamp from given date
+                                    $timestamp = strtotime($original_date);
+                                    // Creating new date format from that timestamp
+                                    $new_date = date('d-m-Y', $timestamp);
+                                    ?>
                                     <input datepicker datepicker-buttons name="dob" type="text"
                                         class=" block w-full pl-10 p-2.5  dark:text-white  focus:ring-0 dark:focus:border-blue-500 peer appearance-none focus:outline-none border-gray-300 border-b-2 border-0 bg-transparent text-gray-900 py-2.5 px-0  text-sm dark:border-gray-600 focus:border-blue-600"
-                                        placeholder="01/30/2000" value="{{ Auth::User()->dob }}">
+                                        placeholder="01/30/2000" value="<?php echo $new_date; ?>">
                                 </div>
+                                {{-- {{ Auth::User()->dob }} --}}
                                 <label for="dob"
                                     class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                     Date Of Birth
@@ -165,6 +175,21 @@
                                             placeholder="Username" value="{{ Auth::User()->username }}">
                                         <input type="hidden" id="origname" name="origname"
                                             value="{{ Auth::User()->username }}">
+                                        <div class="absolute inset-y-0 right-0 flex items-center pl-3 pointer-events-none">
+                                            <svg id="check2" class="hidden w-5 h-5 text-red-500 dark:text-red-500"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+
+                                            <svg id="check1" class="w-5 h-5 text-green-500 dark:text-green-500"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
                                     </div>
                                     <label for="Username"
                                         class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">My
@@ -194,7 +219,12 @@
                                     country</label>
                                 <select id="countries" name="country"
                                     class="bg-gray-50 border-0 border-b-gray-300 border-b-2 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-900 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    <option value="Afganistan">{{ Auth::User()->country }}</option>
+                                    @if (Auth::User()->country)
+                                        <option selected value="{{ Auth::User()->country }}">
+                                            {{ Auth::User()->country }}
+                                        </option>
+                                    @endif
+
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -468,9 +498,26 @@
                                 class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
                                 <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
                                     <label for="bio" class="sr-only">Your Bio</label>
-                                    <textarea id="bio" rows="4" name="bio"
-                                        class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-                                        placeholder="Write yor bio...">{{ Auth::User()->bio }}</textarea>
+                                    <div class="relative">
+                                        <textarea id="bio" rows="4" name="bio"
+                                            class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+                                            placeholder="Write yor bio...">{{ Auth::User()->bio }}</textarea>
+                                        <div class="absolute inset-y-0 right-0 flex items-center pl-3 pointer-events-none">
+                                            <svg id="checkbio2" class="hidden w-5 h-5 text-red-500 dark:text-red-500"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+
+                                            <svg id="checkbio1" class="w-5 h-5 text-green-500 dark:text-green-500"
+                                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                    clip-rule="evenodd"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <p class="ml-auto text-xs text-gray-500 dark:text-gray-400">Remember, your bio should follow our
@@ -522,6 +569,20 @@
                                     Username Invalid
                                 </div>
                             </div>
+                            <div id="error_userbioalert"
+                                class="flex hidden p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+                                role="alert">
+                                <svg class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-medium">Warning!</span>
+                                    Too Long Bio
+                                </div>
+                            </div>
                         </div>
 
                     </form>
@@ -562,15 +623,21 @@
                                         if (result == 'unique') {
                                             $('#error_username').addClass('hidden');
                                             $('#error_usernamealert').addClass('hidden');
+                                            $('#check2').addClass('hidden');
+                                            $('#check1').removeClass('hidden');
                                             $('#submitbtn').attr('disabled', false);
                                         } else {
                                             if ($("#origname").val() == $('#username').val()) {
                                                 $('#error_username').addClass('hidden');
                                                 $('#error_usernamealert').addClass('hidden');
                                                 $('#submitbtn').attr('disabled', false);
+                                                $('#check2').addClass('hidden');
+                                                $('#check1').removeClass('hidden');
                                             } else {
                                                 $('#error_username').removeClass('hidden');
                                                 $('#error_usernamealert').removeClass('hidden');
+                                                $('#check1').addClass('hidden');
+                                                $('#check2').removeClass('hidden');
                                                 $('#submitbtn').attr('disabled', 'disabled');
                                             }
 
@@ -583,6 +650,28 @@
                                 $('#error_usernamealert').removeClass('hidden');
                                 $('#error_username').removeClass('hidden');
                                 $('#submitbtn').attr('disabled', 'disabled');
+                                $('#check1').addClass('hidden');
+                                $('#check2').removeClass('hidden');
+                            }
+
+                        });
+
+
+                        $("#bio").change(function() {
+
+                            var usrB = $("#bio").val();
+
+                            if (usrB.length >= 300) {
+                                $('#error_userbioalert').removeClass('hidden');
+                                $('#checkbio1').addClass('hidden');
+                                $('#checkbio2').removeClass('hidden');
+                                $('#submitbtn').attr('disabled', 'disabled');
+
+                            } else {
+                                $('#error_userbioalert').addClass('hidden');
+                                $('#checkbio2').addClass('hidden');
+                                $('#checkbio1').removeClass('hidden');
+                                $('#submitbtn').attr('disabled', false);
                             }
 
                         });

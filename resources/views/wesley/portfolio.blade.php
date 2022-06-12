@@ -35,21 +35,21 @@
     ?>
 </head>
 
-<body class="h-screen font-sans antialiased leading-none bg-gray-100 dark:bg-gray-900 m-8">
-    <section class="bg-gray-200 rounded-md dark:bg-gray-800 mt-5">
+<body class="h-screen m-8 font-sans antialiased leading-none bg-gray-100 dark:bg-gray-900">
+    <section class="mt-5 bg-gray-200 rounded-md dark:bg-gray-800">
         <div class="container px-6 py-8 mx-auto my-5">
             <div class="items-center lg:flex">
                 <div class="lg:w-1/2">
-                    <h2 class="text-3xl font-bold  dark:text-gray-100">Who I am</h2>
+                    <h2 class="text-3xl font-bold dark:text-gray-100">Who I am</h2>
 
-                    <p class="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md px-3">
+                    <p class="px-3 mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md">
                         Hi I am Wesley , software engineer <a class="font-bold text-blue-600 dark:text-blue-400"
                             href="#">@BakaTeam</a> , My occupation of choice is web designer, and I chose this
                         because even though I don't know everything about computers I am very fast at learning about
                         them. It's never too late to start this occupation and I know if I put time and effort into
                         this, I know I will love it and I can be good at it.
                     </p>
-                    <p class="mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md px-3">
+                    <p class="px-3 mt-4 text-gray-500 dark:text-gray-400 lg:max-w-md">
                         As a web designer I will create and
                         keep up with websites, including the layout, and function according to the client. (Web
                         Developer) Web designing has really developed over time ever since the “World Wide Web” was
@@ -101,12 +101,7 @@
                         </div>
                     </div>
 
-                    <a class="m-5  object-center mx-auto float-right fixed right-5 top-5 hover:text-gray-600 dark:hover:text-gray-600 
-                    
-                    
-                    flex hover:bg-gray-500  opacity-90 shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110
-                    animate-spin
-                    "
+                    <a class="fixed flex float-right object-center m-5 mx-auto transition duration-500 ease-in-out transform border-t-4 border-indigo-600 rounded-md shadow-md right-5 top-5 hover:text-gray-600 dark:hover:text-gray-600 hover:bg-gray-500 opacity-90 hover:-translate-y-1 hover:scale-110 animate-spin "
                         href="https://docs.google.com/document/d/1qXAJ3MqNB_xRom3qHW1OiUNy9pjjOD8WktwYRjfXPnk/edit?usp=sharing"
                         aria-label="Resume">
                         <div>
@@ -117,7 +112,7 @@
                                     d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <span class=" text-gray-200"> Download My Resume</span>
+                            <span class="text-gray-200 "> Download My Resume</span>
                     </a>
                 </div>
             </div>
@@ -144,23 +139,22 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #718096;
         }
-
     </style>
 
     <main class="font-sans bg-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-200">
         <div>
-            <header class="shadow border-t-4 border-indigo-600">
-                <div class="container mx-auto px-6 py-4">
+            <header class="border-t-4 border-indigo-600 shadow">
+                <div class="container px-6 py-4 mx-auto">
                     <div class="flex items-center justify-between">
                         <div>
                             <a class="flex items-center dark:text-gray-400 hover:text-indigo-600" href="#">
-                                <svg class="h-6 w-6 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
+                                <svg class="w-6 h-6 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
 
-                                <span class="mx-3 font-medium text-sm md:text-base">
+                                <span class="mx-3 text-sm font-medium md:text-base">
                                     Wesley sinde Maugo
                                 </span>
                             </a>
@@ -169,11 +163,11 @@
                 </div>
             </header>
 
-            <section class="bg-gray-900 pt-20">
-                <div class="max-w-2xl px-6 text-center mx-auto">
+            <section class="pt-20 bg-gray-900">
+                <div class="max-w-2xl px-6 mx-auto text-center">
                     <h2 class="text-3xl font-semibold dark:text-gray-400">Hi, <span
-                            class="bg-indigo-600 text-white rounded px-1">I’m Wesley</span> . Nice to meet you.</h2>
-                    <p class="text-gray-600 mt-4">
+                            class="px-1 text-white bg-indigo-600 rounded">I’m Wesley</span> . Nice to meet you.</h2>
+                    <p class="mt-4 text-gray-600">
                         Coding is a discipline that takes time, effort, and repetition to master.Every time you code,
                         you make the Logic Development process a bit simpler. So keep going, you're doing a brilliant
                         job
@@ -248,34 +242,34 @@
                 </div>
             </section>
 
-            <section class="bg-gray-800 pattern py-20">
+            <section class="py-20 bg-gray-800 pattern">
                 <div class="max-w-5xl px-6 mx-auto text-center">
-                    <h2 class="text-4xl font-semibold uppercase text-yellow-300 underline underline-offset-2">About Me
+                    <h2 class="text-4xl font-semibold text-yellow-300 underline uppercase underline-offset-2">About Me
                     </h2>
 
-                    <p class="text-gray-400 mt-4 text-2xl ">
+                    <p class="mt-4 text-2xl text-gray-400 ">
                         i am passionate full stacks web developer from Nairobi, Kenya. I am a full-time Laravel
                         developer.
                         I'm a well-rounded IT Professional with extensive knowledge of the Software Development
                         lifecycle and a thorough grasp of the technologies necessary for the development and deployment
                         of highly available and scalable applications, as well as their networks and infrastructure.
                         <br>
-                        <strong class=" text-yellow-500"> React, Laravel, HTML, CSS, and Php</strong> are among my
+                        <strong class="text-yellow-500 "> React, Laravel, HTML, CSS, and Php</strong> are among my
                         specialties. I am committed to offering a
                         positive user experience and enjoy working with and adapting to new technology.
 
 
 
-                    <h2 class=" m-6 text-4xl uppercase font-semibold text-yellow-300 underline underline-offset-2">
+                    <h2 class="m-6 text-4xl font-semibold text-yellow-300 underline uppercase underline-offset-2">
                         My Github Overview
                     </h2>
 
-                    <div class=" mx-auto">
-                        <p class=" text-center mx-auto flex"> <img
+                    <div class="mx-auto ">
+                        <p class="flex mx-auto text-center "> <img
                                 src="https://komarev.com/ghpvc/?username=wesley-sinde&label=Github%20Profile%20views&color=0e75b6&style=flat"
                                 alt="wesley-sinde" /> </p>
 
-                        <p class=" text-center mx-auto"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img
+                        <p class="mx-auto text-center "> <a href="https://github.com/ryo-ma/github-profile-trophy"><img
                                     src="https://github-profile-trophy.vercel.app/?username=wesley-sinde"
                                     alt="wesley-sinde" class="w-full" /></a> </p>
 
@@ -290,38 +284,38 @@
                                 alt="wesley-sinde" /></p>
 
                     </div>
-                    <p class=" text-center mx-auto my-4"> <a href="https://twitter.com/sindewesley" target="blank"><img
+                    <p class="mx-auto my-4 text-center "> <a href="https://twitter.com/sindewesley" target="blank"><img
                                 src="https://img.shields.io/twitter/follow/sindewesley?logo=twitter&style=for-the-badge"
                                 alt="sindewesley" /></a> </p>
-                    <ul class=" left-4 items-start text-xl mx-0 text-left">
-                        <li class=" my-4 mx-0 ">
+                    <ul class="items-start mx-0 text-xl text-left left-4">
+                        <li class="mx-0 my-4 ">
                             - 🌱 I’m currently learning<strong> React native. React, Vue </strong>
                         </li>
 
-                        <li class=" my-4">
+                        <li class="my-4 ">
 
                             - 👨‍💻 All of my projects are available at <strong> <a
                                     href="https://github.com/Wesley-Sinde" target="_blank"
                                     rel="noopener noreferrer">Github</a> </strong>
                         </li>
-                        <li class=" my-4">
+                        <li class="my-4 ">
 
                             - 📝 I regularly write articles on <strong><a href="https://www.wesley.io.ke/blog"
                                     target="_blank" rel="noopener noreferrer">My Blog Site</a> </strong>
                         </li>
-                        <li class=" my-4">
+                        <li class="my-4 ">
                             - 💬 Ask me about <strong>React, Laravel, Php and Cpp </strong>
                         </li>
-                        <li class=" my-4">
+                        <li class="my-4 ">
                             - 📫 How to reach me <strong> sindewesley5@gmail.com </strong>
                         </li>
-                        <li class=" my-4">
+                        <li class="my-4 ">
 
                             - 📄 Know about my experiences <a href="https://www.wesley.io.ke/" target="_blank"
                                 rel="noopener noreferrer">My website</a> <strong> </strong>
                         </li>
 
-                        <li class=" my-4">
+                        <li class="my-4 ">
                             - ⚡ A character I have always wanted to meet.. <strong> We’d all like to have coffee with
                                 Elon Musk and
                                 Mrs. Mark Zuckerberg </strong>
@@ -338,44 +332,44 @@
                 </div>
             </section>
 
-            <section class="bg-gray-900 py-20">
+            <section class="py-20 bg-gray-900">
                 <div class="max-w-5xl px-6 mx-auto text-center">
                     <h2 class="text-2xl font-semibold dark:text-gray-400">Latest Posts</h2>
 
                     <div class="flex flex-col items-center justify-center mt-6">
-                        <a class="max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        <a class="block w-full max-w-2xl transition duration-500 ease-in-out transform bg-white border-t-4 border-indigo-600 rounded-md shadow-md hover:-translate-y-1 hover:scale-110"
                             href="#">
                             <div class="flex items-center justify-between px-4 py-2">
                                 <h3 class="text-lg font-medium text-gray-700">Easy, Free Laravel CI Using GitHub Actions
                                 </h3>
-                                <span class="block text-gray-600 font-light text-sm">20 Jan 2020</span>
+                                <span class="block text-sm font-light text-gray-600">20 Jan 2020</span>
                             </div>
                         </a>
 
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        <a class="block w-full max-w-2xl mt-8 transition duration-500 ease-in-out transform bg-white border-t-4 border-indigo-600 rounded-md shadow-md hover:-translate-y-1 hover:scale-110"
                             href="#">
                             <div class="flex items-center justify-between px-4 py-2">
                                 <h3 class="text-lg font-medium text-gray-700">Pest: a delightful PHP Testing Framework
                                 </h3>
-                                <span class="block text-gray-600 font-light text-sm">29 Oct 2022</span>
+                                <span class="block text-sm font-light text-gray-600">29 Oct 2022</span>
                             </div>
                         </a>
 
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        <a class="block w-full max-w-2xl mt-8 transition duration-500 ease-in-out transform bg-white border-t-4 border-indigo-600 rounded-md shadow-md hover:-translate-y-1 hover:scale-110"
                             href="#">
                             <div class="flex items-center justify-between px-4 py-2">
                                 <h3 class="text-lg font-medium text-gray-700">Using inline SVGs in Vue components</h3>
-                                <span class="block text-gray-600 font-light text-sm">15 Oct 2022</span>
+                                <span class="block text-sm font-light text-gray-600">15 Oct 2022</span>
                             </div>
                         </a>
 
-                        <a class="mt-8 max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-indigo-600 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+                        <a class="block w-full max-w-2xl mt-8 transition duration-500 ease-in-out transform bg-white border-t-4 border-indigo-600 rounded-md shadow-md hover:-translate-y-1 hover:scale-110"
                             href="#">
                             <div class="flex items-center justify-between px-4 py-2">
                                 <h3 class="text-lg font-medium text-gray-700">Acceptance Testing Laravel & VueJs Apps
                                     with
                                     Codeception</h3>
-                                <span class="block text-gray-600 font-light text-sm">3 Oct 2022</span>
+                                <span class="block text-sm font-light text-gray-600">3 Oct 2022</span>
                             </div>
                         </a>
                     </div>
@@ -384,7 +378,7 @@
                         <a class="flex items-center text-gray-600 hover:underline hover:text-gray-500" href="#">
                             <span>View More</span>
 
-                            <svg class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
@@ -393,63 +387,63 @@
                 </div>
             </section>
 
-            <section class="bg-gray-800 pattern py-20">
+            <section class="py-20 bg-gray-800 pattern">
                 <div class="max-w-5xl px-6 mx-auto text-center">
                     <h2 class="text-2xl font-semibold text-white">Projects</h2>
 
                     <div class="flex items-center justify-center mt-10">
                         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 
-                            <div class="max-w-xs w-full">
+                            <div class="w-full max-w-xs">
                                 <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
+                                    class="flex items-center justify-center h-56 overflow-hidden bg-white border-b-8 border-teal-400 rounded-md">
                                     <img class="object-cover w-full" src="{{ url('/images/app/rr1.png') }}" alt="">
                                 </div>
 
                                 <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
+                                    class="block mt-5 overflow-hidden transition duration-500 ease-in-out transform bg-gray-700 rounded-md hover:-translate-y-1 hover:scale-110">
+                                    <div class="px-3 py-2 text-sm text-center">
                                         <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
                                             elit.
                                         </p>
 
-                                        <span class="block text-gray-500 mt-2">https://github.com/Wesley-Sinde</span>
+                                        <span class="block mt-2 text-gray-500">https://github.com/Wesley-Sinde</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <div class="max-w-xs w-full">
+                            <div class="w-full max-w-xs">
                                 <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
+                                    class="flex items-center justify-center h-56 overflow-hidden bg-white border-b-8 border-teal-400 rounded-md">
                                     <img class="object-cover w-full" src="{{ url('/images/app/rr.png') }}" alt="">
                                 </div>
 
                                 <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
+                                    class="block mt-5 overflow-hidden transition duration-500 ease-in-out transform bg-gray-700 rounded-md hover:-translate-y-1 hover:scale-110">
+                                    <div class="px-3 py-2 text-sm text-center">
                                         <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
                                             elit.
                                         </p>
 
-                                        <span class="block text-gray-500 mt-2">https://github.com/Wesley-Sinde</span>
+                                        <span class="block mt-2 text-gray-500">https://github.com/Wesley-Sinde</span>
                                     </div>
                                 </a>
                             </div>
 
-                            <div class="max-w-xs w-full">
+                            <div class="w-full max-w-xs">
                                 <div
-                                    class="flex items-center justify-center h-56 bg-white border-b-8 border-teal-400 rounded-md overflow-hidden">
+                                    class="flex items-center justify-center h-56 overflow-hidden bg-white border-b-8 border-teal-400 rounded-md">
                                     <img class="object-cover w-full" src="{{ url('/images/app/rr2.png') }}" alt="">
                                 </div>
 
                                 <a href="#"
-                                    class="block bg-gray-700 mt-5 rounded-md overflow-hidden transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                                    <div class="py-2 px-3 text-center text-sm">
+                                    class="block mt-5 overflow-hidden transition duration-500 ease-in-out transform bg-gray-700 rounded-md hover:-translate-y-1 hover:scale-110">
+                                    <div class="px-3 py-2 text-sm text-center">
                                         <p class="text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing
                                             elit.
                                         </p>
 
-                                        <span class="block text-gray-500 mt-2">https://github.com/Wesley-Sinde</span>
+                                        <span class="block mt-2 text-gray-500">https://github.com/Wesley-Sinde</span>
                                     </div>
                                 </a>
                             </div>
@@ -461,7 +455,7 @@
                             href="https://github.com/Wesley-Sinde">
                             <span>View More On Github</span>
 
-                            <svg class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg class="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
@@ -471,6 +465,10 @@
             </section>
 
         </div>
+
+
+
+
     </main>
 
 

@@ -88,21 +88,24 @@
                             <li class="mb-2 ml-4 dark:bg-gray-800">
                                 <div class="justify-between md:flex">
                                     <div>
-                                        <div
-                                            class="absolute w-3 h-3 bg-gray-200 rounded-full -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700 ">
-                                            <img class="rounded-full animate-pulse"
-                                                src="https://www.emojiall.com/en/header-svg/%E2%9C%B3%EF%B8%8E.svg" alt="">
-                                        </div>
-                                        <div>
-                                            <span class="text-gray-900 dark:text-white">
-                                                By <a href=""><span
-                                                        class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                                        {{ $post->User->name }}</span> </a>,
-                                                Created on {{ date('jS M Y', strtotime($post->created_at)) }}
+                                        <div class="">
+                                            <div class="text-xl ">
+                                                <userprofile-component :userid={{ $post->user_id }} />
+                                            </div>
+                                            <span
+                                                class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
+                                                <svg class="w-3 h-3 mt-1 mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                                Created on
+                                                {{ date('jS M Y', strtotime($post->created_at)) }}
                                             </span>
                                         </div>
-
                                     </div>
+
                                     <aside class="mx-5">
                                         <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">19 people found this
                                             helpful</p>

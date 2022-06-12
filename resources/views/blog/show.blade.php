@@ -4,9 +4,24 @@
         <div class="flex">
 
             @include('layouts.asidenav')
-            <section class="bg-white dark:bg-gray-900 m-4 rounded-md border">
-                <div class=" grid-cols-1 gap-3 mx-auto border-b border-gray-200 sm:grid py-8 ">
-                    <div class="align-middle p-4">
+            <section class="m-4 bg-white border rounded-md dark:bg-gray-900">
+                <div class="grid-cols-1 gap-3 py-8 mx-auto border-b border-gray-200 sm:grid">
+                    <div class="">
+                        <div class="text-xl ">
+                            <userprofile-component :userid={{ $post->user_id }} />
+                        </div>
+                        <span class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
+                            <svg class="w-3 h-3 mt-1 mr-1" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Created on
+                            {{ date('jS M Y', strtotime($post->created_at)) }}
+                        </span>
+                    </div>
+                    <div class="p-4 align-middle">
                         <img class="align-middle rounded-3xl" src="{{ asset('images/' . $post->image_path) }}" alt=""
                             width=50%>
 
@@ -15,16 +30,11 @@
                         </h2>
 
 
-                        <span class="text-gray-900 dark:text-white">
-                            By <a href=""><span class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                    {{ $post->user->name }}</span> </a>,
-                            Created on {{ date('jS M Y', strtotime($post->created_at)) }}
-                        </span>
 
                         <div class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                             {!! html_entity_decode($post->description) !!}
                         </div>
-                        <div class=" m-5">
+                        <div class="m-5 ">
 
                             <div
                                 class="flex flex-row px-4 py-2 space-x-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg nline-flex hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600">
@@ -35,7 +45,7 @@
                                             @csrf
                                             @method('delete')
                                             <button
-                                                class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-red-700    text-center dark:focus:ring-blue-800"
+                                                class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-red-700 dark:focus:ring-blue-800"
                                                 type="button" data-modal-toggle="popup-modal">
                                                 Delete This Post
                                                 <svg class="w-6 h-6" fill="none" stroke="currentColor"
@@ -46,9 +56,9 @@
                                                 </svg>
                                             </button>
 
-                                            <div class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center md:inset-0 h-modal sm:h-full"
+                                            <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
                                                 id="popup-modal" aria-hidden="true">
-                                                <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+                                                <div class="relative w-full h-full max-w-md px-4 md:h-auto">
 
                                                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
 
@@ -66,7 +76,7 @@
                                                         </div>
 
                                                         <div class="p-6 pt-0 text-center">
-                                                            <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200"
+                                                            <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
                                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                                 xmlns="http://www.w3.org/2000/svg">
                                                                 <path stroke-linecap="round" stroke-linejoin="round"

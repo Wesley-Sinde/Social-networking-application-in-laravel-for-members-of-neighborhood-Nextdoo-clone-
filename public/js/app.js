@@ -5456,29 +5456,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["messages", 'user_id1'],
   data: function data() {
@@ -5488,7 +5465,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log(this.$userId);
-  }
+  } // methods: {
+  // }
+
 });
 
 /***/ }),
@@ -6524,6 +6503,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['userid'],
   data: function data() {
@@ -6656,9 +6637,13 @@ try {
         });
       },
       addMessage: function addMessage(message) {
+        var _this3 = this;
+
         this.messages.push(message);
         axios.post('/messages', message).then(function (response) {
           console.log(response.data);
+
+          _this3.$toastr.s(response.data.status, "Messaage Response");
         });
       }
     }
@@ -58456,7 +58441,7 @@ var render = function () {
       "section",
       {
         staticClass:
-          "mt-6 border rounded-xl bg-gray-50 dark:bg-gray-800 mb-3 w-auto ",
+          "w-auto mt-6 mb-3 border rounded-xl bg-gray-50 dark:bg-gray-800 ",
       },
       [
         _c("textarea", {
@@ -58469,7 +58454,7 @@ var render = function () {
             },
           ],
           staticClass:
-            " w-full p-2 rounded-xl text-gray-800 dark:text-gray-50 dark:bg-gray-700",
+            "w-full p-2 text-gray-800 rounded-xl dark:text-gray-50 dark:bg-gray-700",
           attrs: {
             placeholder: "Type your reply here...",
             rows: "3",
@@ -58487,7 +58472,7 @@ var render = function () {
         }),
         _vm._v(" "),
         _c("div", { staticClass: "flex items-center justify-between p-2" }, [
-          _c("button", { staticClass: "h-6 w-6 text-gray-400" }, [
+          _c("button", { staticClass: "w-6 h-6 text-gray-400" }, [
             _c(
               "svg",
               {
@@ -58514,7 +58499,7 @@ var render = function () {
           _c(
             "button",
             {
-              staticClass: "bg-purple-600 text-white px-6 py-2 rounded-xl",
+              staticClass: "px-6 py-2 text-white bg-purple-600 rounded-xl",
               on: { click: _vm.sendMessage },
             },
             [_vm._v("Reply")]
@@ -58550,84 +58535,100 @@ var render = function () {
   return _c(
     "ul",
     {},
-    _vm._l(_vm.messages, function (message) {
-      return _c("li", { key: message.id, staticClass: "flex flex-col mt-5" }, [
-        message.user_id == _vm.user_id
-          ? _c("div", [
-              _c(
-                "div",
-                { staticClass: "flex justify-end mb-4 mr-7 text-yellow-500" },
-                [
-                  _c("strong", [
-                    _vm._v(
-                      "\n          " + _vm._s(message.user.name) + "\n        "
-                    ),
-                  ]),
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex justify-end mb-4" }, [
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "text-white mr-2 py-3 px-4 rounded-xl bg-blue-400 dark:bg-blue-900",
-                  },
-                  [
-                    _vm._v(
-                      "\n          " + _vm._s(message.message) + "\n        "
-                    ),
-                  ]
-                ),
-                _vm._v(" "),
-                _c("img", {
-                  staticClass: "object-cover h-8 w-8 rounded-full",
-                  attrs: {
-                    src: "https://source.unsplash.com/vpOeXr5wmR4/600x600",
-                    alt: "",
-                  },
-                }),
-              ]),
-            ])
-          : _c("div", [
-              _c("div", { staticClass: "flex justify-start mb-4" }, [
-                _c("strong", [
-                  _vm._v(
-                    "\n          " + _vm._s(message.user.name) + "\n        "
+    [
+      _vm._l(_vm.messages, function (message) {
+        return _c(
+          "li",
+          { key: message.id, staticClass: "flex flex-col mt-5" },
+          [
+            message.user_id == _vm.user_id
+              ? _c("div", [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "flex justify-end mb-4 text-yellow-500 mr-7",
+                    },
+                    [
+                      _c("strong", [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(message.user.name) +
+                            "\n        "
+                        ),
+                      ]),
+                    ]
                   ),
-                ]),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex justify-start mb-4" }, [
-                _c("img", {
-                  staticClass: "object-cover h-8 w-8 rounded-full",
-                  attrs: {
-                    src: "https://source.unsplash.com/vpOeXr5wmR4/600x600",
-                    alt: "",
-                  },
-                }),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass:
-                      "ml-2 py-3 px-4 bg-gray-400 dark:bg-gray-600 rounded-xl text-white",
-                  },
-                  [
-                    _c("p", [
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-end mb-4" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "px-4 py-3 mr-2 text-white bg-blue-400 rounded-xl dark:bg-blue-900",
+                      },
+                      [
+                        _vm._v(
+                          "\n          " +
+                            _vm._s(message.message) +
+                            "\n        "
+                        ),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("img", {
+                      staticClass: "object-cover w-8 h-8 rounded-full",
+                      attrs: {
+                        src: "https://source.unsplash.com/vpOeXr5wmR4/600x600",
+                        alt: "",
+                      },
+                    }),
+                  ]),
+                ])
+              : _c("div", [
+                  _c("div", { staticClass: "flex justify-start mb-4" }, [
+                    _c("strong", [
                       _vm._v(
-                        "\n            " +
-                          _vm._s(message.message) +
-                          "\n          "
+                        "\n          " +
+                          _vm._s(message.user.name) +
+                          "\n        "
                       ),
                     ]),
-                  ]
-                ),
-              ]),
-            ]),
-      ])
-    }),
-    0
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "flex justify-start mb-4" }, [
+                    _c("img", {
+                      staticClass: "object-cover w-8 h-8 rounded-full",
+                      attrs: {
+                        src: "https://source.unsplash.com/vpOeXr5wmR4/600x600",
+                        alt: "",
+                      },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "px-4 py-3 ml-2 text-white bg-gray-400 dark:bg-gray-600 rounded-xl",
+                      },
+                      [
+                        _c("p", [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(message.message) +
+                              "\n          "
+                          ),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                ]),
+          ]
+        )
+      }),
+      _vm._v(" "),
+      _c("hr", { ref: "email", staticClass: "border-gray-600" }),
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -60346,76 +60347,97 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("span", { staticClass: "py-3 text-gray-900 sm:py-4 dark:text-white" }, [
-      _c("div", { staticClass: "flex items-center space-x-4" }, [
-        _c("div", { staticClass: "flex-shrink-0" }, [
-          _vm.users.avatar !== null
-            ? _c("img", {
-                staticClass: "w-8 h-8 rounded-full",
-                attrs: { src: "/images/user/" + _vm.users.avatar },
-              })
-            : _c(
-                "div",
-                {
-                  staticClass:
-                    "relative w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600",
-                },
-                [
-                  _c(
-                    "svg",
-                    {
-                      staticClass: "absolute w-12 h-12 text-gray-400 -left-1",
-                      attrs: {
-                        fill: "currentColor",
-                        viewBox: "0 0 20 20",
-                        xmlns: "http://www.w3.org/2000/svg",
+    _c(
+      "a",
+      {
+        attrs: {
+          href: "/profiles/" + _vm.users.id,
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+      },
+      [
+        _c(
+          "span",
+          { staticClass: "py-3 text-gray-900 sm:py-4 dark:text-white" },
+          [
+            _c("div", { staticClass: "flex items-center space-x-4" }, [
+              _c("div", { staticClass: "flex-shrink-0" }, [
+                _vm.users.avatar !== null
+                  ? _c("img", {
+                      staticClass: "w-8 h-8 rounded-full",
+                      attrs: { src: "/images/user/" + _vm.users.avatar },
+                    })
+                  : _c(
+                      "div",
+                      {
+                        staticClass:
+                          "relative w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600",
                       },
+                      [
+                        _c(
+                          "svg",
+                          {
+                            staticClass:
+                              "absolute w-12 h-12 text-gray-400 -left-1",
+                            attrs: {
+                              fill: "currentColor",
+                              viewBox: "0 0 20 20",
+                              xmlns: "http://www.w3.org/2000/svg",
+                            },
+                          },
+                          [
+                            _c("path", {
+                              attrs: {
+                                "fill-rule": "evenodd",
+                                d: "M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z",
+                                "clip-rule": "evenodd",
+                              },
+                            }),
+                          ]
+                        ),
+                      ]
+                    ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "min-w-0 mx-2" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "text-sm font-medium text-gray-900 truncate dark:text-gray-400",
+                  },
+                  [
+                    _vm._v(
+                      "\n            " + _vm._s(_vm.users.name) + "\n          "
+                    ),
+                  ]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm.users.verified_account == 1
+                ? _c(
+                    "div",
+                    {
+                      staticClass:
+                        "inline-flex items-center text-base font-semibold text-gray-900 dark:text-white",
                     },
                     [
-                      _c("path", {
+                      _c("img", {
+                        staticClass: "w-6 h-6 rounded-full",
                         attrs: {
-                          "fill-rule": "evenodd",
-                          d: "M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z",
-                          "clip-rule": "evenodd",
+                          src: "/images/user/verified.png",
+                          alt: "verified account",
                         },
                       }),
                     ]
-                  ),
-                ]
-              ),
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mx-2 min-w-0" }, [
-          _c(
-            "p",
-            {
-              staticClass:
-                "text-sm font-medium text-gray-900 truncate dark:text-gray-400",
-            },
-            [_vm._v("\n          " + _vm._s(_vm.users.name) + "\n        ")]
-          ),
-        ]),
-        _vm._v(" "),
-        _vm.users.verified_account == 1
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "inline-flex items-center text-base font-semibold text-gray-900 dark:text-white",
-              },
-              [
-                _c("img", {
-                  staticClass: "w-6 h-6 rounded-full",
-                  attrs: {
-                    src: "/images/user/verified.png",
-                    alt: "verified account",
-                  },
-                }),
-              ]
-            )
-          : _vm._e(),
-      ]),
-    ]),
+                  )
+                : _vm._e(),
+            ]),
+          ]
+        ),
+      ]
+    ),
   ])
 }
 var staticRenderFns = []

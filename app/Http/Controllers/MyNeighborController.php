@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Stevebauman\Location\Facades\Location;
 use App\Http\Requests\Storemy_neighborRequest;
 use App\Http\Requests\Updatemy_neighborRequest;
+use DB;
 
 class MyNeighborController extends Controller
 {
@@ -26,10 +27,6 @@ class MyNeighborController extends Controller
      */
     public function profile()
     {
-        // dd(User::where('id', 1)->first());
-        // return view('show')
-        //     ->with('post', My_neighbor::where('id', $id)->first());
-
         return view('Profile.index');
     }
 
@@ -42,22 +39,61 @@ class MyNeighborController extends Controller
 
     public function getcritical()
     {
-        $data = My_neighbor::orderBy('level', 'desc')->paginate(4);
+        $data = My_neighbor::orderBy('id', 'desc')
+            ->groupBy('level')
+            ->paginate(4);
         return response()->json($data);
     }
 
 
-    public function getcriticalpreview()
-    {
-        $data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
-        return response()->json($data);
-    }
-    // public function fetchProducts()
+    // public function getcriticalpreview()
     // {
-    //     $data = Product::orderBy('id')->paginate(12);
+    //     $data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
     //     return response()->json($data);
     // }
 
+    public function getcriticalpreview()
+    {
+        $my_objects = My_neighbor::orderBy('level', 'desc')
+            ->orderBy('id', 'desc')
+            ->take(5)
+            ->get();
+
+
+        //$data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
+        return response()->json($my_objects);
+    }
+
+    public function neighbors()
+    {
+        $ip = '197.248.192.135'; /* Static IP address */
+        $currentUserInfo = Location::get($ip);
+
+        $My_neighbor = User::where('location', '=',  $currentUserInfo->cityName)
+            ->paginate(10);
+        return view('neighbors', compact('My_neighbor'));
+    }
+
+    public function critical(Request $request)
+    {
+        $My_neighbor = My_neighbor::orderBy('level', 'desc')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+
+
+        if ($request->ajax()) {
+            return view('critical', compact('My_neighbor'));
+        }
+
+        return view('critical', compact('My_neighbor'));
+    }
+
+
+    public function profiles($id)
+    {
+        return view('profiles')
+            ->with('profile', User::where('id', $id)->first());
+    }
     public function index(Request $request)
     {
         //my_neighbors
@@ -151,10 +187,10 @@ class MyNeighborController extends Controller
                 'location' => $cityName,
                 'user_id' => auth()->user()->id
             ]);
-            return redirect('/dashboard')->with('message', 'Your Post Is Now Live!');
+            return redirect('/home')->with('message', 'Your Post Is Now Live!');
         }
         // } catch (\Throwable $th) {
-        return redirect('/dashboard')->with('message', 'Your Post was not Added! error in finding your location. Kindly allow our site to access your Location');
+        return redirect('/home')->with('message', 'Your Post was not Added! error in finding your location. Kindly allow our site to access your Location');
         // }
     }
 

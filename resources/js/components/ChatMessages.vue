@@ -3,30 +3,18 @@
   <ul class="">
     <li class="flex flex-col mt-5" v-for="message in messages" :key="message.id">
       <div v-if="message.user_id == user_id">
-        <div class="flex justify-end mb-4 mr-7 text-yellow-500">
+        <div class="flex justify-end mb-4 text-yellow-500 mr-7">
           <strong>
             {{ message.user.name }}
           </strong>
         </div>
 
         <div class="flex justify-end mb-4">
-          <div class="text-white mr-2 py-3 px-4 rounded-xl bg-blue-400 dark:bg-blue-900">
+          <div class="px-4 py-3 mr-2 text-white bg-blue-400 rounded-xl dark:bg-blue-900">
             {{ message.message }}
           </div>
-          <img src="https://source.unsplash.com/vpOeXr5wmR4/600x600" class="object-cover h-8 w-8 rounded-full" alt="" />
+          <img src="https://source.unsplash.com/vpOeXr5wmR4/600x600" class="object-cover w-8 h-8 rounded-full" alt="" />
         </div>
-
-
-        <!-- <div class="">
-          <div class="header">
-            <strong>
-              {{ message.user.name }}
-            </strong>
-          </div>
-          <p>
-            {{ message.message }}
-          </p>
-        </div> -->
       </div>
 
       <div v-else>
@@ -36,27 +24,16 @@
           </strong>
         </div>
         <div class="flex justify-start mb-4">
-          <img src="https://source.unsplash.com/vpOeXr5wmR4/600x600" class="object-cover h-8 w-8 rounded-full" alt="" />
-          <div class="ml-2 py-3 px-4 bg-gray-400 dark:bg-gray-600 rounded-xl text-white">
+          <img src="https://source.unsplash.com/vpOeXr5wmR4/600x600" class="object-cover w-8 h-8 rounded-full" alt="" />
+          <div class="px-4 py-3 ml-2 text-white bg-gray-400 dark:bg-gray-600 rounded-xl">
             <p>
               {{ message.message }}
             </p>
           </div>
         </div>
-
-
-        <!-- <div class="clearfix">
-          <div class="header">
-            <strong>
-              {{ message.user.name }}
-            </strong>
-          </div>
-          <p>
-            {{ message.message }}
-          </p>
-        </div> -->
       </div>
     </li>
+    <hr ref="email" class="border-gray-600">
   </ul>
 </template>
 
@@ -71,6 +48,9 @@ export default {
   },
   mounted() {
     console.log(this.$userId)
-  }
+  },
+  // methods: {
+
+  // }
 };
 </script>

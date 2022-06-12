@@ -1,4 +1,4 @@
-<aside class=" hidden w-auto  sticky md:w-64 lg:block z-50" aria-label="Sidebar" id="sidebar">
+<aside class="sticky z-40 hidden w-auto md:w-64 lg:block" aria-label="Sidebar" id="sidebar">
     {{-- <div class="sticky px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">style="display: none" --}}
     <button class="fixed inset-0 z-10 block bg-gray-900/50 dark:bg-gray-900/60 lg:hidden " type="button" tabindex="0"
         aria-controls="sidebar" data-collapse-toggle="sidebar">
@@ -6,7 +6,7 @@
 
         </div>
         <button type="button"
-            class="absolute z-10 items-center justify-center w-8 h-8 bg-white  lg:absolute top-1/2 right-5 hover:text-slate-600 dark:hover:text-slate-300 dark:bg-slate-800"
+            class="absolute z-10 items-center justify-center w-8 h-8 bg-white lg:absolute top-1/2 right-5 hover:text-slate-600 dark:hover:text-slate-300 dark:bg-slate-800"
             tabindex="0" aria-controls="sidebar" data-collapse-toggle="sidebar"><span class="sr-only">
                 Close navigation
             </span>
@@ -19,7 +19,7 @@
         </button>
     </button>
     <div id="navWrapper"
-        class="sticky z-20 float-left w-full h-auto py-4 overflow-hidden overflow-y-auto scrolling-touch bg-gray-200 rounded  px- dark:bg-gray-800 max-w-2xs lg:h-screen lg:block lg:sticky top:24 lg:top-12 lg:mr-0 lg:w-auto">
+        class="sticky z-20 float-left w-full h-auto py-4 overflow-hidden overflow-y-auto scrolling-touch bg-gray-200 rounded px- dark:bg-gray-800 max-w-2xs lg:h-screen lg:block lg:sticky top:24 lg:top-12 lg:mr-0 lg:w-auto">
 
 
 
@@ -27,8 +27,8 @@
 
             <li>
                 <a href="{{ url('/') }}"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->segment(1) == 'home' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'home' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                         <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
@@ -36,57 +36,25 @@
                     <span class="ml-3">Dashboard</span>
                 </a>
             </li>
-            {{-- <li>
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                    <span class="flex-1 ml-3 text-left whitespace-nowrap" sidebar-toggle-item="">E-commerce</span>
-                    <svg sidebar-toggle-item="" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <ul id="dropdown-example" class="hidden py-2 space-y-2">
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Products</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Billing</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Invoice</a>
-                    </li>
-                </ul>
-            </li> --}}
+
             <li>
-                <a href="#"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                <a href="/critical"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->segment(1) == 'critical' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'critical' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                         </path>
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Critical</span>
                     <span
-                        class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">Pro</span>
+                        class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-red-200 rounded-full dark:bg-red-700 dark:text-gray-300">TM</span>
                 </a>
             </li>
             <li>
                 <a href="/inbox"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->segment(1) == 'inbox' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'inbox' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
@@ -102,8 +70,8 @@
             </li>
             <li>
                 <a href="{{ url('/chat') }}"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->segment(1) == 'chat' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'chat' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
@@ -118,26 +86,26 @@
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                <a href="/neighbors"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700  {{ request()->segment(1) == 'neighbors' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'neighbors' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">My Neighbors</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                <a href="/profiles/{{ Auth::User()->id }}"
+                    class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->segment(1) == 'profiles' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}">
+                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white {{ request()->segment(1) == 'profiles' ? 'text-blue-700 hover:text-blue-700 dark:text-blue-500' : '' }}"
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Profiles</span>
                 </a>
             </li>
             <li>

@@ -112,6 +112,7 @@ try {
 
                 axios.post('/messages', message).then(response => {
                     console.log(response.data);
+                    this.$toastr.s(response.data.status, "Messaage Response");
                 });
             }
         }
