@@ -75,6 +75,10 @@ Vue.component('userprofile-component', Userprofile);
 
 import CriticalPost from './components/CriticalPost.vue';
 Vue.component('criticalpost-component', CriticalPost);
+
+// import CreateComments from './components/CreateComments.vue';
+// Vue.component('createomments-component', CreateComments);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -85,7 +89,7 @@ try {
         el: '#app',
         data: {
             messages: [],
-            //user_id: this.$userId,
+            updatecommentkey: 1,
         },
 
         created() {

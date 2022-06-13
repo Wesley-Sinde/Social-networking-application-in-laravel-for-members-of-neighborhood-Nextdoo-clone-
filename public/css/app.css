@@ -594,6 +594,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 1rem;
 }
 
+.right-2\.5 {
+  right: 0.625rem;
+}
+
 .z-20 {
   z-index: 20;
 }
@@ -2747,6 +2751,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 5rem;
 }
 
+.pl-0 {
+  padding-left: 0px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -4047,6 +4055,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-color: rgb(248 113 113 / var(--tw-ring-opacity));
 }
 
+.focus\:ring-blue-200:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(191 219 254 / var(--tw-ring-opacity));
+}
+
 .focus\:ring-opacity-50:focus {
   --tw-ring-opacity: 0.5;
 }
@@ -4668,6 +4681,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-color: rgb(75 85 99 / var(--tw-ring-opacity));
 }
 
+.dark .dark\:focus\:ring-red-800:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(153 27 27 / var(--tw-ring-opacity));
+}
+
+.dark .dark\:focus\:ring-blue-900:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(30 58 138 / var(--tw-ring-opacity));
+}
+
 .dark .dark\:focus\:ring-opacity-40:focus {
   --tw-ring-opacity: 0.4;
 }
@@ -5031,6 +5054,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:pt-0 {
     padding-top: 0px;
+  }
+
+  .sm\:pl-2 {
+    padding-left: 0.5rem;
   }
 
   .sm\:text-left {

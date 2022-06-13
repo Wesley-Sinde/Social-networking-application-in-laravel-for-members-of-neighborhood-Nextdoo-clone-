@@ -6115,19 +6115,89 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['postid'],
+  props: ['postid', 'user_id'],
   // mounted() {
   //   // Do something useful with the data in the template
   //   console.dir(this.postid)
   // },
   data: function data() {
     return {
+      componentKey: 0,
       PostComments: [],
       page: 1,
       postidtosend: this.postid,
-      show: false
+      // user_id: this.user_id,
+      show: false,
+      form: {
+        comment: "",
+        post_id: this.postid,
+        user_id: this.user_id
+      }
     };
   },
   computed: {
@@ -6151,6 +6221,35 @@ __webpack_require__.r(__webpack_exports__);
         $state.loaded();
       });
       this.page = this.page + 1; // this.$toastr.s("SUCCESS MESSAGE", "Success Toast Title");
+    },
+    updatedata: function updatedata() {
+      var _this2 = this;
+
+      this.$http.get('/lastComments/' + this.postid).then(function (res) {
+        return res.json();
+      }).then(function (res) {
+        $.each(res.data, function (key, value) {
+          _this2.PostComments.push(value);
+
+          console.log(res.data);
+        });
+      }); // this.$toastr.s("SUCCESS MESSAGE", "Success Toast Title");
+    },
+    submitForm: function submitForm() {
+      var _this3 = this;
+
+      axios.post("/comment", this.form).then(function (res) {
+        //Perform Success Action
+        // this.$toastr.s(res.data.status, "Messaage Response");
+        _this3.$toastr.s(res.data.message, "Messaage Response");
+
+        _this3.updatedata();
+      })["catch"](function (error) {
+        _this3.$toastr.s(error.response.data.message, "Messaage Response"); // error.response.status Check status code
+
+      })["finally"](function () {
+        _this3.componentKey += 1; //Perform action in always
+      });
     }
   }
 });
@@ -6603,7 +6702,9 @@ Vue.component('postcomments-component', _components_PostComments_vue__WEBPACK_IM
 
 Vue.component('userprofile-component', _components_Userprofile_vue__WEBPACK_IMPORTED_MODULE_10__["default"]);
 
-Vue.component('criticalpost-component', _components_CriticalPost_vue__WEBPACK_IMPORTED_MODULE_11__["default"]);
+Vue.component('criticalpost-component', _components_CriticalPost_vue__WEBPACK_IMPORTED_MODULE_11__["default"]); // import CreateComments from './components/CreateComments.vue';
+// Vue.component('createomments-component', CreateComments);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -6614,8 +6715,8 @@ try {
   var app = new Vue({
     el: '#app',
     data: {
-      messages: [] //user_id: this.$userId,
-
+      messages: [],
+      updatecommentkey: 1
     },
     created: function created() {
       var _this = this;
@@ -59776,7 +59877,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { key: _vm.componentKey }, [
     _c("div", { staticClass: "flex justify-between mt-3" }, [
       _c("div"),
       _vm._v(" "),
@@ -59812,6 +59913,204 @@ var render = function () {
       ? _c(
           "div",
           [
+            _c("div", [
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.submitForm.apply(null, arguments)
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600",
+                    },
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800",
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass: "sr-only",
+                              attrs: { for: "comment" },
+                            },
+                            [_vm._v("Your comment")]
+                          ),
+                          _vm._v(" "),
+                          _c("textarea", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.comment,
+                                expression: "form.comment",
+                              },
+                            ],
+                            staticClass:
+                              "w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400",
+                            attrs: {
+                              id: "comment",
+                              rows: "4",
+                              placeholder: "Write a comment...",
+                              required: "",
+                            },
+                            domProps: { value: _vm.form.comment },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.form,
+                                  "comment",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "flex items-center justify-between px-3 py-2 border-t dark:border-gray-600",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "\n            inline-flex\n            items-center\n            py-2.5\n            px-4\n            text-xs\n            font-medium\n            text-center text-white\n            bg-blue-700\n            rounded-lg\n            focus:ring-4 focus:ring-blue-200\n            dark:focus:ring-blue-900\n            hover:bg-blue-800\n          ",
+                              attrs: { type: "submit" },
+                            },
+                            [
+                              _vm._v(
+                                "\n              Post comment\n            "
+                              ),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "flex pl-0 space-x-1 sm:pl-2" },
+                            [
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600",
+                                  attrs: { type: "button" },
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-5 h-5",
+                                      attrs: {
+                                        fill: "currentColor",
+                                        viewBox: "0 0 20 20",
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d: "M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z",
+                                          "clip-rule": "evenodd",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600",
+                                  attrs: { type: "button" },
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-5 h-5",
+                                      attrs: {
+                                        fill: "currentColor",
+                                        viewBox: "0 0 20 20",
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d: "M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z",
+                                          "clip-rule": "evenodd",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "inline-flex justify-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600",
+                                  attrs: { type: "button" },
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      staticClass: "w-5 h-5",
+                                      attrs: {
+                                        fill: "currentColor",
+                                        viewBox: "0 0 20 20",
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          "fill-rule": "evenodd",
+                                          d: "M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z",
+                                          "clip-rule": "evenodd",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]
+                              ),
+                            ]
+                          ),
+                        ]
+                      ),
+                    ]
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _vm._m(1),
+            ]),
+            _vm._v(" "),
             _vm._l(_vm.PostComments, function (PostComment) {
               return _c("div", { key: PostComment.id }, [
                 _c(
@@ -59968,6 +60267,29 @@ var staticRenderFns = [
           "ml-3 text-sm font-medium text-gray-900 dark:text-gray-300",
       },
       [_vm._v("\n        Show Comments "), _c("br")]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "p",
+      { staticClass: "ml-auto text-xs text-gray-500 dark:text-gray-400" },
+      [
+        _vm._v(
+          "\n        Remember, contributions to this post should follow our\n        "
+        ),
+        _c(
+          "a",
+          {
+            staticClass: "text-blue-600 dark:text-blue-500 hover:underline",
+            attrs: { href: "#" },
+          },
+          [_vm._v("\n          Community Guidelines ")]
+        ),
+        _vm._v(".\n      "),
+      ]
     )
   },
 ]

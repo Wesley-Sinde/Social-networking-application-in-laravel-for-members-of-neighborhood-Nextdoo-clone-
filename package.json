@@ -32,6 +32,7 @@
         "pusher-js": "^7.1.0-beta",
         "swiper": "^8.1.5",
         "vue-infinite-loading": "^2.4.5",
+        "vue-js-modal": "^2.0.1",
         "vue-lazyload": "^3.0.0-rc.2",
         "vue-resource": "^1.5.3",
         "vue-simple-accordion": "^0.1.0",

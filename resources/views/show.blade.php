@@ -227,7 +227,9 @@
                                     Scroll Your Screen Down To See More Comments
                                 </p>
 
-                                <postcomments-component :postid={{ $post->id }} />
+                                <postcomments-component 
+                                :user_id={{Auth::User()->id}} 
+                                :postid={{ $post->id }} />
                             </div>
 
                         </div>

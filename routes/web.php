@@ -48,11 +48,13 @@ Route::get('/messages', [App\Http\Controllers\ChatsController::class, 'fetchMess
 Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMessage'])->middleware('auth');
 
 Route::get('/PostComments/{post}', [CommentsController::class, 'fetchcomments']);
+Route::get('/lastComments/{post}', [CommentsController::class, 'lastComments']);
 Route::get('/userdata/{id}', [CommentsController::class, 'userdata']);
 Route::get('/getcriticalpreview', [MyNeighborController::class, 'getcriticalpreview']);
 Route::get('/critical', [MyNeighborController::class, 'critical']);
 Route::get('/neighbors', [MyNeighborController::class, 'neighbors']);
 Route::get('/profiles/{id}', [MyNeighborController::class, 'profiles']);
+Route::post('/comment', [CommentsController::class, 'comment']);
 
 Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']);
 Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');;
