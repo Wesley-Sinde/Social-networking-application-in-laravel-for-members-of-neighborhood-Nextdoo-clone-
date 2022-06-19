@@ -382,6 +382,7 @@
                             <ul class="pb-2 space-y-2">
                                 <li>
                                     <form action="#" method="GET" class="lg:hidden">
+                                        @csrf
                                         <label for="mobile-search" class="sr-only">Search</label>
                                         <div class="relative">
                                             <div
@@ -394,7 +395,7 @@
                                                 </svg>
                                             </div>
                                             <input type="text" name="email" id="mobile-search"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 block w-full pl-10 p-2.5"
                                                 placeholder="Search">
                                         </div>
                                     </form>
@@ -421,7 +422,7 @@
                                                 d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
                                             </path>
                                         </svg>
-                                        <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Join</span>
                                         <span
                                             class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full">Pro</span>
                                     </a>
