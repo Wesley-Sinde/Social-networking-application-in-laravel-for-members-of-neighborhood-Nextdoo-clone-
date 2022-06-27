@@ -7,7 +7,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MyNeighborController;
 use App\Http\Controllers\MyprofileController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PostSitemapController;
 use App\Http\Controllers\ReactController;
+use App\Http\Controllers\SitemapXmlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +59,17 @@ Route::get('/profiles/{id}', [MyNeighborController::class, 'profiles']);
 Route::post('/comment', [CommentsController::class, 'comment']);
 
 Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']);
-Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');;
+Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');
 Route::post('/profile/check', [MyprofileController::class, 'checkName']);
 Route::post('/profile', [MyprofileController::class, 'store']);
+
+// Route::get('/sitemap.xml', [SitemapXmlController::class, 'index'])->name('sitemap.index');
+// Route::get('/sitemap/posts.xml', [PostSitemapController::class, 'index'])->name('sitemap.posts.index');
+// Route::get('/sitemap/posts/{letter}.xml', [PostSitemapController::class, 'show'])->name('sitemap.posts.show');
+Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
+
+
+
 
 Route::get('/try', [CommentsController::class, 'try']);
 // Route::get('/products', [ProductController::class, 'fetchProducts']);

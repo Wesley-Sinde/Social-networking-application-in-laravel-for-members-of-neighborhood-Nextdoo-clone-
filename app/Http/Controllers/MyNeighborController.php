@@ -10,6 +10,8 @@ use Stevebauman\Location\Facades\Location;
 use App\Http\Requests\Storemy_neighborRequest;
 use App\Http\Requests\Updatemy_neighborRequest;
 use DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotifyMembersmail;
 
 class MyNeighborController extends Controller
 {
@@ -187,6 +189,14 @@ class MyNeighborController extends Controller
                 'location' => $cityName,
                 'user_id' => auth()->user()->id
             ]);
+
+            $order = My_neighbor::findOrFail(12);
+
+            // Ship the order...
+
+            Mail::to('sindewesley5@gmail.com')->send(new NotifyMembersmail($order));
+
+
             return redirect('/home')->with('message', 'Your Post Is Now Live!');
         }
         // } catch (\Throwable $th) {

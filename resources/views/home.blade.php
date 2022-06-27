@@ -1,42 +1,43 @@
 @extends('layouts.app')
 @section('content')
     <link rel="stylesheet" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <div class=" mx-3 px-3">
-        <div class="mx-2 grid gap-4  md:grid-cols-2  2">
+    <div class="px-3 mx-3 ">
+        <div class="grid gap-4 mx-2 md:grid-cols-2 2">
             <div>
-                        <ol class="breadcrumb flex">
-                        <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
-                                    class="fa fa-dashboard"></i>Dashboard</a></li>
-                        <?php $segments = '';
-                        $toEnd = count(Request::segments());
-                        ?>
-                        @foreach (Request::segments() as $segment)
-                            <svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                                    clip-rule="evenodd"></path>
-                                <path fill-rule="evenodd"
-                                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <?php $segments .= '/' . $segment;
+                <ol class="flex breadcrumb">
+                    <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
+                                class="fa fa-dashboard"></i>Dashboard</a></li>
+                    <?php $segments = '';
+                    $toEnd = count(Request::segments());
+                    ?>
+                    @foreach (Request::segments() as $segment)
+                        <svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd"
+                                d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <?php $segments .= '/' . $segment;
                             
                             if (0 === --$toEnd) { ?>
-                            <li>
-                                <a class=" hover:underline hover:text-yellow-400 text-blue-400"
-                                    href="{{ $segments }}">{{ $segment }}</a>
-                            </li>
-                            <?php } else { ?>
-                            <li>
-                                <a class=" hover:underline hover:text-yellow-400"
-                                    href="{{ $segments }}">{{ $segment }}</a>
-                            </li>
-                            <?php }                            
+                        <li>
+                            <a class="text-blue-400  hover:underline hover:text-yellow-400"
+                                href="{{ $segments }}">{{ $segment }}</a>
+                        </li>
+                        <?php } else { ?>
+                        <li>
+                            <a class=" hover:underline hover:text-yellow-400"
+                                href="{{ $segments }}">{{ $segment }}</a>
+                        </li>
+                        <?php }                            
                             ?>
-                        @endforeach
-                    </ol>
-                <div class="mx-2 grid gap-1  grid-cols-1  ">
+                    @endforeach
+                </ol>
+
+
+                <div class="grid grid-cols-1 gap-1 mx-2 ">
                     <span class="font-light text-gray-400 underline hover:text-yellow-700">You
                         family</span>
                     <div class="flex flex-col mt-2 space-y-1 sm:flex-row sm:space-y-0 sm:items-center sm:space-x-1">
@@ -54,7 +55,7 @@
                     </p>
 
                 </div>
-                <div class="mt-2 h-7 space-y-4 lg:flex lg:space-x-4 lg:space-y-0 place-self-end">
+                <div class="mt-2 space-y-4 h-7 lg:flex lg:space-x-4 lg:space-y-0 place-self-end">
                     <a href="https://twitter.com/intent/tweet?text=Check%20out%20new%20free%20app%20to%20know%20all%20about%20your%20neighbour%20This%20app%20allows%20you%20to%20communicate%20to%20neigbours%20in%20any%20area%20you%20are%20irrespetive%20of%20if%20you%20know%20them%20check%20out%20the%20app%20at%20&amp;url=https%3A%2F%2Fwesley.io.ke%you%20will%20enjoy"
                         target="_blank"
                         class="flex items-center justify-center px-4 py-2 space-x-3 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:text-gray-200 dark:border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none"><svg
@@ -96,9 +97,9 @@
 
 
         <div
-            class="items-center justify-center my-2 mx-auto bg-gray-900 border border-gray-200 rounded-lg dark:border-gray-200 dark:bg-gray-900">
+            class="items-center justify-center mx-auto my-2 bg-gray-900 border border-gray-200 rounded-lg dark:border-gray-200 dark:bg-gray-900">
             <div class="relative overflow-hidden rounded-lg shadow-lg">
-                <img class="items-center justify-center object-cover w-full h-1/4 opacity-50 " src="\images\app\team.jpg"
+                <img class="items-center justify-center object-cover w-full opacity-50 h-1/4 " src="\images\app\team.jpg"
                     alt="Family" width=50% />
 
                 <div class="absolute top-0 left-0 px-6 py-4 text-gray-200 dark:text-gray-200">
@@ -134,26 +135,26 @@
             </div>
         </div>
 
-        <div class=" text-center mx-auto  text-3xl font-extrabold text-yellow-600 rounded-3xl   dark:text-yellow-600 ">
-            <h2 class="  border-gray-600 dark:border-gray-700 ">
+        <div class="mx-auto text-3xl font-extrabold text-center text-yellow-600  rounded-3xl dark:text-yellow-600">
+            <h2 class="border-gray-600  dark:border-gray-700">
                 Where do we offer?
             </h2>
         </div>
 
-        <div class="mt-2 mx-2 grid md:grid-cols-2">
+        <div class="grid mx-2 mt-2 md:grid-cols-2">
             <div>
-                <img class=" mx-auto" src="\images\app\globe.png" alt="world image">
-                <div class="py-2 text-center  mx-auto text-xl text-gray-500 dark:text-gray-300">
+                <img class="mx-auto " src="\images\app\globe.png" alt="world image">
+                <div class="py-2 mx-auto text-xl text-center text-gray-500 dark:text-gray-300">
                     11 countries
                     <br>
                     285,000 neighborhoods globally
                 </div>
             </div>
             <div class="block m-auto text-left sm:m-auto">
-                <div class=" mx-auto">
+                <div class="mx-auto ">
 
                     <div
-                        class="max-w-md  bg-gray-300 border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+                        class="max-w-md bg-gray-300 border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold leading-none text-gray-900 dark:text-white">
                                 Countries
@@ -168,7 +169,8 @@
                                     <div class="flex items-center space-x-4">
                                         <div class="flex-shrink-0">
                                             <img class="w-8 h-8 rounded-full"
-                                                src="https://img.icons8.com/color/48/000000/kenya-circular.png" alt="kenya">
+                                                src="https://img.icons8.com/color/48/000000/kenya-circular.png"
+                                                alt="kenya">
                                         </div>
                                         <div class="flex-1 min-w-0">
                                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -257,11 +259,11 @@
             </div>
         </div>
 
-        <div class="w my-4 border-b-2 border-gray-400 dark:border-gray-800">
+        <div class="my-4 border-b-2 border-gray-400 w dark:border-gray-800">
         </div>
         <div>
             <h2
-                class="w-auto my-4 hover:underline text-4xl font-bold tracking-tight text-center  text-gray-700 dark:text-gray-300 underline-offset-auto ">
+                class="w-auto my-4 text-4xl font-bold tracking-tight text-center text-gray-700 hover:underline dark:text-gray-300 underline-offset-auto ">
                 How Are We Unique
             </h2>
         </div>
@@ -305,7 +307,7 @@
             <!-- each -->
         </div>
 
-        <div class="w my-4 border-b-2 border-gray-400">
+        <div class="my-4 border-b-2 border-gray-400 w">
         </div>
 
         <div class="container flex flex-col items-center py-3 mx-auto sm:py-4">
@@ -351,7 +353,7 @@
                     <div
                         class="relative group bg-gray-200 dark:bg-gray-800 rounded-lg transition hover:z-[1] hover:shadow-2xl">
                         <div class="relative p-8 space-y-8">
-                            <img class="m-auto w-40" src="/images/app/neighbor.png" class="w-10" width="512"
+                            <img class="w-40 m-auto" src="/images/app/neighbor.png" class="w-10" width="512"
                                 height="512" alt="burger illustration">
 
                             <div class="space-y-2">
@@ -371,7 +373,7 @@
                     <div
                         class="relative group bg-gray-200 dark:bg-gray-800 rounded-lg transition hover:z-[1] hover:shadow-2xl">
                         <div class="relative p-8 space-y-8">
-                            <img class="m-auto w-40" src="images/app/business.png" class="w-10" width="512"
+                            <img class="w-40 m-auto" src="images/app/business.png" class="w-10" width="512"
                                 height="512" alt="burger illustration">
 
                             <div class="space-y-2">
@@ -389,7 +391,7 @@
                     <div
                         class="relative group bg-gray-200 dark:bg-gray-800 rounded-lg transition hover:z-[1] hover:shadow-2xl">
                         <div class="relative p-8 space-y-8">
-                            <img class="m-auto w-40" src="/images/app/nonProfit.png" class="w-10" width="512"
+                            <img class="w-40 m-auto" src="/images/app/nonProfit.png" class="w-10" width="512"
                                 height="512" alt="burger illustration">
 
                             <div class="space-y-2">
@@ -409,7 +411,7 @@
                     <div
                         class="relative group bg-gray-200 dark:bg-gray-800 rounded-lg transition hover:z-[1] hover:shadow-2xl">
                         <div class="relative p-8 space-y-8">
-                            <img class="m-auto w-40" src="/images/app/public.png" class="w-10" width="512"
+                            <img class="w-40 m-auto" src="/images/app/public.png" class="w-10" width="512"
                                 height="512" alt="burger illustration">
 
                             <div class="space-y-2">
@@ -456,7 +458,7 @@
                     </div>
 
                     <div
-                        class="relative flex flex-col items-center justify-between py-12 px-2 space-y-4 overflow-hidden bg-gray-200 dark:bg-gray-800 rounded-xl">
+                        class="relative flex flex-col items-center justify-between px-2 py-12 space-y-4 overflow-hidden bg-gray-200 dark:bg-gray-800 rounded-xl">
                         <div class="p-3 text-white bg-blue-500 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -478,7 +480,7 @@
                     </div>
 
                     <div
-                        class="relative flex flex-col items-center justify-between  py-12 space-y-4 overflow-hidden bg-gray-200 dark:bg-gray-800 rounded-xl">
+                        class="relative flex flex-col items-center justify-between py-12 space-y-4 overflow-hidden bg-gray-200 dark:bg-gray-800 rounded-xl">
                         <div class="p-3 text-white bg-blue-500 rounded-full">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 " viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -505,13 +507,13 @@
     </div>
 
     <div class="py-4 white">
-        <div class="container m-auto px-6 text-gray-600 md:px-4 xl:px-6">
-            <h2 class="mb-4 text-center text-2xl text-gray-900 dark:text-yellow-300 font-bold md:text-4xl">What's our <span
-                    class=" text-blue-500">customers</span> saying</h2>
+        <div class="container px-6 m-auto text-gray-600 md:px-4 xl:px-6">
+            <h2 class="mb-4 text-2xl font-bold text-center text-gray-900 dark:text-yellow-300 md:text-4xl">What's our <span
+                    class="text-blue-500 ">customers</span> saying</h2>
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper pb-6">
+                <div class="pb-6 swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="mx-auto text-center space-y-6 md:w-8/12 lg:w-7/12">
+                        <div class="mx-auto space-y-6 text-center md:w-8/12 lg:w-7/12">
                             <img class="w-16 h-16 mx-auto rounded-full"
                                 src="https://tailus.io/sources/blocks/tested/preview/images/avatars/second_user.webp"
                                 alt="user avatar" height="220" width="220" loading="lazy">
@@ -530,7 +532,7 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="mx-auto text-center space-y-6 md:w-8/12 lg:w-7/12">
+                        <div class="mx-auto space-y-6 text-center md:w-8/12 lg:w-7/12">
                             <img class="w-16 h-16 mx-auto rounded-full"
                                 src="https://tailus.io/sources/blocks/tested/preview/images/avatars/first_user.webp"
                                 alt="user avatar" height="220" width="220" loading="lazy">
@@ -549,7 +551,7 @@
                     </div>
 
                     <div class="swiper-slide">
-                        <div class="mx-auto text-center space-y-6 md:w-8/12 lg:w-7/12">
+                        <div class="mx-auto space-y-6 text-center md:w-8/12 lg:w-7/12">
                             <img class="w-16 h-16 mx-auto rounded-full"
                                 src="https://tailus.io/sources/blocks/tested/preview/images/avatars/third_user.webp"
                                 alt="user avatar" height="220" width="220" loading="lazy">

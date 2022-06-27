@@ -11,6 +11,7 @@
     @endif
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="0sGHmxbmgrjs4YBWZTVE1zUe8A8zVjZZ5NiEQJ8hZrY" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -116,11 +117,15 @@
                         </form>
 
 
-                        <a type="button" href="{{ route('login') }}"
+                        <a type="button" href="{{ route('logout') }}"
                             class="text-blue-700 bg-transparent border border-blue-700 hover:bg-blue-800 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xs px-3 py-1.5 text-center dark:border-blue-800 dark:text-blue-800 dark:hover:text-white"
-                            data-dismiss-target="#alert-additional-content-1" aria-label="Close">
-                            Home
+                            data-dismiss-target="#alert-additional-content-1" aria-label="Close"
+                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                            Dismiss
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
                     </div>
                 </div>
 
