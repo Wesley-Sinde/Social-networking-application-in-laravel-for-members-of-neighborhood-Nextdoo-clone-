@@ -16,9 +16,10 @@ class NotifyMembersmail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $postdata;
+    public function __construct($postdata)
     {
-        //
+        $this->postdata = $postdata;
     }
 
     /**

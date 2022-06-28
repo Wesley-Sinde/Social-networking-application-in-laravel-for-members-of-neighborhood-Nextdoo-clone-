@@ -126,6 +126,8 @@ class MyNeighborController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
         }
+
+        // dd($postdata);
         $My_neighbor = My_neighbor::orderBy('created_at', 'desc')->paginate(8);
 
 
@@ -190,11 +192,16 @@ class MyNeighborController extends Controller
                 'user_id' => auth()->user()->id
             ]);
 
-            $order = My_neighbor::findOrFail(12);
+            // $order = My_neighbor::findOrFail(12);
+            // $postdata = My_neighbor::where("user_id", Auth::User()->id);
+
+            $postdata = My_neighbor::where("user_id", '=',  Auth::User()->id)
+                ->orderBy('created_at', 'desc')
+                ->first();
 
             // Ship the order...
 
-            Mail::to('sindewesley5@gmail.com')->send(new NotifyMembersmail($order));
+            Mail::to('sindewesley5@gmail.com')->send(new NotifyMembersmail($postdata));
 
 
             return redirect('/home')->with('message', 'Your Post Is Now Live!');
