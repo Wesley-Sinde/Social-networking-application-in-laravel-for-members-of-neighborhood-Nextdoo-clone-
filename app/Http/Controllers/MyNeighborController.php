@@ -66,9 +66,10 @@ class MyNeighborController extends Controller
         return response()->json($my_objects);
     }
 
-    public function neighbors()
+    public function neighbors(Request $request)
     {
-        $ip = '197.248.192.135'; /* Static IP address */
+        // $ip = '197.248.192.135'; /* Static IP address */
+        $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
 
         $My_neighbor = User::where('location', '=',  $currentUserInfo->cityName)
@@ -98,21 +99,17 @@ class MyNeighborController extends Controller
     }
     public function index(Request $request)
     {
-        //my_neighbors
-        // $My_neighbor = My_neighbor::orderBy('created_at', 'desc')->paginate(5);
-
-        // if ($request->ajax()) {
-        //     return view('dashboard', compact('My_neighbor'));
-        // }
         try {
 
             // return view('dashboard', compact('My_neighbor'));
-            /* $ip = $request->ip(); Dynamic IP address */
-            $ip = '197.248.192.135'; /* Static IP address */
+            $ip = $request->ip(); //Dynamic IP address */
+            // $ip = '197.248.192.135'; /* Static IP address */
             $currentUserInfo = Location::get($ip);
-            $currentUserInfo->cityName;
+            // $currentUserInfo->cityName;
 
-
+            // $Useremail = User::where('location', '=',  $currentUserInfo->cityName)
+            //     ->toArray();
+            // dd($Useremail);
 
             if (Auth::check()) {
                 // The user is logged in...
@@ -172,8 +169,8 @@ class MyNeighborController extends Controller
         //  try {
 
         // return view('dashboard', compact('My_neighbor'));
-        /* $ip = $request->ip(); Dynamic IP address */
-        $ip = '197.248.192.135'; /* Static IP address */
+        $ip = $request->ip(); //Dynamic IP address */
+        // $ip = '197.248.192.135'; /* Static IP address */
         $currentUserInfo = Location::get($ip);
         //dd($request->input('level'));
 
@@ -199,8 +196,15 @@ class MyNeighborController extends Controller
                 ->orderBy('created_at', 'desc')
                 ->first();
 
-            // Ship the order...
+            $Useremail = User::select('email')
+                ->where('location', '=',  $currentUserInfo->cityName)
+                ->get();
+            $resultArray = $Useremail->toArray();
+            //dd($resultArray);
 
+            foreach ($resultArray as $recipient) {
+                Mail::to($recipient)->send(new NotifyMembersmail($postdata));; //send(new OrderShipped($order));
+            }
             Mail::to('sindewesley5@gmail.com')->send(new NotifyMembersmail($postdata));
 
 
