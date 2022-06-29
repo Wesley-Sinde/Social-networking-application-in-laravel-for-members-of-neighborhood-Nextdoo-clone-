@@ -10,6 +10,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PostSitemapController;
 use App\Http\Controllers\ReactController;
 use App\Http\Controllers\SitemapXmlController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,6 +63,8 @@ Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']
 Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');
 Route::post('/profile/check', [MyprofileController::class, 'checkName']);
 Route::post('/profile', [MyprofileController::class, 'store']);
+Route::get('/status', [UserController::class, 'userOnlineStatus']);
+
 
 // Route::get('/sitemap.xml', [SitemapXmlController::class, 'index'])->name('sitemap.index');
 // Route::get('/sitemap/posts.xml', [PostSitemapController::class, 'index'])->name('sitemap.posts.index');

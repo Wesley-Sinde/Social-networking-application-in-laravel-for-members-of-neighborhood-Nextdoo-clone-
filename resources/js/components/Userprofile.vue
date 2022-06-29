@@ -1,9 +1,9 @@
-<template>
-  <div>
-    <a v-bind:href="'/profiles/' + users.id" target="_blank" rel="noopener noreferrer">
+<template class=" w-full">
+  <div class=" w-full">
+    <a v-bind:href="'/profiles/' + users.id" target="_blank" rel="noopener noreferrer" class=" w-full">
       <span class="py-3 text-gray-900 sm:py-4 dark:text-white">
-        <div class="flex items-center space-x-4">
-          <div class="flex-shrink-0">
+        <div class="flex items-center space-x-2">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full relative">
             <img v-if="users.avatar !== null" class="w-8 h-8 rounded-full"
               v-bind:src="'/images/user/' + users.avatar" />
 
@@ -15,6 +15,8 @@
                 </path>
               </svg>
             </div>
+            <span v-if="online === 'Online'"
+              class="top-1 left-6 absolute  w-3.5 h-3.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
 
           </div>
           <div class="min-w-0 mx-2">
@@ -26,6 +28,10 @@
             class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
             <img class="w-6 h-6 rounded-full" src="/images/user/verified.png" alt="verified account" />
           </div>
+          &emsp; &emsp;
+          <span v-if="online !== 'Online'">
+            <span v-if="online !== null" class="text-green-500 text-xs">{{ online }} </span>
+          </span>
         </div>
       </span>
     </a>
@@ -34,17 +40,21 @@
 
 <script>
 export default {
-  props: ['userid'],
+  props: ['userid', 'online'],
   data() {
     return {
       users: [],
+      //Online: this.Online
     }
   },
   mounted() {
     axios
       .get('/userdata/' + this.userid)
       .then(response => (this.users = response.data));
-    // alert(this.userid);
+    // alert(this.Online);
+    // console.log(this.user);
+    // console.log(this.name);
+    // console.log(this.Online);
 
   },
 

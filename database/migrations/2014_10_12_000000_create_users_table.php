@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('gender');
             $table->date('dob');
             $table->string('bio', 200);
+            $table->timestamp('last_seen')->nullable();
         });
     }
 

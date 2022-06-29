@@ -52,7 +52,7 @@
                             <div class="flex items-center justify-between mb-2">
                                 <div class="">
                                     <div>
-                                        <userprofile-component :userid={{ $post->user_id }} />
+                                        <userprofile-component :userid={{ $post->user_id }}   online="{{ $Online }}"/>
                                     </div>
                                     <span class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
                                         {{ date('jS M Y', strtotime($post->created_at)) }}

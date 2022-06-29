@@ -8,7 +8,7 @@
                 <div class="grid-cols-1 gap-3 py-8 mx-auto border-b border-gray-200 sm:grid">
                     <div class="">
                         <div class="text-xl ">
-                            <userprofile-component :userid={{ $post->user_id }} />
+                            <userprofile-component :userid={{ $post->user_id }} online="{{ $Online }}" />
                         </div>
                         <span class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
                             <svg class="w-3 h-3 mt-1 mr-1" fill="currentColor" viewBox="0 0 20 20"
@@ -22,8 +22,8 @@
                         </span>
                     </div>
                     <div class="p-4 align-middle">
-                        <img class="align-middle rounded-3xl" src="{{ asset('images/' . $post->image_path) }}" alt=""
-                            width=50%>
+                        <img class="align-middle rounded-3xl" src="{{ asset('images/' . $post->image_path) }}"
+                            alt="" width=50%>
 
                         <h2 class="pb-4 text-3xl font-bold text-gray-900 dark:text-white ">
                             {{ $post->title }}
@@ -66,8 +66,8 @@
                                                             <button type="button"
                                                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                                                                 data-modal-toggle="popup-modal">
-                                                                <svg class="w-5 h-5" fill="currentColor"
-                                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                                                    xmlns="http://www.w3.org/2000/svg">
                                                                     <path fill-rule="evenodd"
                                                                         d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                                                         clip-rule="evenodd"></path>
@@ -109,8 +109,8 @@
                                         <a href="{{ url('/blog/' . $post->slug . '/edit') }}"
                                             class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-blue-700">
                                             Edit Post
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                                                 </path>

@@ -120,7 +120,7 @@
                                                         class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                                         <div class="">
                                                             <div class="text-xl ">
-                                                                <userprofile-component :userid={{ $post->id }} />
+                                                                <userprofile-component :userid={{ $post->id }}   online="{{ $Online }}"/>
                                                             </div>
                                                             <span
                                                                 class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">

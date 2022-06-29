@@ -90,7 +90,7 @@
                                     <div>
                                         <div class="">
                                             <div class="text-xl ">
-                                                <userprofile-component :userid={{ $post->user_id }} />
+                                                <userprofile-component :userid={{ $post->user_id }}   online="{{ $Online }}"/>
                                             </div>
                                             <span
                                                 class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">

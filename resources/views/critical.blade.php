@@ -20,8 +20,7 @@
                             <button type="button"
                                 class="absolute top-3 right-2 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                                 data-modal-toggle="createpost-modal">
-                                <svg class="w-5 h-5" fill="red" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-5 h-5" fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
                                         d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                         clip-rule="evenodd"></path>
@@ -208,7 +207,8 @@
                                                     class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                                     <div class="">
                                                         <div class="text-xl ">
-                                                            <userprofile-component :userid={{ $post->user_id }} />
+                                                            <userprofile-component :userid={{ $post->user_id }}
+                                                                online="{{ $Online }}" />
                                                         </div>
                                                         <span
                                                             class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
@@ -252,7 +252,8 @@
                                                         <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
                                                             id="dropdownusermenu">
                                                             <div class="pb-3 ">
-                                                                <form action="{{ url('/home/' . $post->id) }}" method="post">
+                                                                <form action="{{ url('/home/' . $post->id) }}"
+                                                                    method="post">
                                                                     @csrf
                                                                     @method('delete')
 
@@ -335,7 +336,8 @@
                                                                 </button>
                                                                 <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
                                                                     id="pro-modal" aria-hidden="true">
-                                                                    <div class="relative w-full h-full max-w-md px-4 md:h-auto">
+                                                                    <div
+                                                                        class="relative w-full h-full max-w-md px-4 md:h-auto">
 
                                                                         <div
                                                                             class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
@@ -344,8 +346,8 @@
                                                                                 <button type="button"
                                                                                     class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
                                                                                     data-modal-toggle="popup-modal">
-                                                                                    <svg class="w-5 h-5"
-                                                                                        fill="currentColor" viewBox="0 0 20 20"
+                                                                                    <svg class="w-5 h-5" fill="currentColor"
+                                                                                        viewBox="0 0 20 20"
                                                                                         xmlns="http://www.w3.org/2000/svg">
                                                                                         <path fill-rule="evenodd"
                                                                                             d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -360,7 +362,8 @@
                                                                                     viewBox="0 0 24 24"
                                                                                     xmlns="http://www.w3.org/2000/svg">
                                                                                     <path stroke-linecap="round"
-                                                                                        stroke-linejoin="round" stroke-width="2"
+                                                                                        stroke-linejoin="round"
+                                                                                        stroke-width="2"
                                                                                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                                                                                     </path>
                                                                                 </svg>
@@ -453,9 +456,11 @@
 
                                                     <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
 
-                                                        <svg width="24" height="24" fill="none" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                            class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
+                                                        <svg width="24" height="24" fill="none"
+                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            class="mr-1 text-slate-400 dark:text-slate-500"
+                                                            aria-hidden="true">
                                                             <path
                                                                 d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">
                                                             </path>
@@ -505,9 +510,8 @@
 
 
 
-                                                <postcomments-component 
-                                                :user_id={{Auth::User()->id}}
-                                                :postid={{ $post->id }} />
+                                                <postcomments-component :user_id={{ Auth::User()->id }}
+                                                    :postid={{ $post->id }} />
 
                                             </div>
                                         @endforeach
