@@ -45,7 +45,8 @@
                         @endforeach
                     </ol>
                                 <h3 class="text-2xl font-semibold text-purple-900 dark:text-purple-500">Graphic Design</h3>
-                                <p class="mb-6">Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at
+                                <p class="mb-6">This Is our services Page.
+                                    Obcaecati, quam? Eligendi, nulla numquam natus laborum porro at
                                     cum, consectetur ullam tempora ipsa iste officia sed officiis! Incidunt ea animi
                                     officiis.</p>
                                 <a href="#" class="block font-medium text-purple-600">Know more</a>

@@ -6,7 +6,8 @@
 
         <div class="">
             <ol class="flex pl-8 text-gray-800 breadcrumb dark:text-gray-300">
-                <li><a href="/" class=" hover:underline hover:text-yellow-400"><i class="fa fa-dashboard"></i>Dashboard</a>
+                <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
+                            class="fa fa-dashboard"></i>Dashboard</a>
                 </li>
                 <?php $segments = '';
                 $toEnd = count(Request::segments());
@@ -95,7 +96,8 @@
                     </label>
 
                     <ul class="mt-6">
-                        <li class="px-3 py-5 transition border-b border-gray-500 hover:bg-indigo-100">
+                        <li class="px-3 py-5 transition border-b border-gray-500 hover:bg-indigo-100 flex">
+                            <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}" alt="user photo">
                             <a href="#" class="flex items-center justify-between">
                                 <h3 class="text-lg font-semibold">Akhil Gautam</h3>
                                 <p class="text-gray-400 text-md">23m ago</p>
