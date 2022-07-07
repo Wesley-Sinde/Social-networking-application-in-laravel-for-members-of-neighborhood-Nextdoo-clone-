@@ -19,6 +19,13 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/share.js') }}"></script>
+
+    //
+    <script src="{{ asset('js/share.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -76,8 +83,8 @@
                                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
@@ -89,8 +96,8 @@
 
                     <a href="#"
                         class="flex items-center self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38" height="28"
-                            viewBox="0 0 48 48" style=" fill:#000000;">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38"
+                            height="28" viewBox="0 0 48 48" style=" fill:#000000;">
                             <path fill="#7cb342"
                                 d="M38,6H10c-2.209,0-4,1.791-4,4v28c0,2.209,1.791,4,4,4h28c2.209,0,4-1.791,4-4V10 C42,7.791,40.209,6,38,6z">
                             </path>
@@ -151,7 +158,8 @@
                                     <div class="mx-1">
                                         <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200">
                                             {{ Auth::user()->name }}</h1>
-                                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ Auth::user()->email }}</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ Auth::user()->email }}
+                                        </p>
                                     </div>
                                 </div>
 
@@ -333,7 +341,8 @@
                                         class="mx-2 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
                                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
+                                            <path
+                                                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
                                             </path>
                                         </svg>
                                         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"

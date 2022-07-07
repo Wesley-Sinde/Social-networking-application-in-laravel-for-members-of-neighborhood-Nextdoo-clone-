@@ -192,6 +192,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Share' => Jorenvh\Share\ShareFacade::class,
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
 

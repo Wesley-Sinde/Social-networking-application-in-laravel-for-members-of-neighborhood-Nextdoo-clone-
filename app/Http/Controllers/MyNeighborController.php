@@ -97,6 +97,7 @@ class MyNeighborController extends Controller
         return view('profiles')
             ->with('profile', User::where('id', $id)->first());
     }
+
     public function index(Request $request)
     {
         try {
@@ -123,16 +124,30 @@ class MyNeighborController extends Controller
         } catch (\Throwable $th) {
             //throw $th;
         }
+        $socialShare = \Share::page(
+            url('/home'),
+            'hello'
+            // $post->url,
+            // $post->title,
+        )
+            ->facebook()
+            ->twitter()
+            ->reddit()
+            ->linkedin()
+            ->whatsapp()
+            ->telegram();
+        //dd($socialShare);
+        // return view('posts.show', compact('socialShare'));
 
         // dd($postdata);
         $My_neighbor = My_neighbor::orderBy('created_at', 'desc')->paginate(8);
 
 
         if ($request->ajax()) {
-            return view('dashboard', compact('My_neighbor'));
+            return view('dashboard', compact('My_neighbor', 'socialShare'));
         }
 
-        return view('dashboard', compact('My_neighbor'));
+        return view('dashboard', compact('My_neighbor', 'socialShare'));
     }
 
 

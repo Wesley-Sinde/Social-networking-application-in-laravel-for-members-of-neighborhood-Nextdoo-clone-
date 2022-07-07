@@ -590,20 +590,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0.75rem;
 }
 
-.left-7 {
-  left: 1.75rem;
-}
-
-.left-4 {
-  left: 1rem;
-}
-
 .top-1 {
   top: 0.25rem;
 }
 
 .left-6 {
   left: 1.5rem;
+}
+
+.left-4 {
+  left: 1rem;
 }
 
 .z-20 {

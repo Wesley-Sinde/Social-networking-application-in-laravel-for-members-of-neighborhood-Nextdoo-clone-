@@ -25,7 +25,7 @@
                             
                             if (0 === --$toEnd) { ?>
                     <li>
-                        <a class="text-blue-400  hover:underline hover:text-yellow-400"
+                        <a class="text-blue-400 hover:underline hover:text-yellow-400"
                             href="{{ $segments }}">{{ $segment }}</a>
                     </li>
                     <?php } else { ?>
@@ -96,12 +96,15 @@
                     </label>
 
                     <ul class="mt-6">
-                        <li class="px-3 py-5 transition border-b border-gray-500 hover:bg-indigo-100 flex">
-                            <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}" alt="user photo">
-                            <a href="#" class="flex items-center justify-between">
-                                <h3 class="text-lg font-semibold">Akhil Gautam</h3>
-                                <p class="text-gray-400 text-md">23m ago</p>
-                            </a>
+                        <li class="px-3 py-5 transition border-b border-gray-500 hover:bg-indigo-100 ">
+                            <span class="flex">
+
+                                <img class="w-8 h-8 rounded-full" src="{{ asset('images/user.png') }}" alt="user photo">
+                                <a href="#" class="flex items-center justify-between">
+                                    <h3 class="flex-wrap text-sm font-semibold">Akhil Gautam</h3>
+                                    <p class="text-gray-400 text-md">23m ago</p>
+                                </a>
+                            </span>
                             <div class="italic text-gray-400 text-md">You have been invited!</div>
                         </li>
                         <li class="px-3 py-5 transition border-b border-gray-500 hover:bg-indigo-100">

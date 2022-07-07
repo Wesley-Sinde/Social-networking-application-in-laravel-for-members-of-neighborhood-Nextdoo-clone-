@@ -186,6 +186,16 @@
                             </ul>
                         </div>
                     @endif
+
+                    {{-- {!! html_entity_decode($socialShare) !!}
+                    --
+                    <div>
+                        
+                    {{ $socialShare }}  
+                    {!! $socialShare !!}
+                    </div>
+                    -- -- {-- {{ $socialShare }} --}}
+
                     @if (session()->has('message'))
                         <div id="toast-success"
                             class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
