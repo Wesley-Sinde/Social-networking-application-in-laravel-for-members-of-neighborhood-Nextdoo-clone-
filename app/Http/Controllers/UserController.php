@@ -11,7 +11,7 @@ use Cache;
 class UserController extends Controller
 {
 
-    /**
+    /** 
      * Show user online status.
      */
     public function userOnlineStatus()
