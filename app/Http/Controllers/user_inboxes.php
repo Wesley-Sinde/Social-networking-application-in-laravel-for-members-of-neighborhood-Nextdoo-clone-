@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\user_inboxes;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 
 class user_inboxesController extends Controller
@@ -15,8 +17,13 @@ class user_inboxesController extends Controller
      */
     public function index()
     {
-        $data = user_inboxes::select("*")
-            ->where("user_id", Auth::User()->id)
+        // $Product = DB::table('purchase_items')
+        // ->where('PurchaseNo', Auth::user()->PurchaseNo)
+        //     ->leftJoin('Products', 'purchase_items.ProductNo', '=', 'Products.id')
+        //     ->get();
+
+        $data = User::select("*")
+            //->where("user_id", Auth::User()->id)
             ->orderBy('id', 'desc')
             ->paginate(5);
         return response()->json($data);
