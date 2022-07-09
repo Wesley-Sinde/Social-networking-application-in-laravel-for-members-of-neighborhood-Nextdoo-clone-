@@ -11,6 +11,8 @@ use App\Http\Controllers\PostSitemapController;
 use App\Http\Controllers\ReactController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\AdminAuthControlle;
+use App\Http\Controllers\Auth\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,3 +78,14 @@ Route::get('/sitemap.xml', [SitemapXmlController::class, 'index']);
 
 Route::get('/try', [CommentsController::class, 'try']);
 // Route::get('/products', [ProductController::class, 'fetchProducts']);
+
+
+// ADMIN PAGES
+Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
+Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+Route::get('admin/dashboard', function () {
+    return view('/admin/dashboardApp');
+});
+Route::get('admin/logout', 'Auth\AdminAuthController@logout')->name('adminLogout');
+Route::prefix("admin")->middleware("auth", "isadmin")->group(function () {
+});
