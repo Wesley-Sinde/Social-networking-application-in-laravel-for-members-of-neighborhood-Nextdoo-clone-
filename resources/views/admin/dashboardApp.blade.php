@@ -17,7 +17,7 @@
                             </svg>
                         </div>
                         <div class="text-right">
-                            <p class="text-2xl">1,257</p>
+                            <p class="text-2xl">10,257 </p>
                             <p>Visitors</p>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             </svg>
                         </div>
                         <div class="text-right">
-                            <p class="text-2xl">$75,257</p>
+                            <p class="text-2xl">$750,257</p>
                             <p>Balances</p>
                         </div>
                     </div>
