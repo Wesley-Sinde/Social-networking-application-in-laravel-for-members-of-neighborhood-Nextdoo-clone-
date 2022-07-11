@@ -23,7 +23,7 @@
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
     <script src="{{ asset('js/share.js') }}"></script>
 
-    //
+
     <script src="{{ asset('js/share.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -369,6 +369,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                     </div>
+                </div>
             </header>
         </div>
         <div class="h-13">

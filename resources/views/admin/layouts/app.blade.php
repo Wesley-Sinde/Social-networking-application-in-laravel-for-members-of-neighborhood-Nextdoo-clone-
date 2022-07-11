@@ -35,7 +35,7 @@
     {{-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> --}}
 
-
+    <meta name="user-id" content="1">
 
 
     {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
@@ -53,12 +53,12 @@
     ?>
 </head>
 
-<body class="h-screen font-sans antialiased leading-none bg-gray-100 dark:bg-gray-900">
+<body class="h-screen font-sans antialiased leading-none bg-gray-300 dark:bg-gray-900 text-gary-700 dark:text-gray-200">
 
     <div id="app">
-        <div id="">
+        {{-- <div id="">
             <header
-                class="fixed top-0 z-50 flex flex-none w-full mx-auto mt-0 bg-gray-200 border-b border-gray-300 dark:border-gray-200 py-2 dark:bg-gray-800">
+                class="fixed top-0 z-50 flex flex-none w-full py-2 mx-auto mt-0 bg-gray-200 border-b border-gray-300 dark:border-gray-200 dark:bg-gray-800">
                 <div class="flex items-center justify-between w-full max-w-4xl px-3 mx-auto lg:px-4">
 
 
@@ -72,8 +72,8 @@
                                 d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
@@ -85,8 +85,8 @@
 
                     <a href="#"
                         class="flex items-center self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38" height="28"
-                            viewBox="0 0 48 48" style=" fill:#000000;">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38"
+                            height="28" viewBox="0 0 48 48" style=" fill:#000000;">
                             <path fill="#7cb342"
                                 d="M38,6H10c-2.209,0-4,1.791-4,4v28c0,2.209,1.791,4,4,4h28c2.209,0,4-1.791,4-4V10 C42,7.791,40.209,6,38,6z">
                             </path>
@@ -128,8 +128,7 @@
                             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                             <span class="sr-only">Open user menu</span>
                             @guest
-                                <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}"
-                                    alt="user photo">
+                                <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}" alt="user photo">
                             @else
                                 <img width=85% class="rounded-full " src="{{ asset('images/user.png') }}"
                                     alt="user photo">
@@ -248,7 +247,8 @@
                                         class="text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
                                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
                                             viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
+                                            <path
+                                                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
                                             </path>
                                         </svg>
                                         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
@@ -274,67 +274,308 @@
                             aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-
-                        {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-                            <ul class="navbar-nav me-auto">
-
-                            </ul>
-
-                            <!-- Right Side Of Navbar -->
-                            <ul class="navbar-nav ms-auto">
-                                <!-- Authentication Links -->
-                                @guest
-                                    @if (Route::has('login'))
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                                href="{{ route('login') }}">{{ __('Login') }}</a>
-                                        </li>
-                                    @endif
-
-                                    @if (Route::has('register'))
-                                        <li class="nav-item">
-                                            <a class="nav-link"
-                                                href="{{ route('register') }}">{{ __('Register') }}</a>
-                                        </li>
-                                    @endif
-                                @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                    </li>
-                                @endguest
-                            </ul>
-                        </div> --}}
                     </div>
+                </div>
             </header>
-        </div>
-        <div class="h-13">
-        </div>
+        </div> --}}
+        <nav
+            class="fixed z-30 w-full bg-gray-300 border-b border-gray-200 dark:bg-gray-900 text-gary-700 dark:text-gray-200">
+            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-start">
+                        <button id="toggleSidebarMobile" aria-expanded="true" aria-controls="sidebar"
+                            class="p-2 mr-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 dark:bg-blue-700 hover:bg-gray-100 dark:hover:bg-gray-600 focus:bg-gray-100 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-600">
+                            <svg id="toggleSidebarMobileHamburger" class="w-6 h-6" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <svg id="toggleSidebarMobileClose" class="hidden w-6 h-6" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <a href="https://demo.themesberg.com/windster/"
+                            class="text-xl font-bold flex items-center lg:ml-2.5">
+                            <img src="https://demo.themesberg.com/windster/images/logo.svg" class="h-6 mr-2"
+                                alt="Windster Logo">
+                            <span class="self-center whitespace-nowrap">{{ config('app.name', 'Laravel') }}</span>
+                        </a>
+                        <form action="#" method="GET" class="hidden lg:block lg:pl-32">
+                            <label for="topbar-search" class="sr-only">Search</label>
+                            <div class="relative mt-1 lg:w-64">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <input type="text" name="email" id="topbar-search"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full pl-10 p-2.5"
+                                    placeholder="Search">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex items-center">
+                        <button id="toggleSidebarMobileSearch" type="button"
+                            class="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100">
+                            <span class="sr-only">Search</span>
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
 
-        <main class="py-12">
-            @yield('content')
-        </main>
-    </div>
+                    <div
+                        class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
 
-    <div>
-        @include('layouts.footer')
+
+                        <button id="theme-toggle" type="button"
+                            class="mx-2 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
+                            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
+                                </path>
+                            </svg>
+                            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
+                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    fill-rule="evenodd" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div id="tooltip-toggle" role="tooltip"
+                            class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip">
+                            Toggle dark mode
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
+                    </div>
+                    <button id="theme-toggle" type="button"
+                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>ff
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
+                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div class="flex pt-16 overflow-hidden bg-gray-300 dark:bg-gray-900 text-gary-700 dark:text-gray-200">
+            <aside id="sidebar"
+                class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 duration-75 bg-gray-300 lg:flex transition-width dark:bg-gray-900 text-gary-700 dark:text-gray-200"
+                aria-label="Sidebar">
+                <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 ">
+                    <div
+                        class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto bg-gray-300 dark:bg-gray-900 text-gary-700 dark:text-gray-200">
+                        <div class="flex-1 px-3 space-y-1 divide-y">
+                            <ul class="pb-2 space-y-2">
+                                <li>
+                                    <form action="#" method="GET" class="lg:hidden">
+                                        <label for="mobile-search" class="sr-only">Search</label>
+                                        <div class="relative">
+                                            <div
+                                                class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                                <svg class="w-5 h-5 text-gray-500" fill="currentColor"
+                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <input type="text" name="email" id="mobile-search"
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-cyan-600 focus:ring-cyan-600 block w-full pl-10 p-2.5"
+                                                placeholder="Search">
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster/"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 group dark:hover:bg-blue-900">
+                                        <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                                        </svg>
+                                        <span class="ml-3">Dashboard</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster-pro/kanban/" target="_blank"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 group dark:hover:bg-blue-900">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                                            </path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Kanban</span>
+                                        <span
+                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full">Pro</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster-pro/mailing/inbox/" target="_blank"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
+                                            </path>
+                                            <path
+                                                d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
+                                            </path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Inbox</span>
+                                        <span
+                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full">Pro</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster/users/list/"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster/e-commerce/products/"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Products</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster/authentication/sign-in/"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://demo.themesberg.com/windster/authentication/sign-up/"
+                                        class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
+                                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                            fill="currentColor" viewBox="0 0 20 20"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="flex-1 ml-3 whitespace-nowrap">Sign Up</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="pt-2 space-y-2">
+                                <a href="https://demo.themesberg.com/windster/pricing/"
+                                    class="flex items-center p-2 text-base font-normal transition duration-75 rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group">
+                                    <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                        aria-hidden="true" focusable="false" data-prefix="fas" data-icon="gem"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                            d="M378.7 32H133.3L256 182.7L378.7 32zM512 192l-107.4-141.3L289.6 192H512zM107.4 50.67L0 192h222.4L107.4 50.67zM244.3 474.9C247.3 478.2 251.6 480 256 480s8.653-1.828 11.67-5.062L510.6 224H1.365L244.3 474.9z">
+                                        </path>
+                                    </svg>
+                                    <span class="ml-4">Upgrade to Pro</span>
+                                </a>
+                                <a href="https://flowbite.com/docs/getting-started/introduction/" target="_blank"
+                                    class="flex items-center p-2 text-base font-normal transition duration-75 rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group">
+                                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                        <path fill-rule="evenodd"
+                                            d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="ml-3">Documentation</span>
+                                </a>
+                                <a href="https://flowbite.com/docs/components/alerts/" target="_blank"
+                                    class="flex items-center p-2 text-base font-normal transition duration-75 rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group">
+                                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z">
+                                        </path>
+                                    </svg>
+                                    <span class="ml-3">Components</span>
+                                </a>
+                                <a href="https://github.com/themesberg/windster-tailwind-css-dashboard/issues"
+                                    target="_blank"
+                                    class="flex items-center p-2 text-base font-normal transition duration-75 rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group">
+                                    <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
+                                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="ml-3">Help</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="fixed inset-0 z-10 hidden bg-gray-900 opacity-50" id="sidebarBackdrop"></div>
+            <div id="main-content" class="relative w-full h-full overflow-y-auto lg:ml-64">
+                @yield('content')
+                @include('admin.layouts.footer')
+            </div>
+
+
+        </div>
     </div>
 </body>
+<style>
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #CBD5E0;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #2D3748;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #718096;
+    }
+</style>
+<script type="application/javascript" src="https://demo.themesberg.com/windster/app.bundle.js"></script>
 
 </html>
