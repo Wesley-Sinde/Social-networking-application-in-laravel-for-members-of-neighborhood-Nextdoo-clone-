@@ -32,13 +32,10 @@
     <link rel="stylesheet" href="{{ asset('css/flowbite.css') }}">
 
     <script type="application/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    {{-- <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> --}}
 
     <meta name="user-id" content="1">
 
 
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <script type="application/javascript">
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
