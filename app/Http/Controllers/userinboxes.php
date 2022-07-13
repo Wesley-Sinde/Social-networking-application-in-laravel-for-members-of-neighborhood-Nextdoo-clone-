@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\user_inboxes;
+use App\Models\userinboxes;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 
-class user_inboxesController extends Controller
+class userinboxesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -56,7 +56,7 @@ class user_inboxesController extends Controller
      * @param  \App\Models\userImbox  $userImbox
      * @return \Illuminate\Http\Response
      */
-    public function show(user_inboxes $userImbox)
+    public function show(userinboxes $userImbox)
     {
         //
     }
@@ -67,7 +67,7 @@ class user_inboxesController extends Controller
      * @param  \App\Models\userImbox  $userImbox
      * @return \Illuminate\Http\Response
      */
-    public function edit(user_inboxes $userImbox)
+    public function edit(userinboxes $userImbox)
     {
         //
     }
@@ -79,7 +79,7 @@ class user_inboxesController extends Controller
      * @param  \App\Models\userImbox  $userImbox
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user_inboxes $userImbox)
+    public function update(Request $request, userinboxes $userImbox)
     {
         //
     }
@@ -90,7 +90,7 @@ class user_inboxesController extends Controller
      * @param  \App\Models\userImbox  $userImbox
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user_inboxes $userImbox)
+    public function destroy(userinboxes $userImbox)
     {
         //
     }

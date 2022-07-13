@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Qirolab\Laravel\Reactions\Contracts\ReactsInterface;
+use Shetabit\Visitor\Traits\Visitable;
 
 // class User extends Authenticatable
 class User extends Authenticatable implements ReactsInterface

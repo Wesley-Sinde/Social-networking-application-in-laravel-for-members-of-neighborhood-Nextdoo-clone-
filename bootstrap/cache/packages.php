@@ -17,6 +17,17 @@
       'Breadcrumbs' => 'Diglactic\\Breadcrumbs\\Breadcrumbs',
     ),
   ),
+  'jenssegers/agent' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Jenssegers\\Agent\\AgentServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Agent' => 'Jenssegers\\Agent\\Facades\\Agent',
+    ),
+  ),
   'jorenvanhocht/laravel-share' => 
   array (
     'providers' => 
@@ -75,6 +86,17 @@
     'providers' => 
     array (
       0 => 'Qirolab\\Laravel\\Reactions\\ReactionsServiceProvider',
+    ),
+  ),
+  'shetabit/visitor' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Shetabit\\Visitor\\Provider\\VisitorServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Visitor' => 'Shetabit\\Visitor\\Facade\\Visitor',
     ),
   ),
   'spatie/laravel-ignition' => 
