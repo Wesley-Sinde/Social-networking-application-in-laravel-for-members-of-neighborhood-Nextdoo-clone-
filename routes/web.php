@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -11,8 +13,6 @@ use App\Http\Controllers\PostSitemapController;
 use App\Http\Controllers\ReactController;
 use App\Http\Controllers\SitemapXmlController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Auth\AdminAuthControlle;
-use App\Http\Controllers\Auth\AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,12 +80,30 @@ Route::get('/try', [CommentsController::class, 'try']);
 // Route::get('/products', [ProductController::class, 'fetchProducts']);
 
 
-// ADMIN PAGES
-Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
-Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
-Route::get('admin/dashboard', function () {
-    return view('/admin/dashboardApp');
-});
-Route::get('admin/logout', 'Auth\AdminAuthController@logout')->name('adminLogout');
-Route::prefix("admin")->middleware("auth", "isadmin")->group(function () {
+// // ADMIN PAGES
+// Route::get('admin/login', [AdminAuthController::class, 'getLogin'])->name('adminLogin');
+// Route::post('admin/login', [AdminAuthController::class, 'postLogin'])->name('adminLoginPost');
+// // Route::get('admin/dashboard', function () {
+// //     return view('/admin/dashboardApp');
+// // });
+// Route::get('admin/logout', 'Auth\AdminAuthController@logout')->name('adminLogout');
+// Route::prefix("admin")->middleware("auth", "isadmin")->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('/admin/dashboardApp');
+//     });
+// });
+
+// Route::get('dashboard', [AdminAuthController::class, 'index'])->name('dashboard');
+// // Route::group(['prefix' => 'admin', 'middleware' => 'adminauth'], function () {
+// //     // Admin Dashboard
+// //     Route::get('dashboard', [AdminAuthController::class, 'index'])->name('dashboard');
+// // });
+
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
+    Route::get('logout/', [AdminLoginController::class, 'logout'])->name('admin.logout');
+
+
+    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
 });

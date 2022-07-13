@@ -13,7 +13,7 @@
                     </header>
 
                     <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 dark:bg-gray-700" method="POST"
-                        action="{{ route('adminLoginPost') }}">
+                        action="{{ route('admin.login.submit') }}">
                         @csrf
 
                         <div class="flex flex-wrap">
