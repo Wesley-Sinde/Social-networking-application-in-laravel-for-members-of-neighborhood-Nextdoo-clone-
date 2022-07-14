@@ -106,4 +106,5 @@ Route::prefix('admin')->group(function () {
 
 
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/usersdata', [AdminController::class, 'usersdata'])->name('admin.usersdata');
 });

@@ -25,8 +25,6 @@ Vue.use(VueResource);
 import VueToastr from 'vue-toastr';
 Vue.use(VueToastr);
 
-
-
 // import DatatableFactory from 'vuejs-datatable';
 // //Vue.use(VuejsDatatableFactory);
 

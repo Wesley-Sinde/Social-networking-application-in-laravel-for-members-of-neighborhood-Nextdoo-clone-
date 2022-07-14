@@ -255,7 +255,7 @@
                                                                 $Online = \Carbon\Carbon::parse($post->last_seen)->diffForHumans();
                                                             @endphp
                                                         @endif
-                                                        <div class="text-xl w-full">
+                                                        <div class="w-full text-xl">
                                                             <userprofile-component :userid={{ $post->user_id }}
                                                                 online="{{ $Online }}" />
 
@@ -551,11 +551,6 @@
                                                         </svg>
                                                     </dd>
                                                 </div>
-
-
-
-
-
                                                 <postcomments-component :user_id={{ Auth::User()->id }}
                                                     :postid={{ $post->id }} />
 

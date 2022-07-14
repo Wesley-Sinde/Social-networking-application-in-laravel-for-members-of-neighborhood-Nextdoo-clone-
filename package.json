@@ -28,6 +28,7 @@
     "dependencies": {
         "emojionearea": "^3.0.0",
         "laravel-echo": "^1.11.7",
+        "laravel-vue-pagination": "^3.0.0",
         "moment": "^2.29.3",
         "pusher-js": "^7.1.0-beta",
         "swiper": "^8.1.5",
@@ -36,6 +37,7 @@
         "vue-lazyload": "^3.0.0-rc.2",
         "vue-resource": "^1.5.3",
         "vue-simple-accordion": "^0.1.0",
-        "vue-toastr": "^2.1.2"
+        "vue-toastr": "^2.1.2",
+        "vuejs-datatable": "^2.0.0-alpha.7"
     }
 }
