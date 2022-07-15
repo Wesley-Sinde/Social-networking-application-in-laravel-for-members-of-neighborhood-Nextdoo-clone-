@@ -10,7 +10,10 @@ use Cache;
 
 class UserController extends Controller
 {
-
+    public function video()
+    {
+        return view('admin.video');
+    }
     /** 
      * Show user online status.
      */

@@ -17,7 +17,8 @@
         "pusher/pusher-php-server": "^7.0",
         "qirolab/laravel-reactions": "^2.6",
         "shetabit/visitor": "^3.1",
-        "stevebauman/location": "^6.4"
+        "stevebauman/location": "^6.4",
+        "twilio/sdk": "^6.39"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

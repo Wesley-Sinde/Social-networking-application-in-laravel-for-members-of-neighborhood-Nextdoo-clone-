@@ -31,6 +31,10 @@ class AdminController extends Controller
     {
         return view('admin.users');
     }
+    public function video()
+    {
+        return view('admin.video');
+    }
     public function index()
     {
         $totalUsers = User::count();

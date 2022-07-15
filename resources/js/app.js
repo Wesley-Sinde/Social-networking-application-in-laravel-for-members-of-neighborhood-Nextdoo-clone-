@@ -83,6 +83,11 @@ Vue.component('criticalpost-component', CriticalPost);
 import UserData from './components/UserData.vue';
 Vue.component('userdata-component', UserData);
 
+Vue.component('video-chat', require('./components/VideoChat.vue').default);
+
+import VideoChat from './components/VideoChat.vue';
+Vue.component('videochat-component', VideoChat)
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -91,39 +96,39 @@ Vue.component('userdata-component', UserData);
 try {
     const app = new Vue({
         el: '#app',
-        data: {
-            messages: [],
-            updatecommentkey: 1,
-        },
+        // data: {
+        //     messages: [],
+        //     updatecommentkey: 1,
+        // },
 
-        created() {
-            this.fetchMessages();
+        // created() {
+        //     this.fetchMessages();
 
-            window.Echo.private('chat')
-                .listen('MessageSent', (e) => {
-                    this.messages.push({
-                        message: e.message.message,
-                        user: e.user
-                    });
-                });
-        },
+        //     window.Echo.private('chat')
+        //         .listen('MessageSent', (e) => {
+        //             this.messages.push({
+        //                 message: e.message.message,
+        //                 user: e.user
+        //             });
+        //         });
+        // },
 
-        methods: {
-            fetchMessages() {
-                axios.get('/messages').then(response => {
-                    this.messages = response.data;
-                });
-            },
+        // methods: {
+        //     fetchMessages() {
+        //         axios.get('/messages').then(response => {
+        //             this.messages = response.data;
+        //         });
+        //     },
 
-            addMessage(message) {
-                this.messages.push(message);
+        //     addMessage(message) {
+        //         this.messages.push(message);
 
-                axios.post('/messages', message).then(response => {
-                    console.log(response.data);
-                    this.$toastr.s(response.data.status, "Messaage Response");
-                });
-            }
-        }
+        //         axios.post('/messages', message).then(response => {
+        //             console.log(response.data);
+        //             this.$toastr.s(response.data.status, "Messaage Response");
+        //         });
+        //     }
+        // }
     });
 
 } catch (error) {

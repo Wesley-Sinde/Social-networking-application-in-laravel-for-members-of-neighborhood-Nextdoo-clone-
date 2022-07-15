@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AccessTokenController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CommentsController;
@@ -66,6 +67,7 @@ Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile'
 Route::post('/profile/check', [MyprofileController::class, 'checkName']);
 Route::post('/profile', [MyprofileController::class, 'store']);
 Route::get('/status', [UserController::class, 'userOnlineStatus']);
+Route::get('/video', [UserController::class, 'video'])->name('/video');
 
 
 // Route::get('/sitemap.xml', [SitemapXmlController::class, 'index'])->name('sitemap.index');
@@ -99,10 +101,15 @@ Route::get('/try', [CommentsController::class, 'try']);
 // //     Route::get('dashboard', [AdminAuthController::class, 'index'])->name('dashboard');
 // // });
 
+//Route::get('access_token', AccessTokenController::class, 'generate_token');
+Route::get('/api/access_token', [AccessTokenController::class, 'generate_token']);
+
+
 Route::prefix('admin')->group(function () {
     Route::get('/login', [AdminLoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [AdminLoginController::class, 'login'])->name('admin.login.submit');
     Route::get('logout/', [AdminLoginController::class, 'logout'])->name('admin.logout');
+    Route::get('/video', [AdminController::class, 'video'])->name('/video');
 
 
     Route::get('/users', [AdminController::class, 'users'])->name('admin.users');

@@ -413,7 +413,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://demo.themesberg.com/windster-pro/kanban/" target="_blank"
+                                    <a href="/video" target="_blank"
                                         class="flex items-center p-2 text-base font-normal rounded-lg hover:bg-gray-100 group dark:hover:bg-blue-900">
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
                                             fill="currentColor" viewBox="0 0 20 20"
@@ -424,7 +424,7 @@
                                         </svg>
                                         <span class="flex-1 ml-3 whitespace-nowrap">Join</span>
                                         <span
-                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full">Pro</span>
+                                            class="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full">Video</span>
                                     </a>
                                 </li>
                                 <li>
