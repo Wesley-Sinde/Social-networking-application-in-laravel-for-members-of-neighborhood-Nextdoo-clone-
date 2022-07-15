@@ -27,6 +27,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function users()
+    {
+        return view('admin.users');
+    }
     public function index()
     {
         $totalUsers = User::count();

@@ -446,7 +446,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="https://demo.themesberg.com/windster/users/list/"
+                                    <a href="{{ url('admin/users') }}"
                                         class="flex items-center p-2 text-base font-normal rounded-lg dark:hover:bg-blue-900 hover:bg-gray-100 group ">
                                         <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900"
                                             fill="currentColor" viewBox="0 0 20 20"
@@ -560,6 +560,43 @@
     </div>
 </body>
 <style>
+    .pagination {
+        display: flex;
+    }
+
+    .pagination-page-nav {
+        margin-right: 2px;
+        margin-right: 2px;
+        padding-left: 0.75rem
+            /* 12px */
+        ;
+        padding-right: 0.75rem
+            /* 12px */
+        ;
+        padding-top: 0.5rem
+            /* 8px */
+        ;
+        padding-bottom: 0.5rem
+            /* 8px */
+        ;
+        margin-left: 0px;
+        line-height: 1.25;
+        color: rgb(107 114 128 / var(--tw-text-opacity));
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+        --tw-border-opacity: 1;
+        border-color: rgb(209 213 219 / var(--tw-border-opacity));
+
+
+    }
+
+
+
+    ..pagination-page-nav:hover {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+    }
+
     ::-webkit-scrollbar {
         width: 5px;
     }

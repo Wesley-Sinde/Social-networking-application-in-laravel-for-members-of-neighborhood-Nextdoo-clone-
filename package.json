@@ -28,7 +28,7 @@
     "dependencies": {
         "emojionearea": "^3.0.0",
         "laravel-echo": "^1.11.7",
-        "laravel-vue-pagination": "^3.0.0",
+        "laravel-vue-pagination": "^2.3.1",
         "moment": "^2.29.3",
         "pusher-js": "^7.1.0-beta",
         "swiper": "^8.1.5",

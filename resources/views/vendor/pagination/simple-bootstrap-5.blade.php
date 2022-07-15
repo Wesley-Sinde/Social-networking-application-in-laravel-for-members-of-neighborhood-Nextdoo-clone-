@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav role="navigation" aria-label="Pagination Navigation">
-        <ul class="pagination">
+        <ul class="try4 pagination">
             {{-- Previous Page Link --}}
             @if ($paginator->onFirstPage())
                 <li class="page-item disabled" aria-disabled="true">
@@ -8,7 +8,7 @@
                 </li>
             @else
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">
+                    <a class=" 2 page-link" href="{{ $paginator->previousPageUrl() }}" rel="prev">
                         {!! __('pagination.previous') !!}
                     </a>
                 </li>
@@ -17,7 +17,8 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li class="page-item">
-                    <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next">{!! __('pagination.next') !!}</a>
+                    <a class=" 2 page-link" href="{{ $paginator->nextPageUrl() }}"
+                        rel="next">{!! __('pagination.next') !!}</a>
                 </li>
             @else
                 <li class="page-item disabled" aria-disabled="true">

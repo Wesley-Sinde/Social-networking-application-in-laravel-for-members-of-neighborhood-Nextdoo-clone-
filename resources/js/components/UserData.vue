@@ -1,11 +1,11 @@
-<template>
+<template v-slot:page="{href, page, isCurrentPage, pageButtonEvents}">
   <div
-    class="relative flex flex-col w-full min-w-0 mb-4 break-words rounded shadow-lg lg:mb-0 bg-gray-50 dark:bg-gray-800">
-    <div class="px-0 mb-0 border-0 rounded-t">
+    class="relative flex flex-col w-full min-w-0 my-4 mx-4 break-words rounded shadow-lg lg:mb-0 bg-gray-50 dark:bg-gray-800">
+    <div class="px-0 mb-0 border-0 rounded-t mt-5">
       <div class="flex flex-wrap items-center px-4 py-2">
-        <div class="relative flex-1 flex-grow w-full max-w-full">
+        <!-- <div class="relative flex-1 flex-grow w-full max-w-full">
           <h3 class="text-base font-semibold text-gray-900 dark:text-gray-50">Social Traffic</h3>
-        </div>
+        </div> -->
         <div class="relative flex-1 flex-grow w-full max-w-full text-right">
           <button
             class="px-3 py-1 mb-1 mr-1 text-xs font-bold text-white uppercase transition-all duration-150 ease-linear bg-blue-500 rounded outline-none dark:bg-gray-100 active:bg-blue-600 dark:text-gray-800 dark:active:text-gray-700 focus:outline-none"
@@ -41,7 +41,7 @@
           </thead>
           <tbody>
             <!-- v-for="criticalpostToshow in ctriticalpostPreview" :key="criticalpostToshow.id" -->
-            <tr v-for="user in users" :set="useqr = 1" :key="user.id"
+            <tr v-for="user in users.data" :set="useqr = 1" :key="user.id"
               class="text-gray-700 border-b-2 dark:text-gray-100">
               <th class="p-4 px-4 text-xs text-left align-middle border-t-0 border-l-0 border-r-0 whitespace-nowrap">
                 <img v-if="user.avatar !== null" class="w-8 h-8 rounded-full"
@@ -95,43 +95,61 @@
           </tbody>
         </table>
       </div>
+      <!-- <Pagination :data="users" @pagination-change-page="getUsers" /> -->
+      <div class=" py-8 align-middle">
+
+        <pagination class=" align-middle" :data="users" @pagination-change-page="getUsers">
+          <span
+            class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            slot="prev-nav">&lt; Previous</span>
+          <span
+            class="px-3 mt-3 py-1 mb-0 my-auto leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            slot="next-nav">Next &gt;</span>
+        </pagination>
+
+      </div>
+
+
+
+
+
     </div>
   </div>
 </template>
+
+                
    
 <script>
-
 
 import LaravelVuePagination from 'laravel-vue-pagination';
 
 
 export default {
+  components: {
+    'Pagination': LaravelVuePagination
+  },
 
   mounted() {
     console.log('Component mounted.')
   },
   data() {
     return {
-      users: [],
+      users: {},
       useqr: 0,
     }
   },
   methods: {
-    getUsers: function () {
+    getUsers: function (page = 1) {
       axios
-        .get('/admin/usersdata/' + this.userid)
+        .get('/admin/usersdata?page=' + page)
         .then(response => (this.users = response.data));
-
-      // .get('admin/usersdata')
-      // .then(function (response) {
-      //   this.users = response.data;
-      // });
     }
   },
   mounted() {
-    axios
-      .get('/admin/usersdata/')
-      .then(response => (this.users = response.data.data));
+    this.getUsers();
+    // axios
+    //   .get('/admin/usersdata/')
+    //   .then(response => (this.users = response.data.data));
   },
   // created: function () {
   //   this.getUsers()

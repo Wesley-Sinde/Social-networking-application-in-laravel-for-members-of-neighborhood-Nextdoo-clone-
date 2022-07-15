@@ -105,6 +105,7 @@ Route::prefix('admin')->group(function () {
     Route::get('logout/', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
 
+    Route::get('/users', [AdminController::class, 'users'])->name('admin.users');
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/usersdata', [AdminController::class, 'usersdata'])->name('admin.usersdata');
 });

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <link rel="stylesheet" rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <div class="px-3 mx-3 ">
+    <div class="px-3 mx-3">
         <div class="grid gap-4 mx-2 md:grid-cols-2 2">
             <div>
                 <ol class="flex breadcrumb">

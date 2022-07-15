@@ -519,4 +519,8 @@
             </div>
         </div>
     </main>
+    {{-- <script type="application/javascript">
+        $(".pagination").addClass("class1");
+        $(".pagination").addClass("color fontWeight");
+    </script> --}}
 @endsection
