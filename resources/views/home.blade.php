@@ -4,14 +4,28 @@
     <div class="px-3 mx-3">
         <div class="grid gap-4 mx-2 md:grid-cols-2 2">
             <div>
-                <ol class="flex breadcrumb">
-                    <li><a href="/" class=" hover:underline hover:text-yellow-400"><i
-                                class="fa fa-dashboard"></i>Dashboard</a></li>
+                <ol class="flex breadcrumb py-3 text-blue-500">
+                    <li>
+                        <svg class="w-4 h-4 mx-1 animate-ping fill-sky-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd"
+                                d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="/" class=" hover:underline hover:text-yellow-400">
+                            Dashboard</a>
+                    </li>
                     <?php $segments = '';
                     $toEnd = count(Request::segments());
                     ?>
                     @foreach (Request::segments() as $segment)
-                        <svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mx-1" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
                                 d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
                                 clip-rule="evenodd"></path>
@@ -55,6 +69,9 @@
                     </p>
 
                 </div>
+
+
+
                 <div class="mt-2 space-y-4 h-7 lg:flex lg:space-x-4 lg:space-y-0 place-self-end">
                     <a href="https://twitter.com/intent/tweet?text=Check%20out%20new%20free%20app%20to%20know%20all%20about%20your%20neighbour%20This%20app%20allows%20you%20to%20communicate%20to%20neigbours%20in%20any%20area%20you%20are%20irrespetive%20of%20if%20you%20know%20them%20check%20out%20the%20app%20at%20&amp;url=https%3A%2F%2Fwesley.io.ke%you%20will%20enjoy"
                         target="_blank"
@@ -574,6 +591,29 @@
             </div>
         </div>
     </div>
+    {{-- <script type="application/javascript">
+        function initMap() {
+            const myLatLng = {
+                lat: 22.2734719,
+                lng: 70.7512559
+            };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 5,
+                center: myLatLng,
+            });
+
+            new google.maps.Marker({
+                position: myLatLng,
+                map,
+                title: "Hello Rajkot!",
+            });
+        }
+        window.initMap = initMap;
+    </script>
+
+    <script async defer type="application/javascript"
+        src="https://maps.google.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap"></script> --}}
+
 
     <script type="application/javascript" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

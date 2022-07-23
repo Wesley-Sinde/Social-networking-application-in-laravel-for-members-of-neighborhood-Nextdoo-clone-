@@ -68,6 +68,14 @@ class MyNeighborController extends Controller
 
     public function neighbors(Request $request)
     {
+
+        // $location->isoCode = $record->country->isoCode;
+        // $location->countryName = $record->country->name;
+        // $location->cityName = $record->city->name;
+        // $location->longitude  = $record->postal->code;
+        // $location->latitude = $record->location->latitude;
+        // $location->driver = get_class($this);
+
         // $ip = '197.248.192.135'; /* Static IP address */
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
@@ -98,13 +106,18 @@ class MyNeighborController extends Controller
             ->with('profile', User::where('id', $id)->first());
     }
 
+    public function userlocation($id)
+    {
+        return view('Userlocatiom')
+            ->with('Userlocatiom', User::where('id', $id)->first());
+    }
     public function index(Request $request)
     {
         try {
 
             // return view('dashboard', compact('My_neighbor'));
-            $ip = $request->ip(); //Dynamic IP address */
-            // $ip = '197.248.192.135'; /* Static IP address */
+            // $ip = $request->ip(); //Dynamic IP address */
+            $ip = '197.248.192.135'; /* Static IP address */
             $currentUserInfo = Location::get($ip);
             // $currentUserInfo->cityName;
 
@@ -112,12 +125,16 @@ class MyNeighborController extends Controller
             //     ->toArray();
             // dd($Useremail);
 
+            // dd($currentUserInfo->latitude . '---' .
+            //     $currentUserInfo->longitude);
             if (Auth::check()) {
                 // The user is logged in...
                 $id = Auth::id();
                 $userId = User::find($id);
                 if ($userId) {
                     $userId->location = $currentUserInfo->cityName;
+                    $userId->latitude = $currentUserInfo->latitude;
+                    $userId->longitude = $currentUserInfo->longitude;
                     $userId->save();
                 }
             }

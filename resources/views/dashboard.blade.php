@@ -500,7 +500,8 @@
 
                                                 <div class="right-0 flex justify-center pt-2">
 
-                                                    <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
+                                                    <a href="{{ url('/userlocation/' . $post->id) }}"
+                                                        class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
 
                                                         <svg width="24" height="24" fill="none"
                                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -513,7 +514,7 @@
                                                             <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
                                                         </svg>
                                                         {{ $post->location }}
-                                                    </dd>
+                                                    </a>
                                                     {{-- <a class="px-2" href="#">
                                             33 comments &nbsp;
                                         </a> --}}
