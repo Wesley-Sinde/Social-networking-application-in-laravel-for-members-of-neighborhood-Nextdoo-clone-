@@ -17,3 +17,6 @@ This application has been developed with Tailwind CSS, Laravel, and Vue.
 * Run ```php artisan db:seed```.
 * Run ```php artisan serve```.
 * Go to link ```localhost:8000``` OR ```127.0.0.1:8000```.
+
+# kindly star ⭐⭐ this repo if you get it helpful
+#You can create issue or pull request if you feel i missed something to make it better
