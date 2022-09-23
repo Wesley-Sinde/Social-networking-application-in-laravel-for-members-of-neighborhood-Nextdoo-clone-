@@ -7,93 +7,12 @@
             {{-- <div class="fixed inset-0 z-10 bg-gray-900/50 dark:bg-gray-900/60 " id="sidebar1" aria-label="Sidebar1">
             </div> --}}
             <div class="flex flex-col flex-1 h-full overflow-hidden text-gray-800 dark:text-gray-200">
-                <button style="hover:transform: rotate(45deg);"
+                {{-- <button style="hover:transform: rotate(45deg);"
                     class="fixed z-40 bg-transparent right-5 top-1/2 hover:bg-gray-500 hover:rounded-full hover:-rotate-90 hover:scale-125 focus:scale-125"
                     type="button" data-modal-toggle="createpost-modal">
                     <img class="" src="\images\app\create.png" alt="create.png">
-                </button>
-                <div id="createpost-modal" tabindex="-1" aria-hidden="true"
-                    class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                    <div class="relative w-full h-full max-w-md p-4 ">
+                </button> --}}
 
-                        <div class="relative bg-gray-400 rounded-lg shadow dark:bg-gray-700 ">
-                            <button type="button"
-                                class="absolute top-3 right-2 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                data-modal-toggle="createpost-modal">
-                                <svg class="w-5 h-5" fill="red" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </button>
-                            <div class="px-6 py-6 lg:px-8">
-                                <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">
-                                    What do you want your neighbor to Know?
-                                </h3>
-                                <form action="{{ url('/home') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        for="default_size">Upload Thumbnail</label>
-                                    <input class="pb-3" type="file" accept="image/*" onchange="loadFile(event)"
-                                        name="image">
-                                    <img id="output" class="" />
-
-                                    <div class="mb-6">
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                            for="title">Title Of your Post
-                                        </label>
-                                        <input type="text" id="title" name="title"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    </div>
-
-                                    <div class="mb-6">
-                                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                            for="title">Level Of your Post
-                                        </label>
-                                        <select id="large" name="level"
-                                            class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                            <option value='1' class="bg-green-400 " selected>Low</option>
-                                            <option value='2' class="bg-blue-400 " value="US">Guarded</option>
-                                            <option value='3' class="bg-yellow-300 " value="CA">Elevated</option>
-                                            <option value='4' class="bg-orange-400 " value="FR">High</option>
-                                            <option value='5' class="bg-red-400 " value="DE">Severe</option>
-                                        </select>
-                                    </div>
-                                    <label class="block mt-2 mb-1 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        for="default_size">Description</label>
-                                    <div class="description">
-                                        <textarea id="description" placeholder="Description..." name="description"
-                                            class="block w-full py-2 text-xl text-gray-600 border-b-2 outline-none h-60 bg-slate-400 dark:bg-slate-600 dark:text-gray-200 ">
-                                        </textarea>
-                                    </div>
-
-                                    <div class="flex items-start mt-2 mb-6">
-                                        <div class="flex items-center h-5">
-                                            <input id="remember" type="checkbox" value=""
-                                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 required">
-                                        </div>
-                                        <label for="remember"
-                                            class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                                            I agree with
-                                            the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">
-                                                terms
-                                                and conditions
-                                            </a>.
-                                        </label>
-                                    </div>
-                                    <div class="items-center ">
-                                        <button type="submit"
-                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">
-                                            Submit
-                                        </button>
-
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Main content -->
                 <main class="flex-1 max-h-full p-2 mb-4">
                     <!-- Main content header -->
@@ -142,37 +61,6 @@
                             ?>
                         @endforeach
                     </ol>
-
-                    {{-- @if (session()->has('message'))
-                        <div id="toast-success"
-                            class="sticky flex items-center float-right max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"
-                            role="alert">
-                            <div
-                                class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg dark:bg-green-800 dark:text-green-200">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                            <div class="ml-3 text-sm font-normal">
-                                {{ session()->get('message') }}
-                            </div>
-                            <button type="button"
-                                class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-                                data-collapse-toggle="toast-success" aria-label="Close">
-                                <span class="sr-only">Close</span>
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clip-rule="evenodd">
-                                    </path>
-                                </svg>
-                            </button>
-                        </div>
-                    @endif --}}
                     <!-- Start Content -->
                     <!-- component -->
                     @if ($errors->any())
@@ -233,7 +121,7 @@
 
                                 <div class="content-center text-center">
                                     <h1 class="sticky my-2 mb-3 text-xl font-semibold underline whitespace-nowrap">
-                                        What Is Your Neighbor Post?
+                                        Our Newly Posted Documents?
                                     </h1>
 
                                 </div>
@@ -276,23 +164,6 @@
                                                             {{ date('jS M Y', strtotime($post->created_at)) }}
                                                         </span>
                                                     </div>
-                                                    {{-- <div class="flex w-96">
-                                                        <img class="w-12 h-12 rounded-full"
-                                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
-                                                        <div class="ml-2 mt-0.5">
-                                                            <span class="text-gray-900 dark:text-white">
-                                                                <a href=""><span
-                                                                        class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                                                        {{ $post->User->name }}
-                                                                    </span>
-                                                                </a>,
-                                                            </span>
-                                                            <span
-                                                                class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
-                                                                {{ date('jS M Y', strtotime($post->created_at)) }}</span>
-                                                        </div>
-                                                    </div> --}}
-                                                    {{-- @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id) --}}
 
                                                     @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
                                                         <button
@@ -500,7 +371,8 @@
 
                                                 <div class="right-0 flex justify-center pt-2">
 
-                                                    <dd class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
+                                                    <a href="{{ url('/userlocation/' . $post->id) }}"
+                                                        class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
 
                                                         <svg width="24" height="24" fill="none"
                                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -513,7 +385,7 @@
                                                             <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
                                                         </svg>
                                                         {{ $post->location }}
-                                                    </dd>
+                                                    </a>
                                                     {{-- <a class="px-2" href="#">
                                             33 comments &nbsp;
                                         </a> --}}
@@ -574,7 +446,7 @@
                                 <div class="flex">
 
                                     <h2 class="px-4 py-2 text-xl font-semibold text-red-600 hover:underline">
-                                        Critical
+                                        Most Viewed
                                     </h2>
                                     <img class="w-8 h-8 m-2 rounded-full animate-pulse" src="\images\app\critical.png"
                                         alt="critical.png">
@@ -589,7 +461,7 @@
 
                                 <!--first post-->
                                 <div class=" md:overflow-auto">
-                                    <criticalpost-component />
+                                    <mostViewed-component />
                                 </div>
                             </div>
 

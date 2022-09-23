@@ -32,6 +32,8 @@ class User extends Authenticatable implements ReactsInterface
         'gender',
         'dob',
         'bio',
+        'latitude',
+        'longitude',
     ];
 
     public function messages()

@@ -606,6 +606,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 1rem;
 }
 
+.bottom-1 {
+  bottom: 0.25rem;
+}
+
 .z-20 {
   z-index: 20;
 }
@@ -1238,6 +1242,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 14rem;
 }
 
+.h-5\/6 {
+  height: 83.333333%;
+}
+
 .max-h-96 {
   max-height: 24rem;
 }
@@ -1318,16 +1326,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 12rem;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .w-44 {
   width: 11rem;
 }
 
 .w-11\/12 {
   width: 91.666667%;
-}
-
-.w-40 {
-  width: 10rem;
 }
 
 .w-10 {

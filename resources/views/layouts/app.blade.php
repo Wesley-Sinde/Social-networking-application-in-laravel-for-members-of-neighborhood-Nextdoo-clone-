@@ -94,8 +94,8 @@
 
 
 
-                    <a href="#"
-                        class="flex items-center self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+                    <a href="{{ url('/') }}"
+                        class="flex items-center self-center text-xl font-semibold whitespace-nowrap text-gray-600 dark:text-gray-400 hover:text-blue-300">
                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="38"
                             height="28" viewBox="0 0 48 48" style=" fill:#000000;">
                             <path fill="#7cb342"
@@ -125,9 +125,9 @@
                         </svg>
                         <span
                             class="self-center text-xl font-semibold text-gray-600 whitespace-nowrap dark:text-gray-400 hover:text-blue-300 ">
-                            <a href="{{ url('/') }}" class="text-gray-600 dark:text-gray-400 hover:text-blue-300">
-                                {{ config('app.name', 'Laravel') }}
-                            </a>
+                            {{-- <a href="{{ url('/') }}" class="text-gray-600 dark:text-gray-400 hover:text-blue-300"> --}}
+                            {{ config('app.name', 'Laravel') }}
+                            {{-- </a> --}}
                         </span>
                     </a>
 
@@ -138,8 +138,7 @@
                             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                             <span class="sr-only">Open user menu</span>
                             @guest
-                                <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}"
-                                    alt="user photo">
+                                <img width=85% class="rounded-full" src="{{ asset('images/user.png') }}" alt="user photo">
                             @else
                                 <img class="w-40 rounded-full md:w-20"
                                     src="{{ asset('images/user/' . Auth::User()->avatar) }}" alt="user photo">

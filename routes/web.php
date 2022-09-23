@@ -60,6 +60,7 @@ Route::get('/getcriticalpreview', [MyNeighborController::class, 'getcriticalprev
 Route::get('/critical', [MyNeighborController::class, 'critical']);
 Route::get('/neighbors', [MyNeighborController::class, 'neighbors']);
 Route::get('/profiles/{id}', [MyNeighborController::class, 'profiles']);
+Route::get('/userlocation/{id}', [MyNeighborController::class, 'userlocation']);
 Route::post('/comment', [CommentsController::class, 'comment']);
 
 Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']);

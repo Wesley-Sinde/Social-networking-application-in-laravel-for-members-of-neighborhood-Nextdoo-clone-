@@ -90,6 +90,17 @@
                                     <div>
                                         <div class="">
                                             <div class="text-xl ">
+                                                  @if (Cache::has('user-is-online-' . $post->user_id))
+                                                            {{-- <span class="text-success">Online</span> --}}
+                                                            @php
+                                                                $Online = 'Online';
+                                                            @endphp
+                                                        @else
+                                                            {{-- <span class="text-secondary">Offline</span> --}}
+                                                            @php
+                                                                $Online = \Carbon\Carbon::parse($post->last_seen)->diffForHumans();
+                                                            @endphp
+                                                        @endif
                                                 <userprofile-component :userid={{ $post->user_id }}   online="{{ $Online }}"/>
                                             </div>
                                             <span

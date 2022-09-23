@@ -8,6 +8,17 @@
                 <div class="grid-cols-1 gap-3 py-8 mx-auto border-b border-gray-200 sm:grid">
                     <div class="">
                         <div class="text-xl ">
+                            @if (Cache::has('user-is-online-' . $post->user_id))
+                                {{-- <span class="text-success">Online</span> --}}
+                                @php
+                                    $Online = 'Online';
+                                @endphp
+                            @else
+                                {{-- <span class="text-secondary">Offline</span> --}}
+                                @php
+                                    $Online = \Carbon\Carbon::parse($post->last_seen)->diffForHumans();
+                                @endphp
+                            @endif
                             <userprofile-component :userid={{ $post->user_id }} online="{{ $Online }}" />
                         </div>
                         <span class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">

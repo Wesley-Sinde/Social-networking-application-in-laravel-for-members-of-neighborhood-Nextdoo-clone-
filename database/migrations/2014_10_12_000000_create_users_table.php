@@ -30,6 +30,8 @@ return new class extends Migration
             $table->string('gender');
             $table->date('dob');
             $table->string('bio', 200);
+            $table->string('latitude', 30)->default('Not found');
+            $table->string('longitude', 30)->default('Not found');
             $table->timestamp('last_seen')->nullable();
         });
     }
