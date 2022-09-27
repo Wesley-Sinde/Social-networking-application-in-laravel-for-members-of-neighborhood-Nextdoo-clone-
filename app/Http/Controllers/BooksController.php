@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\My_neighbor;
+use App\Models\Books;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stevebauman\Location\Facades\Location;
@@ -13,7 +13,7 @@ use DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifyMembersmail;
 
-class MyNeighborController extends Controller
+class BooksController extends Controller
 {
 
     public function __construct()
@@ -24,7 +24,7 @@ class MyNeighborController extends Controller
 
     /**
      * Display a listing of the resource.
-     * My_neighbor::where('id', $id)->first()
+     * Books::where('id', $id)->first()
      * @return \Illuminate\Http\Response
      */
     public function profile()
@@ -35,13 +35,13 @@ class MyNeighborController extends Controller
 
     public function userdata($id)
     {
-        $userdata = My_neighbor::where("id", $id)->paginate(10);
+        $userdata = Books::where("id", $id)->paginate(10);
         return response()->json($userdata);
     }
 
     public function getcritical()
     {
-        $data = My_neighbor::orderBy('id', 'desc')
+        $data = Books::orderBy('id', 'desc')
             ->groupBy('level')
             ->paginate(4);
         return response()->json($data);
@@ -50,19 +50,19 @@ class MyNeighborController extends Controller
 
     // public function getcriticalpreview()
     // {
-    //     $data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
+    //     $data = Books::orderBy('level', 'desc')->take(5)->get();
     //     return response()->json($data);
     // }
 
     public function getcriticalpreview()
     {
-        $my_objects = My_neighbor::orderBy('level', 'desc')
+        $my_objects = Books::orderBy('level', 'desc')
             ->orderBy('id', 'desc')
             ->take(5)
             ->get();
 
 
-        //$data = My_neighbor::orderBy('level', 'desc')->take(5)->get();
+        //$data = Books::orderBy('level', 'desc')->take(5)->get();
         return response()->json($my_objects);
     }
 
@@ -80,23 +80,23 @@ class MyNeighborController extends Controller
         $ip = $request->ip();
         $currentUserInfo = Location::get($ip);
 
-        $My_neighbor = User::where('location', '=',  $currentUserInfo->cityName)
+        $Books = User::where('location', '=',  $currentUserInfo->cityName)
             ->paginate(10);
-        return view('neighbors', compact('My_neighbor'));
+        return view('neighbors', compact('Books'));
     }
 
     public function critical(Request $request)
     {
-        $My_neighbor = My_neighbor::orderBy('level', 'desc')
+        $Books = Books::orderBy('level', 'desc')
             ->orderBy('id', 'desc')
             ->paginate(8);
 
 
         if ($request->ajax()) {
-            return view('critical', compact('My_neighbor'));
+            return view('critical', compact('Books'));
         }
 
-        return view('critical', compact('My_neighbor'));
+        return view('critical', compact('Books'));
     }
 
 
@@ -113,34 +113,7 @@ class MyNeighborController extends Controller
     }
     public function index(Request $request)
     {
-        try {
 
-            // return view('dashboard', compact('My_neighbor'));
-            // $ip = $request->ip(); //Dynamic IP address */
-            $ip = '197.248.192.135'; /* Static IP address */
-            $currentUserInfo = Location::get($ip);
-            // $currentUserInfo->cityName;
-
-            // $Useremail = User::where('location', '=',  $currentUserInfo->cityName)
-            //     ->toArray();
-            // dd($Useremail);
-
-            // dd($currentUserInfo->latitude . '---' .
-            //     $currentUserInfo->longitude);
-            if (Auth::check()) {
-                // The user is logged in...
-                $id = Auth::id();
-                $userId = User::find($id);
-                if ($userId) {
-                    $userId->location = $currentUserInfo->cityName;
-                    $userId->latitude = $currentUserInfo->latitude;
-                    $userId->longitude = $currentUserInfo->longitude;
-                    $userId->save();
-                }
-            }
-        } catch (\Throwable $th) {
-            //throw $th;
-        }
         $socialShare = \Share::page(
             url('/home'),
             'hello'
@@ -157,14 +130,14 @@ class MyNeighborController extends Controller
         // return view('posts.show', compact('socialShare'));
 
         // dd($postdata);
-        $My_neighbor = My_neighbor::orderBy('created_at', 'desc')->paginate(8);
+        $Books = Books::orderBy('created_at', 'desc')->paginate(8);
 
 
         if ($request->ajax()) {
-            return view('dashboard', compact('My_neighbor', 'socialShare'));
+            return view('dashboard', compact('Books', 'socialShare'));
         }
 
-        return view('dashboard', compact('My_neighbor', 'socialShare'));
+        return view('dashboard', compact('Books', 'socialShare'));
     }
 
 
@@ -200,7 +173,7 @@ class MyNeighborController extends Controller
         ]);
         //  try {
 
-        // return view('dashboard', compact('My_neighbor'));
+        // return view('dashboard', compact('Books'));
         $ip = $request->ip(); //Dynamic IP address */
         // $ip = '197.248.192.135'; /* Static IP address */
         $currentUserInfo = Location::get($ip);
@@ -212,7 +185,7 @@ class MyNeighborController extends Controller
             // The user is logged in...
             $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $newImageName);
-            My_neighbor::create([
+            Books::create([
                 'title' => $request->input('title'),
                 'description' => $request->input('description'),
                 'level' => $request->input('level'),
@@ -221,10 +194,10 @@ class MyNeighborController extends Controller
                 'user_id' => auth()->user()->id
             ]);
 
-            // $order = My_neighbor::findOrFail(12);
-            // $postdata = My_neighbor::where("user_id", Auth::User()->id);
+            // $order = Books::findOrFail(12);
+            // $postdata = Books::where("user_id", Auth::User()->id);
 
-            $postdata = My_neighbor::where("user_id", '=',  Auth::User()->id)
+            $postdata = Books::where("user_id", '=',  Auth::User()->id)
                 ->orderBy('created_at', 'desc')
                 ->first();
 
@@ -256,12 +229,12 @@ class MyNeighborController extends Controller
     // public function show(Request $request)
     // {
     //     return view('show')
-    //         ->with('My_neighbor', My_neighbor::where('slug', $request)->first());
+    //         ->with('Books', Books::where('slug', $request)->first());
     // }
     public function show($id)
     {
         try {
-            $post = My_neighbor::find($id);
+            $post = Books::find($id);
             $post->increment('view_count');
             $post->save();
         } catch (\Throwable $th) {
@@ -270,7 +243,7 @@ class MyNeighborController extends Controller
 
 
         return view('show')
-            ->with('post', My_neighbor::where('id', $id)->first());
+            ->with('post', Books::where('id', $id)->first());
     }
 
     /**
@@ -279,7 +252,7 @@ class MyNeighborController extends Controller
      * @param  \App\Models\my_neighbor  $my_neighbor
      * @return \Illuminate\Http\Response
      */
-    public function edit(my_neighbor $my_neighbor)
+    public function edit(books $my_neighbor)
     {
         //
     }
@@ -291,7 +264,7 @@ class MyNeighborController extends Controller
      * @param  \App\Models\my_neighbor  $my_neighbor
      * @return \Illuminate\Http\Response
      */
-    public function update(Updatemy_neighborRequest $request, my_neighbor $my_neighbor)
+    public function update(Updatemy_neighborRequest $request, books $my_neighbor)
     {
         //
     }
@@ -306,7 +279,7 @@ class MyNeighborController extends Controller
     public function destroy($my_neighbor)
     {
         //dd($my_neighbor);
-        $post = My_neighbor::where('id', $my_neighbor);
+        $post = Books::where('id', $my_neighbor);
         $post->delete();
 
 

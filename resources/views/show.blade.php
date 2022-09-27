@@ -70,22 +70,6 @@
                                     </span>
                                 </div>
 
-                                {{-- <div class="flex ">
-                                    <img height=50% class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />
-                                    <div class="ml-2 mt-0.5">
-                                        <span class="text-gray-900 dark:text-white">
-                                            <a href=""><span class="italic font-bold text-yellow-400 dark:text-yellow-400 ">
-                                                    {{ $post->User->name }}
-                                                </span>
-                                            </a>,
-                                        </span>
-                                        <span class="block text-sm font-light leading-snug text-gray-500 dark:text-gray-400">
-                                            {{ date('jS M Y', strtotime($post->created_at)) }}
-                                        </span>
-                                    </div>
-                                </div> --}}
-
                                 @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
                                     <div
                                         class="flex flex-row items-center float-right object-right px-2 py-2 space-x-2 right-2">
@@ -170,14 +154,61 @@
                             </div>
                             <img class="align-middle rounded-3xl mx-auto" src="{{ asset('images/' . $post->image_path) }}"
                                 alt="{{ $post->image_path }}">
+
+                            <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b>Publisher:</b> <span class=" underline">{{ ' ' . $post->publisher }}</span>
+                                </p>
+                                {{-- 'publisher','pages','language','colour','yr_published' --}}
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b>Model:</b> <span class=" underline">{{ ' ' . $post->model }}</span>
+                                </p>
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b>Pages:</b> <span class=" underline">{{ $post->pages }}</span>
+                                </p>
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b>Year Published:</b> <span class=" underline">{{ ' ' . $post->yr_published }}</span>
+                                </p>
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b>Color:</b> <span class=" underline">{{ ' ' . $post->colour }}</span>
+                                </p>
+                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                    <b> Language:</b> <span class=" underline">{{ ' ' . $post->language }}</span>
+                                </p>
+                                <div class="pt-5">
+                                    <span class="flex itemms-center">
+                                        <a class="text-s leading-3 underline text-blue-800 dark:text-white cursor-pointer">
+                                            Add to favorites
+                                        </a>
+                                    </span>
+                                    <span class="text-base font-black leading-none text-gray-800 dark:text-white mb-4 right-2">
+                                        @if ($post->price == 0)
+                                            <span class=" bg-fuchsia-600 rounded-3xl p-4 text-xl px-2">
+                                                Free
+                                            </span>
+                                        @else
+                                            @if ($post->price > 0)
+                                                <span>
+                                                    <span class="  text-xl">
+                                                        Now Ksh
+                                                        {{ ' ' . ($post->price - $post->discount) }}
+                                                    </span>
+                                                    <span class=" line-through p-4 text-gray-500">
+                                                        Was: Ksh <span class="text-red-600  p-1">{{ $post->price }}</span>
+                                                    </span>
+                                                </span>
+                                            @else
+                                                <span class=" bg-fuchsia-600 rounded-3xl p-4 text-xl">
+                                                    Ksh {{ ' ' . $post->price }}
+                                                </span>
+                                            @endif
+                                        @endif
+
+                                    </span>
+                                </div>
+                            </div>
                             <p class="leading-snug md:leading-normal">
-                                <?php
-                                $originalpost = $post->description;
-                                if (strlen($originalpost) > 950) {
-                                    $originalpost = substr($post->description, 0, 50);
-                                }
-                                ?>
-                                {{ $originalpost }}
+                                {{ $post->description }}
                             </p>
                             <div class="justify-center md:flex md:justify-between">
                                 <div>
@@ -190,8 +221,8 @@
 
                                     <dd class="flex items-center justify-between px-2">
 
-                                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round"
+                                        <svg width="24" height="24" fill="none" stroke="currentColor"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                             class="mr-1 text-slate-400 dark:text-slate-500" aria-hidden="true">
                                             <path
                                                 d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">

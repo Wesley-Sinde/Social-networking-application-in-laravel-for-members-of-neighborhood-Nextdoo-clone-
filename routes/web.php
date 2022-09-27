@@ -7,7 +7,7 @@ use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MyNeighborController;
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\MyprofileController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PostSitemapController;
@@ -44,7 +44,7 @@ Auth::routes();
 Route::post('/home/{post}/reaction', [ReactController::class, 'toggle'])
     ->middleware('auth');
 
-Route::resource('/home', MyNeighborController::class);
+Route::resource('/home', BooksController::class);
 Route::resource('/blog', PostsController::class);
 Route::post('/blogupload', [PostsController::class, 'upload'])
     ->middleware('auth');
@@ -56,15 +56,15 @@ Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMess
 Route::get('/PostComments/{post}', [CommentsController::class, 'fetchcomments']);
 Route::get('/lastComments/{post}', [CommentsController::class, 'lastComments']);
 Route::get('/userdata/{id}', [CommentsController::class, 'userdata']);
-Route::get('/getcriticalpreview', [MyNeighborController::class, 'getcriticalpreview']);
-Route::get('/critical', [MyNeighborController::class, 'critical']);
-Route::get('/neighbors', [MyNeighborController::class, 'neighbors']);
-Route::get('/profiles/{id}', [MyNeighborController::class, 'profiles']);
-Route::get('/userlocation/{id}', [MyNeighborController::class, 'userlocation']);
+Route::get('/getcriticalpreview', [BooksController::class, 'getcriticalpreview']);
+Route::get('/critical', [BooksController::class, 'critical']);
+Route::get('/neighbors', [BooksController::class, 'neighbors']);
+Route::get('/profiles/{id}', [BooksController::class, 'profiles']);
+Route::get('/userlocation/{id}', [BooksController::class, 'userlocation']);
 Route::post('/comment', [CommentsController::class, 'comment']);
 
-Route::get('/getcriticalpreview/{id}', [MyNeighborController::class, 'userdata']);
-Route::get('/profile', [MyNeighborController::class, 'profile'])->name('profile');
+Route::get('/getcriticalpreview/{id}', [BooksController::class, 'userdata']);
+Route::get('/profile', [BooksController::class, 'profile'])->name('profile');
 Route::post('/profile/check', [MyprofileController::class, 'checkName']);
 Route::post('/profile', [MyprofileController::class, 'store']);
 Route::get('/status', [UserController::class, 'userOnlineStatus']);

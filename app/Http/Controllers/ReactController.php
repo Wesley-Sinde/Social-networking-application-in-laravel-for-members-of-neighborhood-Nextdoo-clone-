@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\My_neighbor;
+use App\Models\Books;
 use Illuminate\Http\Request;
 
 class ReactController extends Controller
 {
-    public function toggle(My_neighbor $post, Request $request)
+    public function toggle(Books $post, Request $request)
     {
         $post->toggleReaction($request->reaction);
     }

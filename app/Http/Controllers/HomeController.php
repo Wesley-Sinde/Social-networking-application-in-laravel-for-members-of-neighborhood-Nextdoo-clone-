@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\MyNeighborController;
+use App\Http\Controllers\BooksController;
 
 class HomeController extends Controller
 {
@@ -28,7 +28,7 @@ class HomeController extends Controller
         if (Auth::check()) {
             // The user is logged in...
             return redirect()->action([
-                MyNeighborController::class, 'index'
+                BooksController::class, 'index'
             ]);
         }
         return view('home');

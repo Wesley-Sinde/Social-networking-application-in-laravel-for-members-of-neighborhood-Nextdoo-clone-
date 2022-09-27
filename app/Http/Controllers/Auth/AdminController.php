@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comments;
-use App\Models\My_neighbor;
+use App\Models\Books;
 use App\Models\User;
 use App\Models\shetabit_visits;
 use Carbon\Carbon;
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
         $totalUniqueVisitors = shetabit_visits::distinct('ip')->count('ip');
         $totalVisitors = shetabit_visits::count();
-        $Totalposts = My_neighbor::count();
+        $Totalposts = Books::count();
         $TotalComments = Comments::count();
         $remdays = \Carbon\Carbon::today()->subDay(7);
         // dd($remdays);'2022-06-13 17:33:51'

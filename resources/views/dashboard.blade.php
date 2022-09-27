@@ -125,9 +125,9 @@
                                     </h1>
 
                                 </div>
-                                @isset($My_neighbor)
+                                @isset($Books)
                                     <div class="grid gap-4 mx-2 ">
-                                        @foreach ($My_neighbor as $post)
+                                        @foreach ($Books as $post)
                                             <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-slate-900">
                                                 <div
                                                     class="flex font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
@@ -328,10 +328,206 @@
                                                             :reacted='@json($post->reacted())' @endauth />
                                                     </div>
                                                 </div>
+                                                {{-- Main Body md:flex --}}
 
-                                                <img class="self-center mx-auto align-middle rounded-3xl px-auto"
-                                                    src="{{ asset('images/' . $post->image_path) }}"
-                                                    alt="{{ $post->image_path }}">
+                                                <div
+                                                    class=" py-8 md:py-10 lg:py-8 border-t border-gray-50  grid mx-2 mt-2 md:grid-cols-2">
+                                                    <div class=" mr-2">
+                                                        <img src="{{ asset('images/' . $post->image_path) }}"
+                                                            alt="{{ $post->image_path }}" class="mx-auto" />
+                                                        {{-- <img src="{{ asset('images/' . $post->image_path) }}"
+                                                            alt="{{ $post->image_path }}"
+                                                            class="md:hidden  object-center object-cover" /> --}}
+
+                                                    </div>
+                                                    <div class="px-5 py-5 ">
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            <b>Publisher:</b>
+                                                            <span class=" underline">{{ ' ' . $post->publisher }}
+                                                            </span>
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            <b>Model:</b> <span
+                                                                class=" underline">{{ ' ' . $post->model }}</span>
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            {{ $post->pages }} Pages
+
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            Color:{{ ' ' . $post->colour }}
+
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            Color:{{ ' ' . $post->colour }}
+
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+
+                                                        </h5>
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                                            Language: {{ ' ' . $post->language }}
+                                                        </h5>
+                                                        <div class="flex items-center mt-2.5 mb-5">
+                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                                fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <title>First star</title>
+                                                                <path
+                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                                fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <title>Second star</title>
+                                                                <path
+                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                                fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <title>Third star</title>
+                                                                <path
+                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                                fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <title>Fourth star</title>
+                                                                <path
+                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                                </path>
+                                                            </svg>
+                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                                fill="currentColor" viewBox="0 0 20 20"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <title>Fifth star</title>
+                                                                <path
+                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                                </path>
+                                                            </svg>
+                                                            <span
+                                                                class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                                                        </div>
+                                                        <div class="flex justify-between items-center">
+                                                            @if ($post->price == 0)
+                                                                <span class="text-3xl font-bold text-gray-900 dark:text-white">
+                                                                    Free
+                                                                </span>
+                                                            @else
+                                                                @if ($post->discount > 0)
+                                                                    <span>
+                                                                        <span class="font-bold text-gray-900 dark:text-white">
+                                                                            Now Ksh
+                                                                            <span
+                                                                                class="text-xl"></span>{{ ' ' . ($post->price - $post->discount) }}
+                                                                        </span>
+                                                                        <span
+                                                                            class=" pl-3  font-bold text-gray-500">
+                                                                           <span class="line-through ">Was: Ksh </span> 
+                                                                            <span class="p-1 text-xl">{{ $post->price }}</span>
+                                                                        </span>
+                                                                    </span>
+                                                                @else
+                                                                 <span class="font-bold text-gray-900 dark:text-white">
+                                                                            Now Ksh
+                                                                            <span
+                                                                                class="text-xl"></span>{{ ' ' . ($post->price) }}
+                                                                        </span>
+                                                                @endif
+                                                            @endif
+                                                            {{-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> --}}
+                                                            <div>
+                                                             @if ($post->price == 0)
+                                                                <a class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="images/{{ $post->image_path }}"
+                                                                    download="{{ $post->image_path }}">
+                                                                    Download
+                                                                </a>
+                                                            @else
+                                                                <a href="#"
+                                                                    class=" mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                                    Add to cart
+                                                                </a>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+
+                                                    {{-- <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
+                                                        <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
+                                                            <span class=" underline decoration-wavy"></span> Publisher:
+                                                            {{ ' ' . $post->publisher }}
+                                                        </p>
+                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
+                                                            Model: {{ ' ' . $post->model }}
+                                                        </p>
+                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
+                                                            {{ $post->pages }} Pages
+                                                        </p>
+                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
+                                                            Year Published: {{ ' ' . $post->yr_published }}
+                                                        </p>
+                                                        <p class="text-s leading-3 text-gray-600 dark:text-white py-4">
+                                                            Color:{{ ' ' . $post->colour }}
+                                                        </p>
+                                                        <p class="w-96 text-s leading-3 text-gray-600 dark:text-white">
+                                                            Language: {{ ' ' . $post->language }}
+                                                        </p>
+                                                        <div class="flex items-center justify-between pt-5">
+                                                            <div class="flex itemms-center">
+                                                                <p
+                                                                    class="text-s leading-3 underline text-gray-800 dark:text-white cursor-pointer">
+                                                                    Add to favorites
+                                                                </p>
+                                                            </div>
+                                                            <p
+                                                                class="text-base font-black leading-none text-gray-800 dark:text-white">
+                                                                @if ($post->price == 0)
+                                                                    <div class=" bg-fuchsia-600 rounded-3xl p-4 text-xl px-2">
+                                                                        Free
+                                                                    </div>
+                                                                @else
+                                                                    @if ($post->price > 0)
+                                                                        <div>
+                                                                            <div class=" bg-fuchsia-600 rounded-3xl p-4">
+                                                                                Was: Ksh <span
+                                                                                    class="text-red-600 line-through p-1">{{ $post->price }}</span>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div
+                                                                                class=" bg-orange-400 rounded-3xl p-4 text-xl">
+                                                                                Now Ksh
+                                                                                {{ ' ' . ($post->price - $post->discount) }}
+                                                                            </div>
+                                                                        </div>
+                                                                    @else
+                                                                        <div class=" bg-fuchsia-600 rounded-3xl p-4 text-xl">
+                                                                            Ksh {{ ' ' . $post->price }}
+                                                                        </div>
+                                                                    @endif
+                                                                @endif
+
+                                                            </p>
+                                                        </div>
+                                                    </div> --}}
+                                                </div>
+
+
+
                                                 <p class="leading-snug md:leading-normal ">
                                                     <?php
                                                     $yourText = $post->description;
@@ -355,41 +551,7 @@
 
                                                     </span>
                                                 </p>
-                                                {{-- <div>
-                                        <div class="right-0 justify-end pt-2 d-flex">
-                                            <div class="ml-1 font-light text-gray-500 dark:text-gray-400">
-                                                33 comments &nbsp;
-                                            </div>
-
-                                            <div class="text-gray-900 post-views small dark:text-gray-400">
-                                                {{ $post->view_count }}
-                                                <span>views</span>
-                                            </div>
-                                        </div>
-                                    </div> --}}
-
-
                                                 <div class="right-0 flex justify-center pt-2">
-
-                                                    <a href="{{ url('/userlocation/' . $post->id) }}"
-                                                        class="flex ml-1 font-light text-gray-500 dark:text-gray-400">
-
-                                                        <svg width="24" height="24" fill="none"
-                                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round"
-                                                            class="mr-1 text-slate-400 dark:text-slate-500"
-                                                            aria-hidden="true">
-                                                            <path
-                                                                d="M18 11.034C18 14.897 12 19 12 19s-6-4.103-6-7.966C6 7.655 8.819 5 12 5s6 2.655 6 6.034Z">
-                                                            </path>
-                                                            <path d="M14 11a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"></path>
-                                                        </svg>
-                                                        {{ $post->location }}
-                                                    </a>
-                                                    {{-- <a class="px-2" href="#">
-                                            33 comments &nbsp;
-                                        </a> --}}
-
                                                     <dd id="accordion-arrow-icon" data-accordion="open"
                                                         class="flex items-center justify-between px-2 ">
                                                         <h2 id="accordion-arrow-icon-heading-2">
@@ -464,119 +626,11 @@
                                     <mostViewed-component />
                                 </div>
                             </div>
-
-
-
                         </div>
-                        {{-- <div class="relative">
-                            <div
-                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
-                                A
-                            </div>
-                            <div class="divide-y dark:divide-slate-200/5">
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Andrew
-                                        Alfred</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Aisha
-                                        Houston</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Anna
-                                        White</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Andy
-                                        Flint</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <div
-                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
-                                B</div>
-                            <div class="divide-y dark:divide-slate-200/5">
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bob
-                                        Alfred</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bianca
-                                        Houston</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Brianna
-                                        White</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Bert
-                                        Flint</strong>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <div
-                                class="sticky top-0 flex items-center px-4 py-3 text-sm font-semibold text-slate-900 dark:text-slate-200 bg-slate-50/90 dark:bg-slate-700/90 backdrop-blur-sm ring-1 ring-slate-900/10 dark:ring-black/10">
-                                C
-                            </div>
-                            <div class="divide-y dark:divide-slate-200/5">
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Colton
-                                        Alfred</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Cynthia
-                                        Houston</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Cheyenne
-                                        White</strong>
-                                </div>
-                                <div class="flex items-center gap-4 p-4">
-                                    <img class="w-12 h-12 rounded-full"
-                                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=80">
-                                    <strong class="text-sm font-medium text-slate-900 dark:text-slate-200">Charlie
-                                        Flint</strong>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
-
-
-
-
                     <div class="p-2 m-2 rounded-sm bg-slate-600 ">
-                        <?php echo $My_neighbor->render(); ?>
+                        <?php echo $Books->render(); ?>
                     </div>
-                    {{-- ______________
-                    <infinite-component /> --}}
-
-
-
-
                 </main>
             </div>
         </section>
@@ -606,3 +660,59 @@
         });
     </script>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+<!-- checkout -->
+
+{{-- <div class="w-full h-full bg-black dark:bg-gray-900 bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
+    id="chec-div">
+    <div class="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
+        id="checkout">
+        <div class="flex items-end lg:flex-row flex-col justify-end" id="cart">
+            <div class="lg:w-1/2 md:w-8/12 w-full lg:px-8 lg:py-14 md:px-6 px-4 md:py-8 py-4 bg-white dark:bg-gray-800 overflow-y-hidden overflow-x-hidden lg:h-screen h-auto"
+                id="scroll">
+              
+                <p class="lg:text-4xl text-3xl font-black leading-10 text-gray-800 dark:text-white pt-3">Bag</p>
+               
+            </div>
+            <div class="lg:w-96 md:w-8/12 w-full bg-gray-100 dark:bg-gray-900 h-full">
+                <div
+                    class="flex flex-col lg:h-screen h-auto lg:px-8 md:px-7 px-4 lg:py-20 md:py-10 py-6 justify-between overflow-y-auto">
+                    <div>
+                        <p class="lg:text-4xl text-3xl font-black leading-9 text-gray-800 dark:text-white">Summary</p>
+                        <div class="flex items-center justify-between pt-16">
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Subtotal</p>
+                            <p class="text-base leading-none text-gray-800 dark:text-white">,000</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-5">
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Shipping</p>
+                            <p class="text-base leading-none text-gray-800 dark:text-white"></p>
+                        </div>
+                        <div class="flex items-center justify-between pt-5">
+                            <p class="text-base leading-none text-gray-800 dark:text-white">Tax</p>
+                            <p class="text-base leading-none text-gray-800 dark:text-white"></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center pb-6 justify-between lg:pt-5 pt-20">
+                            <p class="text-2xl leading-normal text-gray-800 dark:text-white">Total</p>
+                            <p class="text-2xl font-bold leading-normal text-right text-gray-800 dark:text-white">,240
+                            </p>
+                        </div>
+                        <button onclick="checkoutHandler1(true)"
+                            class="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white dark:hover:bg-gray-700">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

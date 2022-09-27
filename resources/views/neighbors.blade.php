@@ -110,9 +110,9 @@
                                     </h1>
 
                                 </div>
-                                @isset($My_neighbor)
+                                @isset($Books)
                                     <div class="grid gap-4 mx-2 ">
-                                        @foreach ($My_neighbor as $post)
+                                        @foreach ($Books as $post)
                                             @if ($post->id == Auth::User()->id)
                                             @else
                                                 <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-slate-900">
@@ -120,7 +120,8 @@
                                                         class="grid grid-cols-2 gap-4 font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
                                                         <div class="">
                                                             <div class="text-xl ">
-                                                                <userprofile-component :userid={{ $post->id }}   online="{{ $Online }}"/>
+                                                                <userprofile-component :userid={{ $post->id }}
+                                                                    online="{{ $Online }}" />
                                                             </div>
                                                             <span
                                                                 class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
@@ -200,7 +201,7 @@
                     </div>
 
                     <div class="p-2 m-2 rounded-sm bg-slate-600 ">
-                        <?php echo $My_neighbor->render(); ?>
+                        <?php echo $Books->render(); ?>
                     </div>
                     {{-- ______________
                     <infinite-component /> --}}

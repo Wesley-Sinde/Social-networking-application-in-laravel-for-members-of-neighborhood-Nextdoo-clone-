@@ -8,12 +8,12 @@ use Qirolab\Laravel\Reactions\Traits\Reactable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Qirolab\Laravel\Reactions\Contracts\ReactableInterface;
 
-class My_neighbor extends Model implements ReactableInterface
+class Books extends Model implements ReactableInterface
 {
   use HasFactory, Reactable;
   use Sluggable;
 
-  protected $fillable = ['id', 'level', 'location', 'title', 'slug', 'description', 'image_path', 'user_id'];
+  protected $fillable = ['id', 'level', 'location', 'title', 'slug', 'description', 'image_path', 'user_id', 'discount'];
 
   public function user()
   {

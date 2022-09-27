@@ -2,6 +2,7 @@
   <div :key="componentKey">
     <div class="flex justify-between mt-3">
       <div></div>
+      
       <label v-bind:for="'toggle-' + togleid" class="relative inline-flex object-right cursor-pointer right-1 w-fit">
         <input @click="show = !show" type="checkbox" value="" v-bind:id="'toggle-' + togleid" class="sr-only peer">
         <div
