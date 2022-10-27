@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('content')
-    <div class="flex">
+    <div>
+        @if (Auth::user())
+            @include('layouts.asidenav')
+        @endif
 
-        @include('layouts.asidenav')
         <section class="bg-white dark:bg-gray-900">
             {{-- <div class="fixed inset-0 z-10 bg-gray-900/50 dark:bg-gray-900/60 " id="sidebar1" aria-label="Sidebar1">
             </div> --}}
@@ -126,468 +128,128 @@
 
                                 </div>
                                 @isset($Books)
-                                    <div class="grid gap-4 mx-2 ">
+                                    <div class=" mx-2 grid grid-cols-3 gap-4">
                                         @foreach ($Books as $post)
-                                            <div class="p-2 px-4 bg-gray-200 rounded-lg shadow dark:bg-slate-900">
-                                                <div
-                                                    class="flex font-mono text-sm font-bold leading-6 text-center text-white justify-items-stretch auto-rows-fr ">
-                                                    <div class="w-full">
-                                                        @if (Cache::has('user-is-online-' . $post->user_id))
-                                                            {{-- <span class="text-success">Online</span> --}}
-                                                            @php
-                                                                $Online = 'Online';
-                                                            @endphp
-                                                        @else
-                                                            {{-- <span class="text-secondary">Offline</span> --}}
-                                                            @php
-                                                                $Online = \Carbon\Carbon::parse($post->last_seen)->diffForHumans();
-                                                            @endphp
-                                                        @endif
-                                                        <div class="w-full text-xl">
-                                                            <userprofile-component :userid={{ $post->user_id }}
-                                                                online="{{ $Online }}" />
-
-                                                        </div>
-                                                        {{-- @if ($Online !== 'Online' && $Online !== null)
-                                                            <span class="text-green-500"> {{ $Online }}</span>
-                                                        @endif --}}
-
-
-                                                        <span
-                                                            class="flex text-sm font-light leading-snug text-gray-500 dark:text-yellow-400">
-                                                            <svg class="w-3 h-3 mt-1 mr-1" fill="currentColor"
-                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                                                                    clip-rule="evenodd"></path>
-                                                            </svg>
-                                                            {{ date('jS M Y', strtotime($post->created_at)) }}
-                                                        </span>
-                                                    </div>
-
-                                                    @if (isset(Auth::User()->id) && Auth::User()->id == $post->user_id)
-                                                        <button
-                                                            class="relative z-10 block w-3 pt-2 pr-2 text-gray-700 border border-transparent rounded-md dark:text-white dark:focus:ring-opacity-40 hover:rotate-1 hover:text-blue-600 focus:outline-none justify-self-end "
-                                                            id="user-menu-button2" aria-expanded="false"
-                                                            data-dropdown-toggle="dropdownusermenu">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-                                                                viewBox="0 0 20 20" fill="currentColor">
-                                                                <path
-                                                                    d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
-                                                            </svg>
-                                                        </button>
-                                                        <div class="z-50 hidden p-2 m-0 text-base list-none bg-gray-100 border rounded shadow dark:bg-gray-900 "
-                                                            id="dropdownusermenu">
-                                                            <div class="pb-3 ">
-                                                                <button class="inline-flex items-center mx-2 w-7 h-7"
-                                                                    type="button" data-modal-toggle="popup-modal-delete"
-                                                                    data-tooltip-target="tooltip-delete">
-                                                                    <img src="\images\app\delete.png" alt="">
-                                                                </button>
-                                                                <div id="tooltip-delete" role="tooltip"
-                                                                    class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-red-600 rounded-lg shadow-sm opacity-0 tooltip">
-                                                                    Delete This Post
-                                                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                                                </div>
-                                                            </div>
-
-
-                                                            <div>
-                                                                <button data-tooltip-target="tooltip-edit"
-                                                                    data-modal-toggle="pro-modal">
-                                                                    {{-- <a href="{{ url('/home/' . $post->id . '/edit') }}"
-                                                            class="inline-flex items-center w-5 h-5">
-                                                        </a> --}}
-                                                                    <img class="inline-flex items-center w-5 h-5"
-                                                                        src="\images\app\edit.png" alt="">
-                                                                </button>
-
-                                                                <div id="tooltip-edit" role="tooltip"
-                                                                    class="absolute z-10 invisible inline-block px-3 text-sm font-medium text-white transition-opacity duration-300 bg-blue-600 rounded-lg shadow-sm opacity-0 tooltip">
-                                                                    Edit This Post
-                                                                    <div class="tooltip-arrow" data-popper-arrow></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <form action="{{ url('/home/' . $post->id) }}" method="post">
-                                                            @csrf
-                                                            @method('delete')
-                                                            <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
-                                                                id="popup-modal-delete" aria-hidden="true">
-                                                                <div class="relative w-full h-full max-w-md px-4 md:h-auto">
-
-                                                                    <div
-                                                                        class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
-                                                                        <div class="flex justify-end p-2">
-                                                                            <button type="button"
-                                                                                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                                                                data-modal-toggle="popup-modal-delete">
-                                                                                <svg class="w-5 h-5" fill="currentColor"
-                                                                                    viewBox="0 0 20 20"
-                                                                                    xmlns="http://www.w3.org/2000/svg">
-                                                                                    <path fill-rule="evenodd"
-                                                                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                                                        clip-rule="evenodd"></path>
-                                                                                </svg>
-                                                                            </button>
-                                                                        </div>
-
-                                                                        <div class="p-6 pt-0 text-center">
-                                                                            <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
-                                                                                fill="none" stroke="currentColor"
-                                                                                viewBox="0 0 24 24"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path stroke-linecap="round"
-                                                                                    stroke-linejoin="round" stroke-width="2"
-                                                                                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                                                </path>
-                                                                            </svg>
-                                                                            <h3
-                                                                                class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                                                                Are you sure you want to delete this
-                                                                                Post?
-                                                                            </h3>
-                                                                            <button data-modal-toggle="popup-modal-delete"
-                                                                                type="submit"
-                                                                                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
-                                                                                Yes, I'm sure
-                                                                            </button>
-                                                                            <button data-modal-toggle="popup-modal-delete"
-                                                                                type="button"
-                                                                                class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 bg-blue-400 dark:bg-blue-600">
-                                                                                No,
-                                                                                cancel
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                        <div class="fixed left-0 right-0 z-50 items-center justify-center hidden overflow-x-hidden overflow-y-auto top-4 md:inset-0 h-modal sm:h-full"
-                                                            id="pro-modal" aria-hidden="true">
-                                                            <div class="relative w-full h-full max-w-md px-4 md:h-auto">
-
-                                                                <div
-                                                                    class="relative bg-gray-300 rounded-lg shadow dark:bg-gray-600">
-
-                                                                    <div class="flex justify-end p-2">
-                                                                        <button type="button"
-                                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
-                                                                            data-modal-toggle="popup-modal">
-                                                                            <svg class="w-5 h-5" fill="currentColor"
-                                                                                viewBox="0 0 20 20"
-                                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                                <path fill-rule="evenodd"
-                                                                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                                                                    clip-rule="evenodd"></path>
-                                                                            </svg>
-                                                                        </button>
-                                                                    </div>
-
-                                                                    <div class="p-6 pt-0 text-center">
-                                                                        <svg class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
-                                                                            fill="none" stroke="currentColor"
-                                                                            viewBox="0 0 24 24"
-                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                            <path stroke-linecap="round"
-                                                                                stroke-linejoin="round" stroke-width="2"
-                                                                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                                                            </path>
-                                                                        </svg>
-                                                                        <h3
-                                                                            class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                                                                            This action is performed in pro account
-                                                                            or
-                                                                            verified
-                                                                            account. Do you want to apply for pro
-                                                                            account?
-                                                                        </h3>
-                                                                        <button data-modal-toggle="pro-modal"
-                                                                            class="text-gray-500hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10  dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-green-600 bg-blue-400 dark:bg-blue-600">
-                                                                            Yes, I'm sure
-                                                                        </button>
-                                                                        <button data-modal-toggle="pro-modal" type="button"
-                                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">No,
-                                                                            cancel
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="flex">
-                                                    <h3 class="mb-2 text-xl font-bold leading-tight lg:text-3xl">
-                                                        <a class="transition duration-150 ease-in-out hover:text-gray-100"
-                                                            href="{{ url('/home/' . $post->id) }}">
+                                            <div
+                                                class="w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:outline-1 hover:dark:bg-gray-700">
+                                                <a href="{{ url('/home/' . $post->id) }}">
+                                                    <img class="p-8 rounded-t-lg"
+                                                        src="{{ asset('images/' . $post->image_path) }}"
+                                                        alt="{{ $post->image_path }}" style="height: 236px;" height="236">
+                                                </a>
+                                                <div class="px-5 pb-5">
+                                                    <a href="{{ url('/home/' . $post->id) }}">
+                                                        <h5
+                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                                                             {{ $post->title }}
-                                                        </a>
-                                                    </h3>
-                                                    <div class="right-0 float-right ">
-                                                        <example-component :summary='@json($post->reactionSummary())' @auth
-                                                            :reacted='@json($post->reacted())' @endauth />
-                                                    </div>
-                                                </div>
-                                                {{-- Main Body md:flex --}}
-
-                                                <div
-                                                    class=" py-8 md:py-10 lg:py-8 border-t border-gray-50  grid mx-2 mt-2 md:grid-cols-2">
-                                                    <div class=" mr-2">
-                                                        <img src="{{ asset('images/' . $post->image_path) }}"
-                                                            alt="{{ $post->image_path }}" class="mx-auto" />
-                                                        {{-- <img src="{{ asset('images/' . $post->image_path) }}"
-                                                            alt="{{ $post->image_path }}"
-                                                            class="md:hidden  object-center object-cover" /> --}}
-
-                                                    </div>
-                                                    <div class="px-5 py-5 ">
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            <b>Publisher:</b>
-                                                            <span class=" underline">{{ ' ' . $post->publisher }}
-                                                            </span>
                                                         </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            <b>Model:</b> <span
-                                                                class=" underline">{{ ' ' . $post->model }}</span>
-                                                        </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            {{ $post->pages }} Pages
-
-                                                        </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            Color:{{ ' ' . $post->colour }}
-
-                                                        </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            Color:{{ ' ' . $post->colour }}
-
-                                                        </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-
-                                                        </h5>
-                                                        <h5
-                                                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                                                            Language: {{ ' ' . $post->language }}
-                                                        </h5>
-                                                        <div class="flex items-center mt-2.5 mb-5">
-                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
-                                                                fill="currentColor" viewBox="0 0 20 20"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <title>First star</title>
-                                                                <path
-                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                                                </path>
-                                                            </svg>
-                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
-                                                                fill="currentColor" viewBox="0 0 20 20"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <title>Second star</title>
-                                                                <path
-                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                                                </path>
-                                                            </svg>
-                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
-                                                                fill="currentColor" viewBox="0 0 20 20"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <title>Third star</title>
-                                                                <path
-                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                                                </path>
-                                                            </svg>
-                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
-                                                                fill="currentColor" viewBox="0 0 20 20"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <title>Fourth star</title>
-                                                                <path
-                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                                                </path>
-                                                            </svg>
-                                                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
-                                                                fill="currentColor" viewBox="0 0 20 20"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <title>Fifth star</title>
-                                                                <path
-                                                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                                                                </path>
-                                                            </svg>
-                                                            <span
-                                                                class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
-                                                        </div>
-                                                        <div class="flex justify-between items-center">
-                                                            @if ($post->price == 0)
-                                                                <span class="text-3xl font-bold text-gray-900 dark:text-white">
-                                                                    Free
-                                                                </span>
-                                                            @else
-                                                                @if ($post->discount > 0)
-                                                                    <span>
-                                                                        <span class="font-bold text-gray-900 dark:text-white">
-                                                                            Now Ksh
-                                                                            <span
-                                                                                class="text-xl"></span>{{ ' ' . ($post->price - $post->discount) }}
-                                                                        </span>
-                                                                        <span
-                                                                            class=" pl-3  font-bold text-gray-500">
-                                                                           <span class="line-through ">Was: Ksh </span> 
-                                                                            <span class="p-1 text-xl">{{ $post->price }}</span>
-                                                                        </span>
-                                                                    </span>
-                                                                @else
-                                                                 <span class="font-bold text-gray-900 dark:text-white">
-                                                                            Now Ksh
-                                                                            <span
-                                                                                class="text-xl"></span>{{ ' ' . ($post->price) }}
-                                                                        </span>
-                                                                @endif
-                                                            @endif
-                                                            {{-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> --}}
-                                                            <div>
-                                                             @if ($post->price == 0)
-                                                                <a class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" href="images/{{ $post->image_path }}"
-                                                                    download="{{ $post->image_path }}">
-                                                                    Download
-                                                                </a>
-                                                            @else
-                                                                <a href="#"
-                                                                    class=" mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                                    Add to cart
-                                                                </a>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-
-
-
-                                                    {{-- <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
-                                                        <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                                            <span class=" underline decoration-wavy"></span> Publisher:
-                                                            {{ ' ' . $post->publisher }}
-                                                        </p>
-                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
-                                                            Model: {{ ' ' . $post->model }}
-                                                        </p>
-                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
-                                                            {{ $post->pages }} Pages
-                                                        </p>
-                                                        <p class="text-s leading-3 text-gray-600 dark:text-white pt-2">
-                                                            Year Published: {{ ' ' . $post->yr_published }}
-                                                        </p>
-                                                        <p class="text-s leading-3 text-gray-600 dark:text-white py-4">
-                                                            Color:{{ ' ' . $post->colour }}
-                                                        </p>
-                                                        <p class="w-96 text-s leading-3 text-gray-600 dark:text-white">
-                                                            Language: {{ ' ' . $post->language }}
-                                                        </p>
-                                                        <div class="flex items-center justify-between pt-5">
-                                                            <div class="flex itemms-center">
-                                                                <p
-                                                                    class="text-s leading-3 underline text-gray-800 dark:text-white cursor-pointer">
-                                                                    Add to favorites
-                                                                </p>
-                                                            </div>
-                                                            <p
-                                                                class="text-base font-black leading-none text-gray-800 dark:text-white">
-                                                                @if ($post->price == 0)
-                                                                    <div class=" bg-fuchsia-600 rounded-3xl p-4 text-xl px-2">
-                                                                        Free
-                                                                    </div>
-                                                                @else
-                                                                    @if ($post->price > 0)
-                                                                        <div>
-                                                                            <div class=" bg-fuchsia-600 rounded-3xl p-4">
-                                                                                Was: Ksh <span
-                                                                                    class="text-red-600 line-through p-1">{{ $post->price }}</span>
-                                                                            </div>
-                                                                            <br>
-                                                                            <div
-                                                                                class=" bg-orange-400 rounded-3xl p-4 text-xl">
-                                                                                Now Ksh
-                                                                                {{ ' ' . ($post->price - $post->discount) }}
-                                                                            </div>
-                                                                        </div>
-                                                                    @else
-                                                                        <div class=" bg-fuchsia-600 rounded-3xl p-4 text-xl">
-                                                                            Ksh {{ ' ' . $post->price }}
-                                                                        </div>
-                                                                    @endif
-                                                                @endif
-
-                                                            </p>
-                                                        </div>
-                                                    </div> --}}
-                                                </div>
-
-
-
-                                                <p class="leading-snug md:leading-normal ">
-                                                    <?php
-                                                    $yourText = $post->description;
-                                                    if (strlen($yourText) > 200) {
-                                                        $yourText = substr($post->description, 0, 200);
-                                                        $yourText = $yourText . '.....';
-                                                    }
-                                                    ?>
-                                                    {{ $yourText }}
-                                                    <span class="whitespace-nowrap contents">
-                                                        <a href="{{ url('/home/' . $post->id) }}"
-                                                            class="flex items-center text-blue-500 align-middle hover:font-semibold hover:text-yellow-500 dark:text-blue-600 ">
-                                                            Read more
-                                                            <svg class="w-3 h-3 pt-1 ml-2" fill="currentColor"
-                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                                <path fill-rule="evenodd"
-                                                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                                                    clip-rule="evenodd"></path>
-                                                            </svg>
-                                                        </a>
-
-                                                    </span>
-                                                </p>
-                                                <div class="right-0 flex justify-center pt-2">
-                                                    <dd id="accordion-arrow-icon" data-accordion="open"
-                                                        class="flex items-center justify-between px-2 ">
-                                                        <h2 id="accordion-arrow-icon-heading-2">
-                                                            <button type="button"
-                                                                class="flex items-center justify-between px-2 "
-                                                                data-accordion-target="#accordion-arrow-icon-body-2"
-                                                                aria-expanded="false"
-                                                                aria-controls="accordion-arrow-icon-body-2">
-                                                                <span> 33 comments</span>
-                                                            </button>
-                                                        </h2>
-                                                    </dd>
-                                                    <dd class="items-center text-gray-900 dark:text-gray-400">
-                                                        <span>views</span>
-                                                        <span
-                                                            class="px-2 text-white rounded-full box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500">
-                                                            {{ $post->view_count }}
-                                                        </span>
-                                                    </dd>
-
-
-                                                    <dd class="flex px-2 ml-1 font-light ">
-
-
-                                                        <svg class="w-4 h-4 mx-1 text-slate-400 dark:text-slate-500"
+                                                    </a>
+                                                    <div class="flex items-center mt-2.5 mb-5">
+                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
                                                             fill="currentColor" viewBox="0 0 20 20"
                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <title>First star</title>
                                                             <path
-                                                                d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z">
+                                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
                                                             </path>
                                                         </svg>
-                                                    </dd>
-                                                </div>
-                                                <postcomments-component :user_id={{ Auth::User()->id }}
-                                                    :postid={{ $post->id }} />
+                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                            fill="currentColor" viewBox="0 0 20 20"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <title>Second star</title>
+                                                            <path
+                                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                            </path>
+                                                        </svg>
+                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                            fill="currentColor" viewBox="0 0 20 20"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <title>Third star</title>
+                                                            <path
+                                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                            </path>
+                                                        </svg>
+                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                            fill="currentColor" viewBox="0 0 20 20"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <title>Fourth star</title>
+                                                            <path
+                                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                            </path>
+                                                        </svg>
+                                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300"
+                                                            fill="currentColor" viewBox="0 0 20 20"
+                                                            xmlns="http://www.w3.org/2000/svg">
+                                                            <title>Fifth star</title>
+                                                            <path
+                                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                            </path>
+                                                        </svg>
+                                                        <span
+                                                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                                                    </div>
+                                                    <div class="flex justify-between items-center">
+                                                        <div>
+                                                            <div class=" justify-between items-center">
+                                                                @if ($post->price == 0)
+                                                                    <span
+                                                                        class="text-3xl font-bold text-gray-900 dark:text-white">
+                                                                        Free
+                                                                    </span>
+                                                                @else
+                                                                    @if ($post->discount > 0)
+                                                                        <span>
+                                                                            <span
+                                                                                class="font-bold text-gray-900 dark:text-white">
+                                                                                Now Ksh
+                                                                                <span
+                                                                                    class="text-xl"></span>{{ ' ' . ($post->price - $post->discount) }}
+                                                                            </span>
+                                                                            <span class=" pl-3  font-bold text-gray-500">
+                                                                                <span class="line-through ">Was: Ksh </span>
+                                                                                <span
+                                                                                    class="p-1 text-xl">{{ $post->price }}</span>
+                                                                            </span>
+                                                                        </span>
+                                                                    @else
+                                                                        <span class="font-bold text-gray-900 dark:text-white">
+                                                                            Ksh
+                                                                            <span
+                                                                                class="text-xl"></span>{{ ' ' . $post->price }}
+                                                                        </span>
+                                                                    @endif
+                                                                @endif
+                                                                {{-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> --}}
+                                                            </div>
+                                                            <div>
+                                                                <div>
+                                                                    <div class=" pt-10 align-baseline right-3 bottom-3">
+                                                                        @if ($post->price == 0)
+                                                                            <a class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  right-3 bottom-3"
+                                                                                href="images/{{ $post->image_path }}"
+                                                                                download="{{ $post->image_path }}">
+                                                                                Download
+                                                                            </a>
+                                                                        @else
+                                                                            <a href="{{ url('/pay/' . $post->id) }}"
+                                                                                class="  mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  right-3 bottom-3">
+                                                                                Buy
+                                                                            </a>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
 
+                                                                {{-- <div class="p-4 w-14 h-14 absolute right-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">09</div> --}}
+                                                            </div>
+                                                        </div>
+                                                        {{-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599
+                                                        </span>
+                                                        <a href="#"
+                                                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                            Add to cart
+                                                        </a> --}}
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>

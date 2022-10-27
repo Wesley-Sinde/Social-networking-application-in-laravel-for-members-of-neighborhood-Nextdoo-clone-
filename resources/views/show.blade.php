@@ -152,59 +152,119 @@
                                     </div>
                                 @endif
                             </div>
-                            <img class="align-middle rounded-3xl mx-auto" src="{{ asset('images/' . $post->image_path) }}"
-                                alt="{{ $post->image_path }}">
+                            <div class=" py-8 md:py-10 lg:py-8 border-t border-gray-50  grid mx-2 mt-2 md:grid-cols-2">
+                                <div class=" mr-2">
+                                    <img class="align-middle rounded-3xl mx-auto w-auto h-96" 
+                                        src="{{ asset('images/' . $post->image_path) }}" alt="{{ $post->image_path }}">
+                                </div>
 
-                            <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b>Publisher:</b> <span class=" underline">{{ ' ' . $post->publisher }}</span>
-                                </p>
-                                {{-- 'publisher','pages','language','colour','yr_published' --}}
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b>Model:</b> <span class=" underline">{{ ' ' . $post->model }}</span>
-                                </p>
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b>Pages:</b> <span class=" underline">{{ $post->pages }}</span>
-                                </p>
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b>Year Published:</b> <span class=" underline">{{ ' ' . $post->yr_published }}</span>
-                                </p>
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b>Color:</b> <span class=" underline">{{ ' ' . $post->colour }}</span>
-                                </p>
-                                <p class="text-s leading-3 text-gray-800 dark:text-white md:pt-0 pt-4">
-                                    <b> Language:</b> <span class=" underline">{{ ' ' . $post->language }}</span>
-                                </p>
-                                <div class="pt-5">
-                                    <span class="flex itemms-center">
-                                        <a class="text-s leading-3 underline text-blue-800 dark:text-white cursor-pointer">
-                                            Add to favorites
-                                        </a>
-                                    </span>
-                                    <span class="text-base font-black leading-none text-gray-800 dark:text-white mb-4 right-2">
+                                <div class="px-5 py-5 ">
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        <b>Publisher:</b>
+                                        <span class=" underline">{{ ' ' . $post->publisher }}
+                                        </span>
+                                    </h5>
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        <b>Model:</b> <span class=" underline">{{ ' ' . $post->model }}</span>
+                                    </h5>
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        {{ $post->pages }} Pages
+
+                                    </h5>
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        Color:{{ ' ' . $post->colour }}
+
+                                    </h5>
+                                    {{-- <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        Color:{{ ' ' . $post->colour }}
+
+                                    </h5> --}}
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+
+                                    </h5>
+                                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                                        Language: {{ ' ' . $post->language }}
+                                    </h5>
+                                    <div class="flex items-center mt-2.5 mb-5">
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <title>First star</title>
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <title>Second star</title>
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <title>Third star</title>
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <title>Fourth star</title>
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <svg aria-hidden="true" class="w-5 h-5 text-yellow-300" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <title>Fifth star</title>
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                            </path>
+                                        </svg>
+                                        <span
+                                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
                                         @if ($post->price == 0)
-                                            <span class=" bg-fuchsia-600 rounded-3xl p-4 text-xl px-2">
+                                            <span class="text-3xl font-bold text-gray-900 dark:text-white">
                                                 Free
                                             </span>
                                         @else
-                                            @if ($post->price > 0)
+                                            @if ($post->discount > 0)
                                                 <span>
-                                                    <span class="  text-xl">
+                                                    <span class="font-bold text-gray-900 dark:text-white">
                                                         Now Ksh
-                                                        {{ ' ' . ($post->price - $post->discount) }}
+                                                        <span
+                                                            class="text-xl"></span>{{ ' ' . ($post->price - $post->discount) }}
                                                     </span>
-                                                    <span class=" line-through p-4 text-gray-500">
-                                                        Was: Ksh <span class="text-red-600  p-1">{{ $post->price }}</span>
+                                                    <span class=" pl-3  font-bold text-gray-500">
+                                                        <span class="line-through ">Was: Ksh </span>
+                                                        <span class="p-1 text-xl">{{ $post->price }}</span>
                                                     </span>
                                                 </span>
                                             @else
-                                                <span class=" bg-fuchsia-600 rounded-3xl p-4 text-xl">
-                                                    Ksh {{ ' ' . $post->price }}
+                                                <span class="font-bold text-gray-900 dark:text-white">
+                                                    Now Ksh
+                                                    <span class="text-xl"></span>{{ ' ' . $post->price }}
                                                 </span>
                                             @endif
                                         @endif
-
-                                    </span>
+                                        {{-- <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span> --}}
+                                        <div>
+                                            @if ($post->price == 0)
+                                                <a class="mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                                    href="images/{{ $post->image_path }}"
+                                                    download="{{ $post->image_path }}">
+                                                    Download
+                                                </a>
+                                            @else
+                                                <a href="#"
+                                                    class=" mt-4 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                    Add to cart
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <p class="leading-snug md:leading-normal">

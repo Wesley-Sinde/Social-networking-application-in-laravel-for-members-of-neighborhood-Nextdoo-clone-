@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\MyprofileController;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PostSitemapController;
 use App\Http\Controllers\ReactController;
@@ -44,7 +45,16 @@ Auth::routes();
 Route::post('/home/{post}/reaction', [ReactController::class, 'toggle'])
     ->middleware('auth');
 
+
+
+Route::get('/privacy-policy', [HomeController::class, 'privacy_policy'])->name('privacy_policy');
+Route::get('/terms-of-use', [HomeController::class, 'terms_of_use'])->name('terms_of_use');
+
+
 Route::resource('/home', BooksController::class);
+Route::get('/pay/mpesa/{id}', [PaymentsController::class, 'mpesa'])->name('mpesa');
+Route::post('/pay/mpesa', [PaymentsController::class, 'mpesa_pay'])->name('mpes-pay');
+Route::resource('/pay', PaymentsController::class);
 Route::resource('/blog', PostsController::class);
 Route::post('/blogupload', [PostsController::class, 'upload'])
     ->middleware('auth');
@@ -55,6 +65,7 @@ Route::post('/messages', [App\Http\Controllers\ChatsController::class, 'sendMess
 
 Route::get('/PostComments/{post}', [CommentsController::class, 'fetchcomments']);
 Route::get('/lastComments/{post}', [CommentsController::class, 'lastComments']);
+Route::get('/getcomments/{id}', [CommentsController::class, 'getcomments']);
 Route::get('/userdata/{id}', [CommentsController::class, 'userdata']);
 Route::get('/getcriticalpreview', [BooksController::class, 'getcriticalpreview']);
 Route::get('/critical', [BooksController::class, 'critical']);

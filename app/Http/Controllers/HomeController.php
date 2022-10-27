@@ -25,13 +25,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::check()) {
-            // The user is logged in...
-            return redirect()->action([
-                BooksController::class, 'index'
-            ]);
-        }
-        return view('home');
+        // if (Auth::check()) {
+        //     // The user is logged in...
+        //     return redirect()->action([
+        //         BooksController::class, 'index'
+        //     ]);
+        // }
+        // return view('home');
+        return redirect()->action([
+            BooksController::class, 'index'
+        ]);
+        // $retVal = (Auth::user()) ? Auth::user()->id : null;
+    }
+    public function privacy_policy()
+    {
+        $data['app_name'] = config('app.name');
+        $data['app_url'] = config('app.url');
+        $data['contact_phone'] = config('APP_PHONE');
+        return view('pages.other.privacy_policy', $data);
+    }
+
+    public function terms_of_use()
+    {
+        $data['app_name'] = config('app.name');
+        $data['app_url'] = config('app.url');
+        $data['contact_phone'] = config('APP_PHONE');
+        return view('pages.other.terms_of_use', $data);
     }
 
     //about

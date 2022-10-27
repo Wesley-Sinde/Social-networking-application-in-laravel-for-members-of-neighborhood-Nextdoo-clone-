@@ -29,6 +29,16 @@ class CommentsController extends Controller
     return response()->json($data);
   }
 
+  public function getcomments($id)
+  {
+    // $data = Comments::where('post_id', $postid)->orderBy('id', 'desc')->paginate(10);
+    $data = Comments::select("*")
+      ->where("post_id", $id)->get();
+    $data = count($data);
+    // ->orderBy('id', 'desc')
+    // ->paginate(5);
+    return response()->json($data);
+  }
   public function lastComments($id)
   {
     // $data = Comments::where('post_id', $postid)->orderBy('id', 'desc')->paginate(10);

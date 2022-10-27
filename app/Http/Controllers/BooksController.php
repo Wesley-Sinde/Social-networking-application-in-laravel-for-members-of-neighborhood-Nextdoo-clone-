@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Stevebauman\Location\Facades\Location;
 use App\Http\Requests\Storemy_neighborRequest;
 use App\Http\Requests\Updatemy_neighborRequest;
-use DB;
+// use DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NotifyMembersmail;
 
@@ -18,7 +18,7 @@ class BooksController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['dashboard']]);
+        $this->middleware('auth', ['except' => ['profile', 'userdata', 'index']]);
     }
 
 
@@ -31,6 +31,7 @@ class BooksController extends Controller
     {
         return view('Profile.index');
     }
+
 
 
     public function userdata($id)
@@ -130,7 +131,7 @@ class BooksController extends Controller
         // return view('posts.show', compact('socialShare'));
 
         // dd($postdata);
-        $Books = Books::orderBy('created_at', 'desc')->paginate(8);
+        $Books = Books::orderBy('created_at', 'desc')->paginate(18);
 
 
         if ($request->ajax()) {
