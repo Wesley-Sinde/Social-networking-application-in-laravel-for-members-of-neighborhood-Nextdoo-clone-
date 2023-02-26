@@ -9,7 +9,7 @@
 
                     <header
                         class="px-2 py-2 font-semibold text-gray-700 bg-gray-200 sm:py-2 sm:px-8 sm:rounded-t-md dark:bg-gray-800 dark:text-gray-200 ">
-                        {{ __('Login') }}
+                        Login
                     </header>
 
                     <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8 dark:bg-gray-700" method="POST"
